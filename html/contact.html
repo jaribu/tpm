@@ -1,0 +1,40 @@
+<!-- DEBUT CONTACT -->
+						<h1 class="h1"><span class="nomcat"><strong>{L_CONTACT}</strong></span></h1>
+						<form class="formT1" method="post" action="{CONTACT.FORM}" id="contact">
+							<!-- SI CONTACT.OK -->
+							<p>{L_CONTACT_OK}</p>
+							<!-- SINON -->
+								<!-- DEBUT ERREUR -->
+							<div class="Erreur">
+									<!-- DEBUT TEXT -->
+								<p><img class="pngfix warning" src="{W_IMG_PATH}/c-warning.png" alt="{L_ATTENTION}" />{TEXT.ERREUR}</p>
+									<!-- FIN TEXT -->
+							</div>
+								<!-- FIN ERREUR -->
+							<div class="regroupement">
+								<input class="textbox" type="text" name="{CONTACT.FORM_NOM}" value="{CONTACT.VAL_NOM}" id="CNom" />
+								<label for="CNom"><!-- DEBUT ERREUR --><!-- SI ERREUR.NOM --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_NOM}</label>
+							</div>
+							<div class="regroupement">
+								<input class="textbox" type="text" name="{CONTACT.FORM_PRENOM}" value="{CONTACT.VAL_PRENOM}" id="CPre" />
+								<label for="CPre"><!-- DEBUT ERREUR --><!-- SI ERREUR.PRENOM --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_PRENOM}</label>
+							</div>
+							<div class="regroupement">
+								<input class="textbox" type="text" name="{CONTACT.FORM_EMAIL}" value="{CONTACT.VAL_EMAIL}" id="CMail" />
+								<label for="CMail"><!-- DEBUT ERREUR --><!-- SI ERREUR.EMAIL --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_MAIL}</label>
+							</div>
+							<div class="regroupement">
+								<input class="textbox" type="text" name="{CONTACT.FORM_TEL}" value="{CONTACT.VAL_TEL}" id="CTel" />
+								<label for="CTel">{L_TEL} <span>({L_FACULTATIF})</span></label>
+							</div>
+							<div class="regroupement">
+								<textarea cols="40" rows="6" name="{CONTACT.FORM_MSG}" id="CMsg">{CONTACT.VAL_MSG}</textarea>
+								<label for="CMsg"><!-- DEBUT ERREUR --><!-- SI ERREUR.MSG --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_MESSAGE}</label>
+							</div>
+							<div class="zone-button" id="valider">
+								<button class="button btnT3" type="submit" name="{CONTACT.FORM_VALID}" id="BtnContact"><span><span>{L_ENVOYER}</span></span></button>
+							</div>
+							<!-- FINSI -->
+						</form>
+						<p id="Cnil">{L_INFOCNIL}</p>
+<!-- FIN CONTACT -->

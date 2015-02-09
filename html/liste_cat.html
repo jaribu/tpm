@@ -1,0 +1,92 @@
+<!-- DEBUT CAT_SEL -->
+			<div class="blocT1 {BLOCK.TYPE}">
+				<div class="cont-blocT1">
+					<div class="cont-cont-blocT1">
+						<h1 class="titre-blocT1">{CAT_SEL.NOM}</h1>
+	<!-- DEBUT BLOCK -->
+						<div class="block {BLOCK.TYPE}">
+		<!-- SI BLOCK.IMG et BLOCK.IMG different '' -->
+							<div class="<!-- SI BLOCK.IMG_POSITION egal 'left' -->Ileft{BLOCK.TYPE} <!-- SINONSI BLOCK.IMG_POSITION egal 'center' -->Icenter{BLOCK.TYPE} <!-- SINONSI BLOCK.IMG_POSITION egal 'right' -->Iright{BLOCK.TYPE} <!-- FINSI -->I{BLOCK.TYPE}">
+			<!-- SI BLOCK.IMG_URL different '' -->
+								<a href="{BLOCK.IMG_URL}" title="{BLOCK.IMG_URL_NOM}"><img src="{BLOCK.IMG}" alt="{BLOCK.IMG_URL_NOM}" /></a>
+			<!-- SINON -->
+								<img src="{BLOCK.IMG}" alt="{BLOCK.IMG_URL_NOM}" />
+			<!-- FINSI -->
+							</div>
+		<!-- FINSI -->
+		<!-- DEBUT DESC -->
+			<!-- SI DESC.TYPE egal 'titre' -->
+							<h2 class="titre-blocT1">{DESC.TEXT}</h2>
+			<!-- SINONSI DESC.TYPE egal 'soustitre' -->
+							<h3 class="sous-titre-blocT1">{DESC.TEXT}</h3>
+			<!-- SINON -->
+							{DESC.TEXT}
+			<!-- FINSI -->
+		<!-- FIN DESC -->
+						</div>
+	<!-- FIN BLOCK -->
+	
+	<!-- DEBUT SOUS_CAT -->
+		<!-- SI SOUS_CAT.PREM_LIGNE -->
+						<div class="list-prod list-cat">
+		<!-- FINSI -->
+		<!-- DEBUT PROD(0,2) -->
+			<!-- SI PROD.PREM_LIGNE -->
+							<h2 class="sous-titre-blocT1"><a href="{SOUS_CAT.URL}">{SOUS_CAT.NOM}</a></h2>
+			<!-- FINSI -->
+			<!-- SI PROD.PREM_LIGNE ou PROD.NUM_LIGNE % 3 egal 0 -->
+							<div class="ligne-prod">
+			<!-- FINSI -->
+								<div class="prod<!-- SI PROD.NUM_LIGNE % 3 egal 2 --> last<!-- FINSI -->">
+									<div class="cont-prod<!-- SI (PROD.VARIATION ou PROD.VARIATION2) et ((PROD.PROMO_PRIX et PROD.SOLDE egal 1) ou (PROD.PROMO_PRIX et PROD.SOLDE egal 0)) --> prod-var-prix-barre<!-- SINONSI (PROD.PROMO_PRIX et PROD.SOLDE egal 1) ou (PROD.PROMO_PRIX et PROD.SOLDE egal 0) --> prod-prix-barre<!-- SINONSI (PROD.VARIATION ou PROD.VARIATION2) --> prod-variations<!-- FINSI -->">
+										<a class="photo" href="{PROD.URL}">
+											<img src="{PROD.IMG_150}" alt="{PROD.NOM}" />
+										</a>
+										<p class="nom"><a href="{PROD.URL}">{PROD.NOM}</a></p>
+										
+										<div class="bas-prod">
+										</p>
+										<p class="prix">
+											<a href="{PROD.URL}">
+												<!-- SI PROD.VARIATION et PROD.VARIATION_PRIX -->
+												<span>{L_A_PARTIR_DE}</span>
+												<!-- FINSI -->
+												<!-- SI PROD.PROMO_PRIX -->
+												<strong>{DEVISE_PRE}{PROD.PROMO_PRIX}{DEVISE_POST}</strong>
+												<del>{DEVISE_PRE}{PROD.PRIX}{DEVISE_POST}</del>
+												<!-- SINON -->
+												<strong>{DEVISE_PRE}{PROD.PRIX}{DEVISE_POST}</strong>
+												<!-- FINSI -->
+											</a>
+										</p>
+										<a href="{PROD.URL}" class="btn-voir-fiche" title="{L_AJOUT_PANIER}">
+											<span><span>{L_AJOUT_PANIER}</span></span>
+										</a>
+										</div>
+									<!-- SI PROD.RESUME -->
+										<div class="description">{PROD.RESUME}</div>
+									<!-- FINSI -->
+										<!-- SI PROD.PROMO_PRIX et PROD.SOLDE egal 1 -->
+										<p class="etatPrix">{L_SOLDE} <!-- SI PROD.PROMO_POUR_ROUND --><strong><!-- SI PROD.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -{PROD.PROMO_POUR_ROUND}%</strong><!-- FINSI --></p>
+										<!-- SINONSI PROD.PROMO_PRIX et PROD.SOLDE egal 0 -->
+										<p class="etatPrix promo">{L_PROMOTION} <!-- SI PROD.PROMO_POUR_ROUND --><strong><!-- SI PROD.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -{PROD.PROMO_POUR_ROUND}%</strong><!-- FINSI --></p>
+										<!-- SINONSI PROD.NOUVEAUTE -->
+										<p class="etatPrix nouveaute">{L_NOUVEAU} <!-- SI PROD.PROMO_POUR_ROUND --><strong><!-- SI PROD.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -{PROD.PROMO_POUR_ROUND}%</strong><!-- FINSI --></p>
+										<!-- FINSI -->
+									</div>
+								</div>
+			<!-- SI PROD.DERN_LIGNE ou PROD.NUM_LIGNE % 3 egal 2 -->
+							</div>
+							<p class="voir-prod-cat"><a href="{SOUS_CAT.URL}">{L_VOIR_TOUS_PRODUITS_CAT} &laquo; {SOUS_CAT.NOM} &raquo;</a></p>
+			<!-- FINSI -->
+							
+		<!-- FIN PROD -->
+		<!-- SI SOUS_CAT.DERN_LIGNE -->
+						</div>
+		<!-- FINSI -->
+	<!-- FIN SOUS_CAT -->
+						<div class="clear1px"></div>
+					</div>
+				</div>
+			</div>
+<!-- FIN CAT_SEL -->

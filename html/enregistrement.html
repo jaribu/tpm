@@ -1,0 +1,244 @@
+						<h1 class="h1"><strong>{L_INFORMATIONS}</strong></h1>
+						<p id="etoile"><em>{L_ETOILE}</em></p>
+<!-- SI PASSCONNECT -->
+						<p id="passconnect2">{L_UTILISER_PASSCONNECT} : <a href="{PASSCONNECT}&TB_iframe=true&height=230&width=400" class="thickbox"><img src="{W_IMG_PATH}/pass-connect.gif" alt="{L_PASSCONNECT}" /></a> <a target="_blank" href="http://www.pass-connect.com/popup/popup-presentation.aspx?part_id=4&typeAction=4">{L_WHOPASSCONNECT}</a></p>
+<!-- FINSI -->
+<!-- DEBUT ENREGISTREMENT -->
+	<!-- DEBUT ERREUR -->
+						<div class="Erreur">
+		<!-- DEBUT TEXT -->
+							<p><img class="pngfix warning" src="{W_IMG_PATH}/c-warning.png" class="pngfix" alt="{L_ATTENTION}" />{TEXT.ERREUR}</p>
+		<!-- FIN TEXT -->
+						</div>
+	<!-- FIN ERREUR -->
+						<form class="formT1" action="{ENREGISTREMENT.FORM}" method="post" id="Enregistrement">
+	<!-- DEBUT FACTURATION -->
+							<fieldset>
+								<legend>{L_COOFACT}</legend>
+		<!-- SI TELFORM --> 
+								<div class="regroupement">
+									<input type="text" onchange="webServ_telform(this.value, '{URL_TELFORM}');" class="textbox" id="tel1" name="{FACTURATION.FORM_TEL}" value="{FACTURATION.VAL_TEL}" />
+									<label for="tel1"><!-- DEBUT ERREUR --><!-- SI ERREUR.TEL --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_TEL}</label>
+								</div>
+								<div id="msg_telform" style="display:none;">
+									{L_TELFORM}
+								</div>
+		<!-- FINSI -->
+								
+								<div class="regroupement choix-horiz">
+		<!-- DEBUT VAL_CIVILITE -->
+			<!-- SI VAL_CIVILITE.PREM_LIGNE -->
+									<ul>
+			<!-- FINSI -->
+										<li>
+											<label for="{VAL_CIVILITE.NOM}">
+												<input type="radio" id="{VAL_CIVILITE.NOM}" name="{FACTURATION.FORM_CIVILITE}" value="{VAL_CIVILITE.VAL}" <!-- SI VAL_CIVILITE.SEL -->checked="checked"<!-- FINSI --> />
+												{VAL_CIVILITE.NOM}
+											</label>
+										</li>
+			<!-- SI VAL_CIVILITE.DERN_LIGNE -->
+									</ul>
+									<label for="{VAL_CIVILITE.NOM}"><!-- DEBUT !ERREUR --><!-- SI ERREUR.CIVILITE --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_CIVILITE}</label>
+			<!-- FINSI -->
+		<!-- FIN VAL_CIVILITE -->
+									<div class="clear1px">&nbsp;</div>
+								</div>
+								<div class="regroupement">
+									<input type="text" class="textbox" id="prenom1" name="{FACTURATION.FORM_PRENOM}" value="{FACTURATION.VAL_PRENOM}" />
+									<label for="prenom1"><!-- DEBUT ERREUR --><!-- SI ERREUR.PRENOM --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_PRENOM}</label>
+									<div class="clear1px">&nbsp;</div>
+								</div>
+								<div class="regroupement">
+									<input type="text" class="textbox" id="nom1" name="{FACTURATION.FORM_NOM}" value="{FACTURATION.VAL_NOM}" />
+									<label for="nom1"><!-- DEBUT ERREUR --><!-- SI ERREUR.NOM --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_NOM}</label>
+									<div class="clear1px">&nbsp;</div>
+								</div>
+								<div class="regroupement choix-horiz">
+									<ul class="choix-select">
+										<li>
+											<select id="annivJour" name="{FACTURATION.FORM_ANNIV_JOUR}">
+												<option value="0">{L_JOUR}</option>
+		<!-- DEBUT VAL_ANNIV_JOUR -->
+												<option value="{VAL_ANNIV_JOUR.VAL}" <!-- SI VAL_ANNIV_JOUR.SEL -->selected="selected"<!-- FINSI -->>{VAL_ANNIV_JOUR.NOM}</option>
+		<!-- FIN VAL_ANNIV_JOUR -->
+											</select>   
+										</li>
+										<li>   
+											<select id="annivMois" name="{FACTURATION.FORM_ANNIV_MOIS}">
+												<option value="0">{L_MOIS}</option>
+		<!-- DEBUT VAL_ANNIV_MOIS -->
+												<option value="{VAL_ANNIV_MOIS.VAL}" <!-- SI VAL_ANNIV_MOIS.SEL -->selected="selected"<!-- FINSI -->>{VAL_ANNIV_MOIS.NOM}</option>
+		<!-- FIN VAL_ANNIV_MOIS -->
+											</select>
+										</li>
+										<li>
+											<select id="annivAnnee" name="{FACTURATION.FORM_ANNIV_ANNEE}">
+												<option value="0">{L_ANNEE}</option>
+		<!-- DEBUT VAL_ANNIV_ANNEE -->
+												<option value="{VAL_ANNIV_ANNEE.VAL}" <!-- SI VAL_ANNIV_ANNEE.SEL -->selected="selected"<!-- FINSI -->>{VAL_ANNIV_ANNEE.NOM}</option>
+		<!-- FIN VAL_ANNIV_ANNEE -->
+											</select>
+										</li>
+									</ul>
+									<label for="annivJour"><!-- DEBUT ERREUR --><!-- SI ERREUR.ANNIV --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_DATE_NAISSANCE} *</label>
+									<div class="clear1px">&nbsp;</div>
+								</div>
+								<div class="regroupement">
+									<input type="text" class="textbox" id="societe1" name="{FACTURATION.FORM_SOCIETE}" value="{FACTURATION.VAL_SOCIETE}" />
+									<label for="societe1">{L_SOCIETE} *</label>
+									<div class="clear1px">&nbsp;</div>
+								</div>
+								<div class="regroupement">
+									<textarea id="adresse1" name="{FACTURATION.FORM_ADRESSE}" cols="20" rows="5">{FACTURATION.VAL_ADRESSE}</textarea>
+									<label for="adresse1"><!-- DEBUT ERREUR --><!-- SI ERREUR.ADRESSE --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_ADRESSE}</label>
+									<div class="clear1px">&nbsp;</div>
+								</div>
+								<div class="regroupement">
+									<input type="text" class="textbox" id="cp1" name="{FACTURATION.FORM_CP}" value="{FACTURATION.VAL_CP}" />
+									<label for="cp1"><!-- DEBUT ERREUR --><!-- SI ERREUR.CP --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_CP}</label>
+									<div class="clear1px">&nbsp;</div>
+								</div>
+								<div class="regroupement">
+									<input type="text" class="textbox" id="ville1" name="{FACTURATION.FORM_VILLE}" value="{FACTURATION.VAL_VILLE}" />
+									<label for="ville1"><!-- DEBUT ERREUR --><!-- SI ERREUR.VILLE --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_VILLE}</label>
+									<div class="clear1px">&nbsp;</div>
+								</div>
+								<div class="regroupement">
+									<select id="pays1" name="{FACTURATION.FORM_PAYS}">
+		<!-- DEBUT VAL_PAYS -->
+										<option value="{VAL_PAYS.VAL}" <!-- SI VAL_PAYS.SEL -->selected="selected"<!-- FINSI -->>{VAL_PAYS.NOM}</option>
+		<!-- FIN VAL_PAYS -->
+									</select>
+									<label for="pays1"><!-- DEBUT ERREUR --><!-- SI ERREUR.PAYS --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_PAYS}</label>
+									<div class="clear1px">&nbsp;</div>
+								</div>
+		<!-- SI pas TELFORM -->
+								<div class="regroupement">
+									<input type="text" class="textbox" id="tel1" name="{FACTURATION.FORM_TEL}" value="{FACTURATION.VAL_TEL}" />
+									<label for="tel1"><!-- DEBUT ERREUR --><!-- SI ERREUR.TEL --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_TEL}</label>
+									<div class="clear1px">&nbsp;</div>
+								</div>
+		<!-- FINSI -->
+							</fieldset>
+	<!-- FIN FACTURATION -->
+	<!-- DEBUT LIVRAISON -->
+							<fieldset id="check-livraison">
+								<label for="active-adresse-livraison">
+									<input type="checkbox" onclick="affCache('block-aff',this.checked);" id="active-adresse-livraison" name="{LIVRAISON.FORM_DIFF}" value="1" <!-- SI LIVRAISON.DIFF -->checked="checked"<!-- FINSI --> />
+									{L_ADD_DIFF}
+								</label>
+							</fieldset>
+							<div id="block-aff" <!-- SI pas LIVRAISON.DIFF -->style="display:none;"<!-- FINSI -->>
+								<fieldset>
+									<legend>{L_COOLIV}</legend>
+									<div class="regroupement choix-horiz">
+		<!-- DEBUT VAL_CIVILITE -->
+			<!-- SI VAL_CIVILITE.PREM_LIGNE -->
+										<ul>
+			<!-- FINSI -->
+											<li>
+												<label for="{VAL_CIVILITE.NOM}2">
+													<input type="radio" id="{VAL_CIVILITE.NOM}2" name="{LIVRAISON.FORM_CIVILITE}" value="{VAL_CIVILITE.VAL}" <!-- SI VAL_CIVILITE.SEL -->checked="checked"<!-- FINSI --> />
+													{VAL_CIVILITE.NOM}
+												</label>
+											</li>
+			<!-- SI VAL_CIVILITE.DERN_LIGNE -->
+										</ul>
+										<label for="{VAL_CIVILITE.NOM}2"><!-- DEBUT !ERREUR --><!-- SI ERREUR.CIVILITE --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_CIVILITE}</label>
+			<!-- FINSI -->
+		<!-- FIN VAL_CIVILITE -->
+									</div>
+									<div class="regroupement">
+										<input type="text" class="textbox" id="prenom2" name="{LIVRAISON.FORM_PRENOM}" value="{LIVRAISON.VAL_PRENOM}" />
+										<label for="prenom2"><!-- DEBUT ERREUR --><!-- SI ERREUR.PRENOM --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_PRENOM}</label>
+									</div>
+									<div class="regroupement">
+										<input type="text" class="textbox" id="nom2" name="{LIVRAISON.FORM_NOM}" value="{LIVRAISON.VAL_NOM}" />
+										<label for="nom2"><!-- DEBUT ERREUR --><!-- SI ERREUR.NOM --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /><!-- FINSI --><!-- FIN ERREUR --> {L_NOM}</label>
+									</div>
+									<div class="regroupement">
+										<input type="text" class="textbox" id="societe2" name="{LIVRAISON.FORM_SOCIETE}" value="{LIVRAISON.VAL_SOCIETE}" />
+										<label for="societe2">{L_SOCIETE} *</label>
+									</div>
+									<div class="regroupement">
+										<textarea id="adresse2" name="{LIVRAISON.FORM_ADRESSE}" cols="20" rows="5">{LIVRAISON.VAL_ADRESSE}</textarea>
+										<label for="adresse2"><!-- DEBUT ERREUR --><!-- SI ERREUR.ADRESSE --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_ADRESSE}</label>
+									</div>
+									<div class="regroupement">
+										<input type="text" class="textbox" id="cp2" name="{LIVRAISON.FORM_CP}" value="{LIVRAISON.VAL_CP}" />
+										<label for="cp2"><!-- DEBUT ERREUR --><!-- SI ERREUR.CP --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_CP}</label>
+									</div>
+									<div class="regroupement">
+										<input type="text" class="textbox" id="ville2" name="{LIVRAISON.FORM_VILLE}" value="{LIVRAISON.VAL_VILLE}" />
+										<label for="ville2"><!-- DEBUT ERREUR --><!-- SI ERREUR.VILLE --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_VILLE}</label>
+									</div>
+									<div class="regroupement">
+										<select id="pays2" name="{LIVRAISON.FORM_PAYS}">
+		<!-- DEBUT VAL_PAYS -->
+											<option value="{VAL_PAYS.VAL}" <!-- SI VAL_PAYS.SEL -->selected="selected"<!-- FINSI -->>{VAL_PAYS.NOM}</option>
+		<!-- FIN VAL_PAYS -->
+										</select>
+										<label for="pays2"><!-- DEBUT ERREUR --><!-- SI ERREUR.PAYS --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_PAYS}</label>
+									</div>
+									<div class="regroupement">
+										<input type="text" class="textbox" id="tel2" name="{LIVRAISON.FORM_TEL}" value="{LIVRAISON.VAL_TEL}" />
+										<label for="tel2"><!-- DEBUT ERREUR --><!-- SI ERREUR.TEL --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" class="pngfix" /> <!-- FINSI --><!-- FIN ERREUR -->{L_TEL}</label>
+									</div>
+								</fieldset>
+							</div>
+	<!-- FIN LIVRAISON -->
+							<script type="text/javascript">
+							/* <![CDATA(*/
+							function affCache(id, checked) {
+								if(checked) {
+									document.getElementById(id).style.display = '';
+								}
+								else {
+									document.getElementById(id).style.display = 'none';
+								}
+							}
+							/*)]]>*/
+							</script>
+							<fieldset id="inscription">
+								<legend>{L_OFFRES_EXCLUSIVES} <em>({L_FACULTATIF})</em></legend>
+								<div class="regroupement choix-horiz">
+									<ul class="full">
+										<li>
+											<label for="activeNewsletterOui">
+												<input type="radio" id="activeNewsletterOui" name="{FACTURATION.FORM_NEWS}" value="{FACTURATION.VAL_NEWS}"<!-- SI FACTURATION.SEL_NEWS --> checked="checked"<!-- FINSI --> />
+												<strong>{L_OUI}</strong>
+											</label>
+										</li>
+										<li>
+											<label for="activeNewsletterNon">
+												<input type="radio" id="activeNewsletterNon" name="{FACTURATION.FORM_NEWS}" value="{FACTURATION.VAL_NEWS2}" />
+												{L_NON}
+											</label>
+										</li>
+									</ul>
+									<p>{L_RECEVOIR_NEWSLETTER1} {NOM_BOUTIQUE} {L_RECEVOIR_NEWSLETTER2}</p>
+								</div>
+								<div class="regroupement choix-horiz">
+									<ul class="full">
+										<li>
+											<label for="activePartOui">
+												<input type="radio" name="{FACTURATION.FORM_PART}" id="activePartOui" value="{FACTURATION.VAL_PART}"<!-- SI FACTURATION.SEL_PART --> checked="checked"<!-- FINSI --> />
+												<strong>{L_OUI}</strong>
+											</label>
+										</li>
+										<li>
+											<label for="activePartNon">
+												<input type="radio" name="{FACTURATION.FORM_PART}" id="activePartNon" value="{FACTURATION.VAL_PART2}" />
+												{L_NON}
+											</label>
+										</li>
+									</ul>
+									<p>{L_RECEVOIR_COM_PARTENAIRES1} {NOM_BOUTIQUE} {L_RECEVOIR_COM_PARTENAIRES2}</p>
+								</div>
+							</fieldset>
+							<div class="valider zone-button2">
+								<button class="button btnT1" type="submit" id="btne" name="{ENREGISTREMENT.FORM_VALID}"><span><span>{L_POUR_COM}</span></span></button>
+							</div>
+							<p id="Cnil">{L_INFOCNIL}</p>
+						</form>
+<!-- FIN ENREGISTREMENT -->

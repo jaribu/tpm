@@ -1,0 +1,109 @@
+						<h1 class="h1"><strong>{L_MON_COMPTE}</strong></h1>
+						<ul id="histo-link">
+							<li><a href="compte.html">{L_MON_COMPTE}</a></li>
+							<li class="current"><a href="liste-commande.html">{L_HISTO_COM}</a></li>
+						</ul>
+						<!-- DEBUT COMPTE -->
+						<!-- DEBUT COMMANDE -->
+						<p>{L_COMMANDE} {COMMANDE.NUM} {L_DU} {COMMANDE.DATE} {L_A} {COMMANDE.HEURE}</p>
+						<ul id="infocom">
+							<li><strong>{L_ETAT} : </strong> {COMMANDE.ETAT}</li>
+							<li><strong>{L_TYPE_PAI} : </strong> {COMMANDE.TYPE}</li>
+							<!-- SI COMMANDE.SUIVI --><li><strong>{L_SUIVI_COLIS} : </strong> <a href="{COMMANDE.SUIVI}">{L_SUIVRE}</a></li><!-- FINSI -->
+						</ul>
+						
+							<div id="RecapPanier">
+								<table summary="{L_PANIER}" id="votre-panier" class="tableT1">
+									<thead>
+										<tr>
+											<th class="tdl" colspan="2"><div>{L_PANIER_ARTICLE}</div></th>
+											<!-- SI false et W_C_STOCK_AVERT --><th class="tdc"><div>{L_PANIER_DISPONIBILITE}</div></th><!-- FINSI -->
+											<th class="tdc"><div>{L_PANIER_QUANTITE}</div></th>
+											<th class="panier-prix tdc"><div>{L_PANIER_PRIX}</div></th>
+										</tr>
+									</thead>
+									<tfoot>
+										<tr>
+											<th colspan="3">{L_PANIER_TOTAL_PROD} :</th>
+											<td><span> </span>{DEVISE_PRE}{COMMANDE.TOTAL_PROD}{DEVISE_POST}</td>
+										</tr>
+										<tr>
+											<th colspan="3">{L_PANIER_TVA} :</th>
+											<td>{DEVISE_PRE}{COMMANDE.TVA_PROD}{DEVISE_POST}</td>
+										</tr>
+										<tr>
+											<th colspan="3">{L_PANIER_PORT} :</th>
+											<td>{DEVISE_PRE}{COMMANDE.FRAIS_PORT}{DEVISE_POST}</td>
+										</tr>
+										<tr class="total">
+											<th colspan="3">{L_PANIER_TOTAL} :</th>
+											<td>{DEVISE_PRE}{COMMANDE.TOTAL}{DEVISE_POST}</td>
+										</tr>
+									</tfoot>
+								    <tbody>
+	<!-- DEBUT PROD --> 
+									    <tr<!-- SI PROD.NUM_LIGNE est impair --> class="impair"<!-- FINSI -->>
+											<td class="image-panier"><a href="{PROD.URL}"><img src="{PROD.IMG_50}" alt="" /></a></td>
+											<td class="panier-description">
+												<p class="panier-titre-produit"><a href="{PROD.URL}">{PROD.NOM}</a></p>
+												<p>{PROD.MARQ_NOM}</p>
+		<!-- DEBUT PERSO --> 
+												<p><strong>{L_PANIER_PERSO} :</strong> {PERSO.TEXT}</p>
+		<!-- FIN PERSO -->
+		<!-- DEBUT LIST_PERSO --> 
+												<p><strong>{LIST_PERSO.TITRE} :</strong> {LIST_PERSO.TEXT}<!-- SI LIST_PERSO.PRIX --> <strong>({LIST_PERSO.PRIX}€)</strong><!-- FINSI --></p>
+		<!-- FIN LIST_PERSO -->
+		<!-- DEBUT OPTION --> 
+												<p>{OPTION.NOM} : {OPTION.VALEUR}</p>
+		<!-- FIN OPTION --> 
+		<!-- DEBUT VARIATION --> 
+												<p>{VARIATION.NOM}</p>
+		<!-- FIN VARIATION --> 
+											</td>
+		<!-- SI false et W_C_STOCK_AVERT -->
+										<td class="panier-dispo">
+			<!-- SI PROD.STOCK ou PROD.STOCK > 0 -->
+											<p class="stock-ok">{L_EN_STOCK}</p>
+			<!-- SINON -->
+											<p class="stock-ko">{L_PAS_EN_STOCK}</p>
+			<!-- FINSI -->
+										</td>
+		<!-- FINSI -->
+											<td class="tdc panier-quantite">
+												<p>{PROD.NB}</p>
+											</td>
+											<td class="tdc panier-prix"><p><!-- SI PROD.PROMO_PRIX --><del>{DEVISE_PRE}{PROD.PRIX}{DEVISE_POST}</del><strong>{DEVISE_PRE}{PROD.PROMO_PRIX}{DEVISE_POST}</strong><!-- SINON --><strong>{DEVISE_PRE}{PROD.PRIX}{DEVISE_POST}</strong> <!-- FINSI --></p><!-- SI PROD.ECO_PART --><p class="ecopart">{L_ECOPARTP} : {DEVISE_PRE}{PROD.ECO_PART}{DEVISE_POST}</p><!-- FINSI --></td>
+										</tr>
+	<!-- FIN PROD -->
+								    </tbody>
+								</table>
+							</div>
+						
+						<!-- DEBUT FACTURATION -->
+						<div id="AddFact">
+							<h2 class="h2"><span class="nomcat">{L_COOFACT}</span></h2>
+							<p>{FACTURATION.CIVILITE} {FACTURATION.NOM} {FACTURATION.PRENOM}
+							<!-- SI FACTURATION.SOCIETE -->
+							<br/>{FACTURATION.SOCIETE}
+							 <!-- FINSI -->
+							</p>
+							<p>{FACTURATION.ADRESSE}<br/>
+							{FACTURATION.CP} {FACTURATION.VILLE} {FACTURATION.PAYS}</p>
+							<p>{FACTURATION.TEL}</p>
+						</div>
+						<!-- FIN FACTURATION -->
+						<!-- DEBUT LIVRAISON -->
+						<div id="AddLivr">
+							<h2 class="h2"><span class="nomcat">{L_COOLIV}</span></h2>
+							<p>{LIVRAISON.CIVILITE} {LIVRAISON.NOM} {LIVRAISON.PRENOM}
+							<!-- SI LIVRAISON.SOCIETE -->
+							<br/>{LIVRAISON.SOCIETE}
+							<!-- FINSI -->
+							</p>
+							<p>{LIVRAISON.ADRESSE}<br/>
+							{LIVRAISON.CP} {LIVRAISON.VILLE} {LIVRAISON.PAYS}</p>
+							<p>{LIVRAISON.TEL}</p>
+						</div>
+						<!-- FIN LIVRAISON -->
+						<!-- FIN COMMANDE -->
+						<!-- FIN COMPTE -->

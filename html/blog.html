@@ -1,0 +1,67 @@
+<!-- DEBUT BLOG -->
+	<!-- DEBUT POST -->
+					<div class="billet {BLOCK.TYPE}">
+						<h2 class="h1 titre-billet"><strong><a href="{POST.URL}">{POST.TITRE}</a></strong></h2>
+						<p class="infos-billet">{L_PUBLIE_PAR} <strong>{POST.AUTEUR}</strong> {L_DANS} <a href="{POST.CAT_URL}">{POST.CAT_NOM}</a> {L_LE} {POST.DATE} {L_A} {POST.HEURE}</p>
+		<!-- DEBUT BLOCK -->
+						<div class="block {BLOCK.TYPE}<!-- SI BLOCK.DERN_LIGNE different TRUE --> last<!-- FINSI -->">
+			<!-- SI BLOCK.IMG -->
+							<div class="<!-- SI BLOCK.IMG_POSITION egal 'center' -->i-center{BLOCK.TYPE} <!-- FINSI -->i-{BLOCK.TYPE}"><!-- SI BLOCK.IMG_URL --><a href="{BLOCK.IMG_URL}" title="{BLOCK.IMG_URL_NOM}"><img src="{BLOCK.IMG}" alt="{BLOCK.IMG_NOM}" /></a><!-- SINON --><img src="{BLOCK.IMG}" alt="{BLOCK.IMG_NOM}" /><!-- FINSI --></div>
+			<!-- FINSI -->
+			<!-- SI BLOCK.TYPE different 'img' -->
+							<div class="B{BLOCK.TYPE}">
+				<!-- DEBUT DESC -->
+					<!-- SI DESC.TYPE == 'titre' -->
+							<h3>{DESC.TEXT}</h3>
+					<!-- SINONSI DESC.TYPE == 'soustitre' -->
+							<h4>{DESC.TEXT}</h4>
+					<!-- SINON -->
+							{DESC.TEXT}
+					<!-- FINSI -->
+				<!-- FIN DESC -->
+							</div>
+			<!-- FINSI -->
+						</div>
+		<!-- FIN BLOCK -->
+			<!-- DEBUT TAG -->
+				<!-- SI TAG.PREM_LIGNE -->
+						<p><strong>{L_MOTS_CLES} :</strong> <!-- FINSI -->{TAG.NOM} <!-- SI pas TAG.DERN_LIGNE -->- <!-- FINSI --> <!-- SI TAG.DERN_LIGNE --></p>
+				<!-- FINSI -->
+			<!-- FIN TAG -->
+			<!-- SI W_C_BLOGCOM -->
+						<div class="commentaires-billet">
+							<p class="nb-com">
+								<!-- SI POST.NB egal 0 -->
+								{L_PASCOM}, <a href="{POST.URL}#zone-add-com">{L_ADD_COM}</a>.
+								<!-- SINONSI POST.NB egal 1 -->
+								<a href="{POST.URL}#zone-commentaires">{POST.NB} {L_COMMENTAIRE}</a>
+								<!-- SINON -->
+								<a href="{POST.URL}#commentaires">{POST.NB} {L_COMMENTAIRES}</a>
+								<!-- FINSI -->
+							</p>
+						</div>
+			<!-- FINSI -->
+						<div class="clear1px"></div>
+					</div>
+	<!-- FIN POST -->
+	<!-- DEBUT PAGINATION -->
+		<!-- SI PAGINATION.PREM_LIGNE -->
+						<p id="navig-page">
+							<strong>{L_PAGES} : </strong>
+		<!-- FINSI -->
+		<!-- SI PAGE_SEL > 1 et PAGINATION.NUM egal (PAGE_SEL - 1) -->
+				<a href="{PAGINATION.URL}" title="{L_PAGE_PREC}">&lt;&lt;</a>
+		<!-- FINSI -->
+		<!-- SI PAGINATION.SEL -->
+							<a class="current" title="{L_PAGE-ACTUELLE}">{PAGINATION.NUM}</a>
+		<!-- SINON -->
+							<a href="{PAGINATION.URL}" title="{L_ALLER-A-PAGE} {PAGINATION.NUM}">{PAGINATION.NUM}</a>
+		<!-- FINSI -->
+		<!-- SI PAGE_SEL < PAGE_MAX et PAGINATION.NUM egal (PAGE_SEL + 1) -->
+						<a href="{PAGINATION.URL}" title="{L_PAGE_SUIV}">&gt;&gt;</a>
+					<!-- FINSI -->
+		<!-- SI PAGINATION.DERN_LIGNE -->
+						</p>
+		<!-- FINSI -->
+	<!-- FIN PAGINATION -->
+<!-- FIN BLOG -->

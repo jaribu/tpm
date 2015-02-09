@@ -1,0 +1,49 @@
+						<h1 class="h2"><strong>{L_MON_COMPTE}</strong></h2>
+						<ul id="menu-compte">
+							<li class="current"><a href="compte.html">{L_MON_COMPTE}</a></li>
+							<li><a href="liste-commande.html">{L_HISTO_COM}</a></li>
+						</ul>
+						<!-- DEBUT CLIENT -->
+						<div id="info-perso">
+							<h2 class="compte1"><span>{L_VOS_INFOS_PERSO}</span></h2>
+							<ul id="infos-compte">
+								<li><strong>{L_PRENOM} :</strong> {CLIENT.PRENOM}</li>
+								<li><strong>{L_NOM} :</strong> {CLIENT.NOM}</li>
+								<li><strong>{L_MAIL} :</strong> {CLIENT.EMAIL}</li>
+							</ul>
+						</div>
+						<!-- FIN CLIENT -->
+						<!-- DEBUT COMPTE -->
+						<!-- DEBUT ADRESSE -->
+						<!-- DEBUT FACTURATION -->
+						<div id="AddFact">
+							<h2 class="compte1"><span>{L_COOFACT}</span></h2>
+							<address>
+								{FACTURATION.CIVILITE} {FACTURATION.NOM} {FACTURATION.PRENOM}
+							<!-- SI FACTURATION.SOCIETE -->
+								<br/>{FACTURATION.SOCIETE}
+							<!-- FINSI -->
+								<br />{FACTURATION.ADRESSE}
+								<br />{FACTURATION.CP} {FACTURATION.VILLE} {FACTURATION.PAYS}
+								<br />{FACTURATION.TEL}
+							</address>
+							<p><a href="{FACTURATION.URL_MODIF}">{L_MODIF_FACT}</a></p>
+						</div>
+						<!-- FIN FACTURATION -->
+						<!-- DEBUT LIVRAISON -->
+						<div id="AddLivr">
+							<h2 class="compte1"><span>{L_COOLIV}</span></h2>
+							<address>
+								{LIVRAISON.CIVILITE} {LIVRAISON.NOM} {LIVRAISON.PRENOM}
+							<!-- SI LIVRAISON.SOCIETE -->
+								<br/>{LIVRAISON.SOCIETE}
+							<!-- FINSI -->
+								<br/>{LIVRAISON.ADRESSE}
+								<br/>{LIVRAISON.CP} {LIVRAISON.VILLE} {LIVRAISON.PAYS}
+								<br/>{LIVRAISON.TEL}
+							</address>
+							<p><a href="{LIVRAISON.URL_MODIF}">{L_MODIF_LIVR}</a></p>
+						</div>
+						<!-- FIN LIVRAISON -->
+						<!-- FIN ADRESSE -->
+						<!-- FIN COMPTE -->

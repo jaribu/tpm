@@ -1,0 +1,125 @@
+<!-- DEBUT BLOG -->
+	<!-- DEBUT POST -->
+					<div class="billet {BLOCK.TYPE}">
+						<h1 class="h1 titre-billet"><strong><a href="{POST.URL}">{POST.TITRE}</a></strong></h1>
+						<p class="infos-billet">{L_PUBLIE_PAR} <strong>{POST.AUTEUR}</strong> {L_DANS} <a href="{POST.CAT_URL}">{POST.CAT_NOM}</a> {L_LE} {POST.DATE} {L_A} {POST.HEURE}</p>
+		<!-- DEBUT BLOCK -->
+						<div class="block {BLOCK.TYPE}<!-- SI BLOCK.DERN_LIGNE different TRUE --> last<!-- FINSI -->">
+			<!-- SI BLOCK.IMG -->
+							<div class="<!-- SI BLOCK.IMG_POSITION egal 'center' -->i-center{BLOCK.TYPE} <!-- FINSI -->i-{BLOCK.TYPE}"><!-- SI BLOCK.IMG_URL --><a href="{BLOCK.IMG_URL}" title="{BLOCK.IMG_URL_NOM}"><img src="{BLOCK.IMG}" alt="{BLOCK.IMG_NOM}" /></a><!-- SINON --><img src="{BLOCK.IMG}" alt="{BLOCK.IMG_NOM}" /><!-- FINSI --></div>
+			<!-- FINSI -->
+			<!-- SI BLOCK.TYPE different 'img' -->
+							<div class="B{BLOCK.TYPE}">
+				<!-- DEBUT DESC -->
+					<!-- SI DESC.TYPE == 'titre' -->
+							<h3>{DESC.TEXT}</h3>
+					<!-- SINONSI DESC.TYPE == 'soustitre' -->
+							<h4>{DESC.TEXT}</h4>
+					<!-- SINON -->
+							{DESC.TEXT}
+					<!-- FINSI -->
+				<!-- FIN DESC -->
+							</div>
+			<!-- FINSI -->
+						</div>
+		<!-- FIN BLOCK -->
+		<!-- DEBUT TAG -->
+			<!-- SI TAG.PREM_LIGNE -->
+						<p><strong>{L_MOTS_CLES} :</strong> <!-- FINSI -->{TAG.NOM} <!-- SI pas TAG.DERN_LIGNE -->- <!-- FINSI --> <!-- SI TAG.DERN_LIGNE --></p>
+			<!-- FINSI -->
+		<!-- FIN TAG -->
+		<!-- SI W_C_BLOGCOM -->
+			<!-- DEBUT COM -->
+				<!-- SI COM.PREM_LIGNE -->
+						<div id="zone-commentaires">
+							<p class="nb-com"><!-- SI POST.NB egal 1 -->1 {L_COMMENTAIRE}<!-- SINON -->{POST.NB} {L_COMMENTAIRES}<!-- FINSI --></p>
+							<ol>
+				<!-- FINSI -->
+								<li<!-- SI COM.ADMIN --> class="admin"<!-- SINONSI COM.NUM_LIGNE % 2 egal 1 --> class="alt"<!-- FINSI --> id="com{COM.ID}">
+									<div class="comContent">
+										<p>{COM.CONTENU}</p>
+									</div>
+									<div class="comInfos<!-- SI COM.NUM_LIGNE est pair --> pair<!-- FINSI -->">
+										<p><cite><!-- SI COM.AUTEUR_URL --><a href="{COM.AUTEUR_URL}" title="{COM.AUTEUR}">{COM.AUTEUR}</a><!-- SINON -->{COM.AUTEUR}<!-- FINSI --></cite> {L_LE}  {COM.DATE} {L_A} {COM.HEURE}</p>
+									</div>
+								</li>
+				<!-- SI COM.DERN_LIGNE -->
+							</ol>
+						</div>
+				<!-- FINSI -->
+			<!-- DEBUTSINON -->
+						<div class="commentaires-billet">
+							<p class="nb-com"><!-- SI POST.NB egal 0 -->{L_PASCOM}.<!-- SINONSI POST.NB egal 1 --><a href="{POST.URL}#zone-commentaires">{POST.NB} {L_COMMENTAIRE}</a><!-- SINON --><a href="{POST.URL}#com">{POST.NB} {L_COMMENTAIRES}</a><!-- FINSI --></p>
+						</div>
+			<!-- FIN COM -->
+			<!-- DEBUT ADD_COM -->
+						<div id="zone-add-com">
+				<!-- SI ADD_COM.OK -->
+							<p id="validComment">{L_ADD_COM_OK}</p>
+				<!-- SINONSI ADD_COM.OK_VALID -->
+							<p id="validComment">{L_ADD_COM_VALID}</p>
+				<!-- SINON -->
+					<!-- DEBUT ERREUR -->
+							<div class="Erreur">
+						<!-- DEBUT TEXT -->
+								<p><img class="pngfix warning" src="{W_IMG_PATH}/c-warning.png" alt="{L_ATTENTION}" /> {TEXT.ERREUR}</p>
+						<!-- FIN TEXT -->
+							</div>
+					<!-- FIN ERREUR -->
+				<!-- FINSI -->
+							<form class="formT1" action="{ADD_COM.FORM}" method="post">
+								<h2 class="h2"><span>{L_POSTCOM}</span></h2>
+				<!-- SI ADMIN_CONNECT -->
+					<!-- DEBUT AUTEUR -->
+						<!-- SI AUTEUR.DERN_LIGNE et AUTEUR.NUM_LIGNE egal 0 -->
+									<input type="hidden" name="addComAuteur" id="addComAuteur" value="{AUTEUR.ID}" />
+						<!-- SINON -->
+							<!-- SI AUTEUR.PREM_LIGNE -->
+									<div class="regroupement">
+										<select id="addComAuteur" name="addComAuteur">
+							<!-- FINSI -->
+											<option value="{AUTEUR.ID}">{AUTEUR.NAME}</option>
+							<!-- SI AUTEUR.DERN_LIGNE -->
+										</select>
+										<label for="addComAuteur">{L_AUTEUR}</label>
+									</div>
+							<!-- FINSI -->
+						<!-- FINSI -->
+					<!-- FIN AUTEUR -->
+								<input type="hidden" id="addComPseudo" name="{ADD_COM.FORM_NOM}" value="{NOM_BOUTIQUE}"  />
+								<input type="hidden" id="addComUrl" name="{ADD_COM.FORM_URL}" value=""  />
+								<div class="regroupement">
+									<textarea id="addComContent" name="{ADD_COM.FORM_CONTENU}" title="{L_SAICOM}">{ADD_COM.VAL_CONTENU}</textarea>
+									<label for="addComContent"><!-- DEBUT ERREUR --><!-- SI ERREUR.URL --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_VOTRE_COM}</label>
+								</div>
+				<!-- SINON -->
+								<div class="regroupement">
+									<input class="textbox" type="text" title="{L_SAIPSEU}" id="addComPseudo" name="{ADD_COM.FORM_NOM}" value="{ADD_COM.VAL_NOM}" />
+									<label for="addComPseudo"><!-- DEBUT ERREUR --><!-- SI ERREUR.NOM --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_VOTRE_PSEUDO}</label>
+								</div>
+								<div class="regroupement">
+									<input class="textbox" type="text" title="{L_SAIEMAIL}" id="addComEmail" name="{ADD_COM.FORM_EMAIL}" value="{ADD_COM.VAL_EMAIL}" />
+									<label for="addComEmail"><!-- DEBUT ERREUR --><!-- SI ERREUR.EMAIL --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_VOTRE_EMAIL} <span>({L_PASPUBLIE})</span></label>
+								</div>
+								<div class="regroupement">
+									<input class="textbox" type="text" title="{L_SAISITE}" id="addComUrl" name="{ADD_COM.FORM_URL}" value="{ADD_COM.VAL_URL}" />
+									<label for="addComUrl"><!-- DEBUT ERREUR --><!-- SI ERREUR.URL --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_VOTRE_SITE}</label>
+								</div>
+								<div class="regroupement">
+									<textarea name="{ADD_COM.FORM_CONTENU}" title="{L_SAICOM}" id="addComContent" rows="10" cols="30">{ADD_COM.VAL_CONTENU}</textarea>
+									<label for="addComContent"><!-- DEBUT ERREUR --><!-- SI ERREUR.CONTENU --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_VOTRE_COM}</label>
+								</div>
+				<!-- FINSI -->
+								{ADD_COM.FORM_HIDDEN_ID}
+								<div class="zone-button" id="Valider">
+									<button class="button btnT3" type="submit" name="{ADD_COM.FORM_VALID}" id="BtnCom" class="button"><span><span>{L_ENVOYER}</span></span></button>
+								</div>
+							</form>
+							<p id="Cnil">{L_INFOCNIL}</p>
+						</div>
+			<!-- FIN ADD_COM -->
+		<!-- FINSI -->
+						<div class="clear1px"></div>
+					</div>
+	<!-- FIN POST -->
+<!-- FIN BLOG -->

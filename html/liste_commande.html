@@ -1,0 +1,35 @@
+						<h1 class="h1"><strong>{L_MON_COMPTE}</strong></h1>
+						<ul id="histo-link">
+							<li><a href="compte.html">{L_MON_COMPTE}</a></li>
+							<li class="current"><a href="liste-commande.html">{L_HISTO_COM}</a></li>
+						</ul>
+					<!-- DEBUT COMPTE -->
+						<table id="histo-com">
+							<thead>
+								<tr>
+									<th></th>
+									<th>{L_DATE}</th>
+									<th>{L_MONTANT_TOT}</th>
+									<th>{L_TYPE_PAI}</th>
+									<th>{L_SUIVI_COLIS}</th>
+									<th>{L_ETAT}</th>
+								</tr>
+							</thead>
+							<tbody>
+							<!-- DEBUT COMMANDE -->
+								<tr<!-- SI COMMANDE.NUM_LIGNE est impair --> class="impair"<!-- FINSI -->>
+									<td><p><a href="{COMMANDE.URL}">{COMMANDE.NUM}</a></p></td>
+									<td class="tdc"><p>{COMMANDE.DATE}</p></td>
+									<td class="tdc"><p>{DEVISE_PRE}{COMMANDE.TOTAL}{DEVISE_POST}</p></td>
+									<td class="tdc"><p>{COMMANDE.TYPE}</p></td>
+									<td class="tdc"><!-- SI COMMANDE.SUIVI --><p><a href="{COMMANDE.SUIVI}">{L_SUIVRE}</a></p><!-- FINSI --></td>
+									<td><p>{COMMANDE.ETAT}</p></td>
+								</tr>
+							<!-- DEBUTSINON -->
+								<tr>
+									<td colspan="6"><p>{L_PAS_COM}.</p></td>
+								</tr>
+							<!-- FIN COMMANDE -->
+							</tbody>
+						</table>
+					<!-- FIN COMPTE -->

@@ -1,0 +1,91 @@
+<!-- SI W_P_COMMANDE -->
+			<div id="processus-commande">
+				<p class="current">
+					<a href="/p/panier.html">
+						<strong>1</strong>
+						<span>{L_MON_PANIER}</span>
+					</a>
+				</p>
+				<p>
+					<strong>2</strong>
+					<span>{L_LIVRAISON}</span>
+				</p>
+				<p>
+					<strong>3</strong>
+					<span>{L_PAIEMENT}</span>
+				</p>
+				<p>
+					<strong>4</strong>
+					<span>{L_CONFIRMATION}</span>
+				</p>
+			</div>
+<!-- FINSI -->
+<!-- DEBUT IDENTIFICATION -->
+						<div id="co-compte">
+					    <h2 class="compte1"><strong>{L_IDENT_INSCRIT}</strong></h2>
+						<form class="formT1" action="{IDENTIFICATION.FORM}" method="post">
+	<!-- DEBUT ERREUR -->
+							<div class="erreur">
+		<!-- DEBUT TEXT -->
+								<p><img class="pngfix warning" src="{W_IMG_PATH}/c-warning.png" alt="{L_ATTENTION}" />{TEXT.ERREUR}</p>
+		<!-- FIN TEXT -->
+							</div>
+	<!-- FIN ERREUR -->
+							<div class="regroupement">
+								<label for="{IDENTIFICATION.FORM_EMAIL}"><!-- DEBUT ERREUR --><!-- SI ERREUR.EMAIL --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png"/> <!-- FINSI --><!-- FIN ERREUR -->Votre adresse e-mail</label>
+								<input class="textbox" type="text" name="{IDENTIFICATION.FORM_EMAIL}" id="ident_email" value="{IDENTIFICATION.VAL_EMAIL}" />
+							</div>
+							<div class="regroupement">
+								<label for="{IDENTIFICATION.FORM_PASS}"><!-- DEBUT ERREUR --><!-- SI ERREUR.PASS --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png"/> <!-- FINSI --><!-- FIN ERREUR -->Votre mot de passe</label>
+								<input class="textbox" type="password" name="{IDENTIFICATION.FORM_PASS}" id="ident_pass"  />
+							</div>
+							<div class="valider3 zone-button">
+								<button class="button btnT3" name="{IDENTIFICATION.FORM_VALID}" id="btnc" type="submit"><span><span>{L_IDENT_LIEN_INSCRIT}</span></span></button>
+							</div>
+							<p id="perdu"><a href="/p/mot-de-passe-oublie.html">{L_OUBLIE_PASSE}</a></p>
+							<div class="clear1px"></div>
+						</form>
+						<div class="clear1px"></div>
+						</div>
+<!-- FIN IDENTIFICATION -->
+
+<!-- DEBUT INSCRIPTION -->
+						<div id="inscription">
+					    <h2 class="compte1"><strong>{L_IDENT_PAS_INSCRIT}</strong></h2>
+						<form class="formT1" action="{INSCRIPTION.FORM}" method="post">
+	<!-- DEBUT ERREUR -->
+							<div class="erreur">
+		<!-- DEBUT TEXT -->
+								<p><img class="pngfix warning" src="{W_IMG_PATH}/c-warning.png" alt="{L_ATTENTION}" />{TEXT.ERREUR}</p>
+		<!-- FIN TEXT -->
+							</div>
+	<!-- FIN ERREUR -->
+							<div class="regroupement">
+								<label for="{INSCRIPTION.FORM_EMAIL}"><!-- DEBUT ERREUR --><!-- SI ERREUR.EMAIL --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png"/> <!-- FINSI --><!-- FIN ERREUR -->Votre adresse e-mail</label>
+								<input class="textbox" type="text" name="{INSCRIPTION.FORM_EMAIL}" value="{INSCRIPTION.VAL_EMAIL}" id="inscr_email" />
+							</div>
+							<div class="regroupement">
+								<label for="{INSCRIPTION.FORM_PASS}"><!-- DEBUT ERREUR --><!-- SI ERREUR.PASS --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png"/> <!-- FINSI --><!-- FIN ERREUR -->Choisissez votre mot de passe</label>
+								<input class="textbox" type="password" name="{INSCRIPTION.FORM_PASS}" id="inscr_pass" />
+							</div>
+							<div class="regroupement">
+								<label for="{INSCRIPTION.FORM_PASS2}"><!-- DEBUT ERREUR --><!-- SI ERREUR.PASS --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png"/> <!-- FINSI --><!-- FIN ERREUR -->Répétez votre mot de passe</label>
+								<input class="textbox" type="password" name="{INSCRIPTION.FORM_PASS2}" id="inscr_pass2"  />
+							</div>
+							<div class="valider3 zone-button">
+								<button class="button btnT3" name="{INSCRIPTION.FORM_VALID}" id="btnc2" type="submit"><span><span>{L_IDENT_LIEN_PAS_INSCRIT}</span></span></button>
+							</div>
+							<div class="clear1px">&nbsp;</div>
+						</form>
+						<div class="clear1px"></div>
+						</div>
+<!-- FIN INSCRIPTION -->
+
+<!-- DEBUT CARDSOFF -->
+					    <h2 class="h1">{L_CARDSOFF_IDENT}</h2>
+					    <a href="{CARDSOFF.URL_CARDSOFF}" id="identCardsoff"><img src="/_i/banques/gcardsoff.gif" alt="cardsoff" /></a>
+<!-- FIN CARDSOFF -->
+	
+<!-- SI PASSCONNECT -->
+						<p id="passconnect">{L_UTILISER_PASSCONNECT} : <a href="{PASSCONNECT}&TB_iframe=true&height=230&width=400" class="thickbox"><img src="{W_IMG_PATH}/pass-connect.gif" alt="{L_PASSCONNECT}" /></a> <a target="_blank" href="http://www.pass-connect.com/popup/popup-presentation.aspx?part_id=4&typeAction=4">{L_WHOPASSCONNECT}</a></p>
+<!-- FINSI -->

@@ -1,0 +1,101 @@
+body {
+	background: none;
+}
+
+.titre, .panier-supprimer, #ariane, #votre-panier thead, #votre-panier caption, #header, #sidebar, #bonreduc, #boncommande, #panier-validation, #crosseling, #footer, #link-footer, #wizi-debug, #footer2, #div-cont-cont-menu, #processus-commande, #fil-ariane, .moins, .plus, .cont-blocT6, #titre-total, .precautions, #panier-pop, #titre-panier {
+	display: none;
+}
+
+h1 {
+	text-align:center;
+	border: 1px solid #000;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 5px;
+}
+
+#votre-panier, #histo-com {
+	border-collapse:collapse;
+	margin-bottom:2em;
+	width:100%;
+}
+
+#votre-panier thead, #histo-com thead {
+	border-bottom:1px solid #442915;
+	font-size:1.4em;
+	height:30px;
+}
+
+#votre-panier tbody td {
+	border-bottom:1px solid #442915;
+	padding:0.4em 0;
+	vertical-align:top;
+}
+
+#votre-panier tfoot .first {
+	padding-top: 50px;
+}
+
+#votre-panier tfoot .last {
+	padding-top: 25px;
+	font-size: 18px;
+}
+
+#votre-panier tfoot td {
+	padding-top: 10px;
+	font-size: 16px;
+	text-align:right;
+}
+
+#votre-panier tfoot td span {
+	font-weight: bold;
+}
+
+#votre-panier tbody .image-panier {
+	padding-left:0.4em;
+	padding-right:0.4em;
+}
+
+#votre-panier tbody .panier-quantite {
+	text-align:center;
+}
+
+#votre-panier tbody .panier-quantite input {
+	border: none;
+}
+
+#votre-panier tbody .image-panier a, #votre-panier tbody .image-panier img {
+	border: none;
+}
+
+#votre-panier tbody .image-panier img, #votre-panier tbody .panier-quantite label, #votre-panier tbody .panier-quantite input {
+	margin-top:15px;
+}
+
+#votre-panier tbody .panier-prix {
+	text-align:right;
+	white-space:nowrap;
+}
+
+#votre-panier tbody .impair, #histo-com tbody .impair {
+	background:none repeat scroll 0 0 #EFEAE0;
+}
+
+#votre-panier tfoot {
+	font-size: 14px;	
+}
+
+.panier-description p a {
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 14px;
+	color: #000;
+}
+
+.panier-description p {
+	font-size: 12px;
+}
+
+.blocT7 {
+	margin-left: 350px;
+}

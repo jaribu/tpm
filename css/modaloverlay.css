@@ -1,0 +1,40 @@
+#basicModal, .modalInfo, .modalData {
+	color: #424242;
+}
+
+#basicModal a, .modalInfo a, .modalData a {
+	color: #424242;
+}
+
+#modalOverlay {
+	background-color: #000;
+	cursor: wait;
+}
+
+#modalContainer {
+	padding: 4em 1.3em 1.3em 1.3em;
+	width: 600px;
+	left: 50%;
+	top: 15%;
+	margin-left: -300px; /* half the width, to center */
+	background-color: #fff;
+	border: 3px solid #ccc;
+}
+
+#modalContainer a.modalCloseImg {
+	display: inline;
+	z-index: 3200;
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	cursor: pointer;
+}
+
+#modalContainer .modalInfo {
+	display: inline;
+	z-index: 3200;
+	position: absolute;
+	top: 1em;
+	left: 1em;
+	font-size: 1.5em;
+}

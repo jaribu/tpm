@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+	<meta name="description" content="{META_DESC}" />
+	<meta name="keywords" content="{META_KEY}" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta http-equiv="Content-Language" content="fr" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<!-- DEBUT BLOG --><link rel="alternate" type="application/rss+xml" title="{L_FLUX_RSS} {NOM_BOUTIQUE}" href="{BLOG.URL_RSS}" /><!-- FIN BLOG -->
+	<title>{META_TITRE}</title>
+	{COMMON_JS}
+	<link rel="stylesheet" href="{COMBO_CSS}<!-- SI W_C_AVIS -->&amp;avis=1<!-- FINSI -->&amp;modaloverlay.css&amp;screen.css&amp;1.0.22" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{W_CSS_PATH_GLOBAL}/jquery-ui-1.8.21.custom.css" type="text/css" media="screen" />
+<!-- SI W_P_PANIER ou W_C_VALIDATION_RAPIDE ou W_C_FIN -->
+	<link type="text/css" href="{W_CSS_PATH_GLOBAL}/npc.css?1.0.3" rel="stylesheet" media="screen" />
+	<link type="text/css" href="{W_CSS_PATH}/npc-colors.css?1.0.2" rel="stylesheet" media="screen" />
+<!-- FINSI -->
+	<link rel="stylesheet" href="{W_CSS_PATH}/print.css?1.0.0" type="text/css" media="print" />
+	<script type="text/javascript">
+	<!-- SI W_P_PRODUIT -->
+		<!-- DEBUT PROD -->
+		<!-- SI PROD.IMG_RAW_WIDTH > 899 ou PROD.IMG_RAW_HEIGHT > 899 -->
+		var imgRaw = '{PROD.IMG_RAW}';
+		<!-- FINSI -->
+		<!-- FIN PROD -->
+	<!-- FINSI -->
+		var tb_pathCss = '{W_CSS_PATH}/';
+		var tb_pathImage = '{W_IMG_PATH}/';
+		var _current_uri = '{W_CURRENT_URI}';
+		var _info_nav = '{INFO_NAVIGATEUR}';
+		var _info_nav_vers = '{INFO_NAVIGATEUR_VERSION}';
+		var _info_os = '{INFO_OS}';
+		var paysShop = '{PAYS_SHOP}';
+	</script>
+	<script type="text/javascript" charset="utf-8" src="{COMBO_JS}<!-- SI W_C_AVIS -->&amp;avis=1<!-- FINSI -->&amp;config.js&amp;var.js&amp;mondial-relay-custom.js&amp;jquery.qtip-1.0.0-rc3.min.js&amp;easySlider1.7.js&amp;menu.js&amp;panier-compte-recherche.js&amp;listes.js&amp;fiche.js&amp;commande.js&amp;footer.js&amp;1.0.2"></script>
+	<script type="text/javascript" src="{W_JS_PATH_GLOBAL}/jquery-ui-1.8.23.custom.min.js"></script>
+	<script type="text/javascript" src="{W_JS_PATH_GLOBAL}/jquery.scrollTo-1.4.2.js"></script>
+<!-- SI W_P_PANIER ou W_C_VALIDATION_RAPIDE -->
+	<script type="text/javascript" src="{NPC_JS}?{NPC_JS_VERSION}"></script>
+<!-- SINONSI W_C_FIN -->
+	<script type="text/javascript" src="{W_JS_PATH_GLOBAL}/npc-light.js?{NPC_JS_VERSION}"></script>
+<!-- FINSI -->
+	<link href="{W_CSS_PATH_GLOBAL}/partage.css?2" type="text/css" media="screen" rel="stylesheet" />
+	<script src="{W_JS_PATH_GLOBAL}/partage.js" type="text/javascript"></script>
+<!--[if lt IE 7.]>
+	<script type="text/javascript" charset="utf-8" src="{W_JS_PATH}/iepngfix_tilebg.js"></script>
+	<link rel="stylesheet" href="{W_CSS_PATH}/iepngfix.css" type="text/css" media="screen" />
+<![endif]-->
+<!-- Début des scripts avis -->
+<!-- SI W_C_AVIS -->
+    <script src="http://connect.facebook.net/en_US/all.js" type="text/javascript"></script>
+    <script src="http://platform.twitter.com/anywhere.js?id=OIdlx33gzgrpTxmdTXIthw&amp;v=1" type="text/javascript"></script>
+<!-- FINSI -->
+	<script type="text/javascript" src="https://apis.google.com/js/plusone.js">{lang: 'fr'}</script>
+<!-- Fin des scripts avis -->
+	<!-- SI TAILLE_MARQ et W_P_INDEX -->
+	<script type="text/javascript" src="{W_JS_PATH_GLOBAL}/carrousel.js"></script>
+	<!-- FINSI -->
+	<!-- SI TELFORM -->
+	<script type="text/javascript" src="{W_JS_PATH_GLOBAL}/telform/telform.js"></script>
+	<!-- FINSI -->
+	<!-- INCLUDE VARIATION2 -->
+	{HEAD_SCRIPT}
+	<!-- SI CSS_PERSO -->
+	<link rel="stylesheet" href="{W_CSS_PATH_GLOBAL}/{CSS_PERSO}" type="text/css" media="screen" />
+	<!-- FINSI -->
+</head>
+<body class="{INFO_OS} {INFO_NAVIGATEUR}{INFO_NAVIGATEUR_VERSION}<!-- SI INFO_NAVIGATEUR egal 'chrome' ou INFO_NAVIGATEUR egal 'safari' ou INFO_NAVIGATEUR egal 'webkit' --> {INFO_NAVIGATEUR} webkit<!-- SINON --> {INFO_NAVIGATEUR}<!-- FINSI -->">
+	{DEBUT_BODY_SCRIPT}
+	<!-- DEBUT ERREUR --><div id="basicModal"><!-- DEBUT TEXT --><p>{TEXT.ERREUR}</p><!-- FIN TEXT --></div><!-- FIN ERREUR -->
+	<!-- DEBUT PROD --><!-- DEBUT ERREUR --><div id="basicModal"><!-- DEBUT TEXT --><p>{TEXT.ERREUR}</p><!-- FIN TEXT --></div><!-- FIN ERREUR --><!-- FIN PROD -->
+	<div class="header">
+		<div class="c1-header">
+			<div class="slogan">
+				<<!-- SI W_P_INDEX -->h1<!-- SINON -->p<!-- FINSI --> class="nom-boutique">
+				<a href="/">
+					<!-- SI IMG_BOUTIQUE et IMG_BOUTIQUE different '' -->
+					<img src="{IMG_BOUTIQUE}" alt="{NOM_BOUTIQUE}<!-- SI SLOGAN_BOUTIQUE et SLOGAN_BOUTIQUE different '' -->, {SLOGAN_BOUTIQUE}<!-- FINSI -->" />
+					<span class="titre-logo"><span id="nom-boutique">{NOM_BOUTIQUE}</span><!-- SI SLOGAN_BOUTIQUE et SLOGAN_BOUTIQUE different '' --><span class="sstitre">{SLOGAN_BOUTIQUE}</span><!-- FINSI --></span>
+					<!-- SINON -->
+						<span id="nom-boutique">{NOM_BOUTIQUE}</span>
+						<!-- SI SLOGAN_BOUTIQUE et SLOGAN_BOUTIQUE different '' -->
+								<span class="sstitre">{SLOGAN_BOUTIQUE}</span>
+						<!-- FINSI -->
+					<!-- FINSI -->
+				</a>
+				</<!-- SI W_P_INDEX -->h1<!-- SINON -->p<!-- FINSI -->>
+			</div>
+			<div class="compte-panier">
+				<p id="mon-compte">
+						<a href="/p/compte.html">{L_MON_COMPTE}</a>
+						<!-- DEBUT CLIENT --> / <a id="lien-deconnexion" href="/deco.php">{L_DECONNECTION}</a><!-- DEBUTSINON --> / <a id="lien-deconnexion" href="/p/compte.html">{L_CONNEXION}</a><!-- FIN CLIENT -->
+				</p>
+				<p id="mon-panier">
+					<a href="/p/panier.html">
+						<strong>{L_MON_PANIER} :</strong>
+						<span id="nb_prod"><!-- DEBUT PANIER -->{PANIER.NB_PROD} {L_NB_ARTICLES}<!-- DEBUTSINON -->{L_AUCUN_ARTICLE}<!-- FIN PANIER --></span>
+					</a>
+				</p>
+			</div>
+		</div>
+		<div id="div_menu" class="menu">
+			<ul id="menu">
+				<li class="li-first">
+					<a href="/"><span>{L_ACCUEIL}</span></a>
+				</li>
+			<!-- SI W_C_BLOG -->
+				<li id="blog">
+					<a href="/blog"><span>{L_BLOG}</span></a>
+				</li>
+			<!-- FINSI -->
+		<!-- DEBUT CAT -->
+			<!-- DEBUT SOUS_CAT -->
+				<!-- SI SOUS_CAT.PREM_LIGNE -->
+				<li id="li{CAT.ID}" class="ssm<!-- SI CAT.SEL --> current<!-- FINSI -->">
+					<a id="a{CAT.ID}" class="a-cat wizi-cat" href="{CAT.URL}"><span>{CAT.NOM}</span></a>
+				<!-- FINSI -->
+			<!-- DEBUTSINON -->
+				<li<!-- SI CAT.SEL --> class="current"<!-- FINSI -->>
+					<a href="{CAT.URL}" class="wizi-cat"><span>{CAT.NOM}</span></a>
+			<!-- FIN SOUS-CAT -->
+			<!-- DEBUT SOUS_CAT --> 
+				<!-- SI SOUS_CAT.PREM_LIGNE -->
+				<div id="ss{CAT.ID}" style="display: none;">
+					<ul>
+				<!-- FINSI -->
+					<li id="ssmenu{SOUS_CAT.ID}"<!-- SI SOUS_CAT.SEL --> class="current2"<!-- FINSI -->><a href="{SOUS_CAT.URL}">{SOUS_CAT.NOM}</a></li>
+				<!-- SI SOUS_CAT.DERN_LIGNE -->
+					</ul>
+				</div>
+				<!-- FINSI -->
+			<!-- FIN SOUS_CAT -->
+				</li>
+		<!-- FIN CAT -->
+			</ul>
+		</div>	
+	</div>
+	<div class="clear1px"></div>
+	<div class="content<!-- SI pas W_P_INDEX --> avec-fil-ariane<!-- FINSI -->">
+		<!-- SI pas W_P_INDEX -->
+		<!-- DEBUT FIL_ARIANE -->
+			<!-- SI FIL_ARIANE.PREM_LIGNE -->
+		<p id="fil-ariane">
+				<!-- SI W_P_PRODUIT -->
+					<!-- DEBUT !PROD -->
+			<a id="retour" href="{PROD.CAT_URL}">{L_RETOUR_VERS} {PROD.CAT_NOM}</a>
+			<span class="ariane">
+					<!-- FIN PROD -->
+				<!-- SINONSI W_P_SOUSCAT -->
+					<!-- DEBUT !CAT_SEL -->
+						<!-- SI CAT_SEL.PREM_LIGNE -->
+			<a id="retour" href="{CAT_SEL.URL}">{L_RETOUR_VERS} {CAT_SEL.NOM}</a>
+			<span class="ariane">
+						<!-- FINSI -->
+					<!-- FIN CAT_SEL -->
+				<!-- SINON -->
+			<a id="retour" href="/">{L_RETOUR_ACCUEIL}</a>
+			<span class="ariane">
+				<!-- FINSI -->
+			<!-- FINSI -->
+			<!-- SI pas FIL_ARIANE.DERN_LIGNE -->
+			<a href="{FIL_ARIANE.URL}">{FIL_ARIANE.NOM}</a> >
+			<!-- SINON -->
+			<span>{FIL_ARIANE.NOM}</span>
+			<!-- FINSI -->
+			<!-- SI FIL_ARIANE.DERN_LIGNE -->
+			</span>		
+		</p>
+			<!-- FINSI -->
+		<!-- FIN FIL_ARIANE -->
+	<!-- FINSI -->
+		<div class="contenu<!-- SI W_P_PRODUIT --> large<!-- SINONSI W_P_PANIER ou W_C_VALIDATION_RAPIDE ou W_C_FIN ou W_P_VALIDATION ou W_P_COMMANDE ou W_P_VALIDATION-PAIEMENT-CHEQUE ou W_P_VALIDATION-PAIEMENT-CB ou W_P_VALIDATION-PAIEMENT-VIREMENT ou W_P_VALIDATION-PAIEMENT-CARDSOFF ou W_P_PAIEMENT-CB-REFUSE --> no-column<!-- FINSI -->">

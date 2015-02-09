@@ -1,0 +1,66 @@
+						<h1 class="h2"><strong>{MARQ_NOM}</strong></h1>
+	<!-- DEBUT PROD -->
+		<!-- SI PROD.PREM_LIGNE -->
+						<div class="list-prod">
+		<!-- FINSI -->
+		<!-- SI PROD.PREM_LIGNE ou PROD.NUM_LIGNE % 3 egal 0 -->
+							<div class="ligne-prod">
+		<!-- FINSI -->
+								<div itemscope itemtype="http://schema.org/Product" class="prod<!-- SI PROD.NUM_LIGNE % 3 egal 2 --> last<!-- FINSI -->">
+									<div class="cont-prod<!-- SI (PROD.PROMO_PRIX et PROD.SOLDE egal 1) ou (PROD.PROMO_PRIX et PROD.SOLDE egal 0) ou PROD.NOUVEAUTE --> avec-etat<!-- FINSI -->">
+										<div class="haut-prod">
+											<a class="photo" href="{PROD.URL}">
+												<img src="{PROD.IMG_150}" alt="{PROD.NOM[SCRIPT]}" />
+											</a>
+											<div class="infos-prod">
+												<h2 class="nom"><a href="{PROD.URL}" itemprop="name">{PROD.NOM[SCRIPT]}</a></h2>
+												<!-- SI PROD.MARQ_NOM --><p class="brand"><a href="{PROD.URL}">{PROD.MARQ_NOM}</a></p><!-- FINSI -->
+												<!-- SI PROD.NOTE -->
+											    <div class="wizicss-etoiles-bg" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+											        <div class="wizicss-etoiles-fg" style="width: {PROD.NOTE_POUR}%;">
+											        	<meta itemprop="worstRating" content="1" />
+														<meta itemprop="ratingValue" content="{PROD.NOTE}" />
+														<meta itemprop="worstRating" content="5" />
+														<meta itemprop="reviewCount" content="{PROD_COM_COUNT}" />
+													</div>
+											    </div>
+											    <!-- FINSI -->
+											</div>
+											<a href="{PROD.URL}" class="button btn-ajpan<!-- SI PROD.VARIATION ou PROD.VARIATION2 --> prod-var<!-- FINSI -->">
+												<span><span>{L_SAVOIR_PLUS}</span></span>
+											</a>
+										</div>
+										<div class="bas-prod">
+											<p class="prix">
+												<a href="{PROD.URL}">
+													<!-- SI PROD.VARIATION et PROD.VARIATION_PRIX -->
+													<span>{L_A_PARTIR_DE}</span>
+													<!-- FINSI -->
+													<!-- SI PROD.PROMO_PRIX -->
+													<strong>{DEVISE_PRE}{PROD.PROMO_PRIX}{DEVISE_POST}</strong>
+													<del>{DEVISE_PRE}{PROD.PRIX}{DEVISE_POST}</del>
+													<!-- SINON -->
+													<strong>{DEVISE_PRE}{PROD.PRIX}{DEVISE_POST}</strong>
+													<!-- FINSI -->
+												</a>
+											</p>
+										</div>
+										<!-- SI PROD.PROMO_TYPE et PROD.SOLDE egal 1 -->
+										<p class="etatPrix solde">{L_SOLDE} <span><!-- SI PROD.PROMO_POUR_ROUND --><strong><!-- SI PROD.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI PROD.PROMO_TYPE egal 2 -->{PROD.PROMO_POUR_ROUND}%<!-- SINONSI PROD.PROMO_TYPE egal 1 -->{DEVISE_PRE}{PROD.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+										<!-- SINONSI PROD.PROMO_TYPE et PROD.SOLDE egal 0 -->
+										<p class="etatPrix promo">{L_PROMOTION} <span><!-- SI PROD.PROMO_POUR_ROUND --><strong><!-- SI PROD.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI PROD.PROMO_TYPE egal 2 -->{PROD.PROMO_POUR_ROUND}%<!-- SINONSI PROD.PROMO_TYPE egal 1 -->{DEVISE_PRE}{PROD.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+										<!-- SINONSI PROD.NOUVEAUTE -->
+										<p class="etatPrix nouveaute">{L_NOUVEAU}</p>
+										<!-- FINSI -->
+									<!-- SI PROD.RESUME -->
+										<div class="description">{PROD.RESUME}</div>
+									<!-- FINSI -->
+									</div>
+								</div>
+		<!-- SI PROD.DERN_LIGNE ou PROD.NUM_LIGNE % 3 egal 2 -->
+							</div>
+		<!-- FINSI -->
+		<!-- SI PROD.DERN_LIGNE -->
+						</div>
+		<!-- FINSI -->
+	<!-- FIN PROD -->

@@ -1,0 +1,294 @@
+<!-- DEBUT ACCUEIL -->
+	<!-- DEBUT BLOCK -->
+			<div class="block {BLOCK.TYPE}">
+		<!-- SI BLOCK.IMG et BLOCK.IMG different '' -->
+				<div class="<!-- SI BLOCK.IMG_POSITION egal 'left' -->Ileft{BLOCK.TYPE} <!-- SINONSI BLOCK.IMG_POSITION egal 'center' -->Icenter{BLOCK.TYPE} <!-- SINONSI BLOCK.IMG_POSITION egal 'right' -->Iright{BLOCK.TYPE} <!-- FINSI -->I{BLOCK.TYPE}">
+			<!-- SI BLOCK.IMG_URL different '' -->
+					<a href="{BLOCK.IMG_URL}" title="{BLOCK.IMG_NOM}"><img src="{BLOCK.IMG}" alt="{BLOCK.IMG_NOM}" /></a>
+			<!-- SINON -->
+					<img src="{BLOCK.IMG}" alt="{BLOCK.IMG_NOM}" />
+			<!-- FINSI -->
+				</div>
+		<!-- FINSI -->
+		<!-- DEBUT DESC -->
+			<!-- SI DESC.TYPE egal 'titre' -->
+				<h2 class="h2">{DESC.TEXT}</h2>
+			<!-- SINONSI DESC.TYPE egal 'soustitre' -->
+				<h3 class="h3">{DESC.TEXT}</h3>
+			<!-- SINON -->
+				{DESC.TEXT}
+			<!-- FINSI -->
+		<!-- FIN DESC -->
+				<div class="clear1px"></div>
+			</div>
+	<!-- FIN BLOCK -->
+<!-- FIN ACCUEIL -->
+
+<!-- DEBUT SELEC -->
+	<!-- DEBUT ACCUEIL -->
+		<!-- SI ACCUEIL.PREM_LIGNE -->
+						<h2 class="h2"><strong>{L_SELECTION_ACCUEIL} <span>{NOM_BOUTIQUE}</span></strong></h2>
+						<div class="list-prod selection">
+		<!-- FINSI -->
+		<!-- SI ACCUEIL.PREM_LIGNE ou ACCUEIL.NUM_LIGNE % 3 egal 0 -->
+							<div class="ligne-prod">
+		<!-- FINSI -->
+								<div itemscope itemtype="http://schema.org/Product" class="prod<!-- SI ACCUEIL.NUM_LIGNE % 3 egal 2 --> last<!-- FINSI -->">
+									<div class="cont-prod<!-- SI (ACCUEIL.PROMO_PRIX et ACCUEIL.SOLDE egal 1) ou (ACCUEIL.PROMO_PRIX et ACCUEIL.SOLDE egal 0) ou ACCUEIL.NOUVEAUTE --> avec-etat<!-- FINSI -->">
+										<div class="haut-prod">
+											<a class="photo" href="{ACCUEIL.URL}">
+												<img src="{ACCUEIL.IMG_150}" alt="{ACCUEIL.NOM[SCRIPT]}" />
+											</a>
+											<div class="infos-prod">
+												<h3 class="nom"><a itemprop="name" href="{ACCUEIL.URL}">{ACCUEIL.NOM[SCRIPT]}</a></h3>
+												<!-- SI ACCUEIL.MARQ_NOM --><p class="brand"><a href="{ACCUEIL.URL}">{ACCUEIL.MARQ_NOM}</a></p><!-- FINSI -->
+												<!-- SI ACCUEIL.NOTE -->
+											    <div class="wizicss-etoiles-bg" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+											        <div class="wizicss-etoiles-fg" style="width: {ACCUEIL.NOTE_POUR}%;">
+											        	<meta itemprop="worstRating" content="1" />
+														<meta itemprop="ratingValue" content="{ACCUEIL.NOTE}" />
+														<meta itemprop="worstRating" content="5" />
+														<meta itemprop="reviewCount" content="{PROD_COM_COUNT}" />
+													</div>
+											    </div>
+											    <!-- FINSI -->
+											</div>
+											<a href="{ACCUEIL.URL}" class="button btn-ajpan<!-- SI ACCUEIL.VARIATION ou ACCUEIL.VARIATION2 --> prod-var<!-- FINSI -->">
+												<span><span>{L_SAVOIR_PLUS}</span></span>
+											</a>
+										</div>
+										<div class="bas-prod">
+											<p class="prix">
+												<a href="{ACCUEIL.URL}">
+													<!-- SI ACCUEIL.VARIATION et ACCUEIL.VARIATION_PRIX -->
+													<span>{L_A_PARTIR_DE}</span>
+													<!-- FINSI -->
+													<!-- SI ACCUEIL.PROMO_PRIX -->
+													<strong>{DEVISE_PRE}{ACCUEIL.PROMO_PRIX}{DEVISE_POST}</strong>
+													<del>{DEVISE_PRE}{ACCUEIL.PRIX}{DEVISE_POST}</del>
+													<!-- SINON -->
+													<strong>{DEVISE_PRE}{ACCUEIL.PRIX}{DEVISE_POST}</strong>
+													<!-- FINSI -->
+												</a>
+											</p>
+										</div>
+										<!-- SI ACCUEIL.PROMO_TYPE et ACCUEIL.SOLDE egal 1 -->
+										<p class="etatPrix solde">{L_SOLDE} <span><!-- SI ACCUEIL.PROMO_POUR_ROUND --><strong><!-- SI ACCUEIL.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI ACCUEIL.PROMO_TYPE egal 2 -->{ACCUEIL.PROMO_POUR_ROUND}%<!-- SINONSI ACCUEIL.PROMO_TYPE egal 1 -->{DEVISE_PRE}{ACCUEIL.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+										<!-- SINONSI ACCUEIL.PROMO_TYPE et ACCUEIL.SOLDE egal 0 -->
+										<p class="etatPrix promo">{L_PROMOTION} <span><!-- SI ACCUEIL.PROMO_POUR_ROUND --><strong><!-- SI ACCUEIL.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI ACCUEIL.PROMO_TYPE egal 2 -->{ACCUEIL.PROMO_POUR_ROUND}%<!-- SINONSI ACCUEIL.PROMO_TYPE egal 1 -->{DEVISE_PRE}{ACCUEIL.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+										<!-- SINONSI ACCUEIL.NOUVEAUTE -->
+										<p class="etatPrix nouveaute">{L_NOUVEAU}</p>
+										<!-- FINSI -->
+										<!-- SI ACCUEIL.RESUME -->
+										<div class="description">{ACCUEIL.RESUME}</div>
+										<!-- FINSI -->
+									</div>
+								</div>
+		<!-- SI ACCUEIL.DERN_LIGNE ou ACCUEIL.NUM_LIGNE % 3 egal 2 -->
+							</div>
+		<!-- FINSI -->
+		<!-- SI ACCUEIL.DERN_LIGNE -->
+						</div>
+		<!-- FINSI -->
+	<!-- FIN ACCUEIL -->
+	<!-- DEBUT PROMO -->
+		<!-- SI PROMO.PREM_LIGNE -->
+						<h2 class="h2"><strong>{L_NOS_PROMOTIONS}</strong></h2>
+						<div class="list-prod selection">
+		<!-- FINSI -->
+		<!-- SI PROMO.PREM_LIGNE ou PROMO.NUM_LIGNE % 3 egal 0 -->
+							<div class="ligne-prod">
+		<!-- FINSI -->
+								<div itemscope itemtype="http://schema.org/Product" class="prod<!-- SI PROMO.NUM_LIGNE % 3 egal 2 --> last<!-- FINSI -->">
+									<div class="cont-prod<!-- SI (PROMO.PROMO_PRIX et PROMO.SOLDE egal 1) ou (PROMO.PROMO_PRIX et PROMO.SOLDE egal 0) ou PROMO.NOUVEAUTE --> avec-etat<!-- FINSI -->">
+										<div class="haut-prod">
+											<a class="photo" href="{PROMO.URL}">
+												<img src="{PROMO.IMG_150}" alt="{PROMO.NOM[SCRIPT]}" />
+											</a>
+											<div class="infos-prod">
+												<h3 class="nom"><a itemprop="name" href="{PROMO.URL}">{PROMO.NOM[SCRIPT]}</a></h3>
+												<!-- SI PROMO.MARQ_NOM --><p class="brand"><a href="{PROMO.URL}">{PROMO.MARQ_NOM}</a></p><!-- FINSI -->
+												<!-- SI PROMO.NOTE -->
+											    <div class="wizicss-etoiles-bg" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+											        <div class="wizicss-etoiles-fg" style="width: {PROMO.NOTE_POUR}%;">
+											        	<meta itemprop="worstRating" content="1" />
+														<meta itemprop="ratingValue" content="{PROMO.NOTE}" />
+														<meta itemprop="worstRating" content="5" />
+														<meta itemprop="reviewCount" content="{PROD_COM_COUNT}" />
+													</div>
+											    </div>
+											    <!-- FINSI -->
+											</div>
+											<a href="{PROMO.URL}" class="button btn-ajpan<!-- SI PROMO.VARIATION ou PROMO.VARIATION2 --> prod-var<!-- FINSI -->">
+												<span><span>{L_SAVOIR_PLUS}</span></span>
+											</a>
+										</div>
+										<div class="bas-prod">
+											<p class="prix">
+												<a href="{PROMO.URL}">
+													<!-- SI PROMO.VARIATION et PROMO.VARIATION_PRIX -->
+													<span>{L_A_PARTIR_DE}</span>
+													<!-- FINSI -->
+													<!-- SI PROMO.PROMO_PRIX -->
+													<strong>{DEVISE_PRE}{PROMO.PROMO_PRIX}{DEVISE_POST}</strong>
+													<del>{DEVISE_PRE}{PROMO.PRIX}{DEVISE_POST}</del>
+													<!-- SINON -->
+													<strong>{DEVISE_PRE}{PROMO.PRIX}{DEVISE_POST}</strong>
+													<!-- FINSI -->
+												</a>
+											</p>
+										</div>
+										<!-- SI PROMO.PROMO_TYPE et PROMO.SOLDE egal 1 -->
+										<p class="etatPrix solde">{L_SOLDE} <span><!-- SI PROMO.PROMO_POUR_ROUND --><strong><!-- SI PROMO.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI PROMO.PROMO_TYPE egal 2 -->{PROMO.PROMO_POUR_ROUND}%<!-- SINONSI PROMO.PROMO_TYPE egal 1 -->{DEVISE_PRE}{PROMO.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+										<!-- SINONSI PROMO.PROMO_TYPE et PROMO.SOLDE egal 0 -->
+										<p class="etatPrix promo">{L_PROMOTION} <span><!-- SI PROMO.PROMO_POUR_ROUND --><strong><!-- SI PROMO.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI PROMO.PROMO_TYPE egal 2 -->{PROMO.PROMO_POUR_ROUND}%<!-- SINONSI PROMO.PROMO_TYPE egal 1 -->{DEVISE_PRE}{PROMO.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+										<!-- SINONSI PROMO.NOUVEAUTE -->
+										<p class="etatPrix nouveaute">{L_NOUVEAU}</p>
+										<!-- FINSI -->
+										<!-- SI PROMO.RESUME -->
+										<div class="description">{PROMO.RESUME}</div>
+										<!-- FINSI -->
+									</div>
+								</div>
+		<!-- SI PROMO.DERN_LIGNE ou PROMO.NUM_LIGNE % 3 egal 2 -->
+							</div>
+		<!-- FINSI -->
+		<!-- SI PROMO.DERN_LIGNE -->
+						</div>
+		<!-- FINSI -->
+	<!-- FIN PROMO -->
+	<!-- DEBUT SOLDE -->
+		<!-- SI SOLDE.PREM_LIGNE -->
+						<h2 class="h2"><strong>{L_SOLDES}</strong></h2>
+						<div class="list-prod selection">
+		<!-- FINSI -->
+		<!-- SI SOLDE.PREM_LIGNE ou SOLDE.NUM_LIGNE % 3 egal 0 -->
+							<div class="ligne-prod">
+		<!-- FINSI -->
+								<div itemscope itemtype="http://schema.org/Product" class="prod<!-- SI SOLDE.NUM_LIGNE % 3 egal 2 --> last<!-- FINSI -->">
+									<div class="cont-prod<!-- SI (SOLDE.PROMO_PRIX et SOLDE.SOLDE egal 1) ou (SOLDE.PROMO_PRIX et SOLDE.SOLDE egal 0) ou SOLDE.NOUVEAUTE --> avec-etat<!-- FINSI -->">
+										<div class="haut-prod">
+											<a class="photo" href="{SOLDE.URL}">
+												<img src="{SOLDE.IMG_150}" alt="{SOLDE.NOM[SCRIPT]}" />
+											</a>
+											<div class="infos-prod">
+												<h3 class="nom"><a itemprop="name" href="{SOLDE.URL}">{SOLDE.NOM[SCRIPT]}</a></h3>
+												<!-- SI SOLDE.MARQ_NOM --><p class="brand"><a href="{SOLDE.URL}">{SOLDE.MARQ_NOM}</a></p><!-- FINSI -->
+												<!-- SI SOLDE.NOTE -->
+											    <div class="wizicss-etoiles-bg" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+											        <div class="wizicss-etoiles-fg" style="width: {SOLDE.NOTE_POUR}%;">
+											        	<meta itemprop="worstRating" content="1" />
+														<meta itemprop="ratingValue" content="{SOLDE.NOTE}" />
+														<meta itemprop="worstRating" content="5" />
+														<meta itemprop="reviewCount" content="{PROD_COM_COUNT}" />
+													</div>
+											    </div>
+											    <!-- FINSI -->
+											</div>
+											<a href="{SOLDE.URL}" class="button btn-ajpan<!-- SI SOLDE.VARIATION ou SOLDE.VARIATION2 --> prod-var<!-- FINSI -->">
+												<span><span>{L_SAVOIR_PLUS}</span></span>
+											</a>
+										</div>
+										<div class="bas-prod">
+											<p class="prix">
+												<a href="{SOLDE.URL}">
+													<!-- SI SOLDE.VARIATION et SOLDE.VARIATION_PRIX -->
+													<span>{L_A_PARTIR_DE}</span>
+													<!-- FINSI -->
+													<!-- SI SOLDE.PROMO_PRIX -->
+													<strong>{DEVISE_PRE}{SOLDE.PROMO_PRIX}{DEVISE_POST}</strong>
+													<del>{DEVISE_PRE}{SOLDE.PRIX}{DEVISE_POST}</del>
+													<!-- SINON -->
+													<strong>{DEVISE_PRE}{SOLDE.PRIX}{DEVISE_POST}</strong>
+													<!-- FINSI -->
+												</a>
+											</p>
+										</div>
+										<!-- SI SOLDE.PROMO_TYPE et SOLDE.SOLDE egal 1 -->
+										<p class="etatPrix solde">{L_SOLDE} <span><!-- SI SOLDE.PROMO_POUR_ROUND --><strong><!-- SI SOLDE.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI SOLDE.PROMO_TYPE egal 2 -->{SOLDE.PROMO_POUR_ROUND}%<!-- SINONSI SOLDE.PROMO_TYPE egal 1 -->{DEVISE_PRE}{SOLDE.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+										<!-- SINONSI SOLDE.PROMO_TYPE et SOLDE.SOLDE egal 0 -->
+										<p class="etatPrix promo">{L_PROMOTION} <span><!-- SI SOLDE.PROMO_POUR_ROUND --><strong><!-- SI SOLDE.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI SOLDE.PROMO_TYPE egal 2 -->{SOLDE.PROMO_POUR_ROUND}%<!-- SINONSI SOLDE.PROMO_TYPE egal 1 -->{DEVISE_PRE}{SOLDE.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+										<!-- SINONSI SOLDE.NOUVEAUTE -->
+										<p class="etatPrix nouveaute">{L_NOUVEAU}</p>
+										<!-- FINSI -->
+										<!-- SI SOLDE.RESUME -->
+										<div class="description">{SOLDE.RESUME}</div>
+										<!-- FINSI -->
+									</div>
+								</div>
+		<!-- SI SOLDE.DERN_LIGNE ou SOLDE.NUM_LIGNE % 3 egal 2 -->
+							</div>
+		<!-- FINSI -->
+		<!-- SI SOLDE.DERN_LIGNE -->
+						</div>
+		<!-- FINSI -->
+	<!-- FIN SOLDE -->
+	<!-- DEBUT NOUVEAUTE -->
+		<!-- SI NOUVEAUTE.PREM_LIGNE -->
+						<h2 class="h2"><strong>{L_NOUVEAUTES}</strong></h2>
+						<div class="list-prod selection">
+		<!-- FINSI -->
+		<!-- SI NOUVEAUTE.PREM_LIGNE ou NOUVEAUTE.NUM_LIGNE % 3 egal 0 -->
+							<div class="ligne-prod">
+		<!-- FINSI -->
+								<div itemscope itemtype="http://schema.org/Product" class="prod<!-- SI NOUVEAUTE.NUM_LIGNE % 3 egal 2 --> last<!-- FINSI -->">
+									<div class="cont-prod<!-- SI (NOUVEAUTE.PROMO_PRIX et NOUVEAUTE.SOLDE egal 1) ou (NOUVEAUTE.PROMO_PRIX et NOUVEAUTE.SOLDE egal 0) ou NOUVEAUTE.NOUVEAUTE --> avec-etat<!-- FINSI -->">
+										<div class="haut-prod">
+											<a class="photo" href="{NOUVEAUTE.URL}">
+												<img src="{NOUVEAUTE.IMG_150}" alt="{NOUVEAUTE.NOM[SCRIPT]}" />
+											</a>
+											<div class="infos-prod">
+												<h3 class="nom"><a itemprop="name" href="{NOUVEAUTE.URL}">{NOUVEAUTE.NOM[SCRIPT]}</a></h3>
+												<!-- SI NOUVEAUTE.MARQ_NOM --><p class="brand"><a href="{NOUVEAUTE.URL}">{NOUVEAUTE.MARQ_NOM}</a></p><!-- FINSI -->
+												<!-- SI NOUVEAUTE.NOTE -->
+											    <div class="wizicss-etoiles-bg" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+											        <div class="wizicss-etoiles-fg" style="width: {NOUVEAUTE.NOTE_POUR}%;">
+											        	<meta itemprop="worstRating" content="1" />
+														<meta itemprop="ratingValue" content="{NOUVEAUTE.NOTE}" />
+														<meta itemprop="worstRating" content="5" />
+														<meta itemprop="reviewCount" content="{PROD_COM_COUNT}" />
+													</div>
+											    </div>
+											    <!-- FINSI -->
+											</div>
+											<a href="{NOUVEAUTE.URL}" class="button btn-ajpan<!-- SI NOUVEAUTE.VARIATION ou NOUVEAUTE.VARIATION2 --> prod-var<!-- FINSI -->">
+												<span><span>{L_SAVOIR_PLUS}</span></span>
+											</a>
+										</div>
+										<div class="bas-prod">
+											<p class="prix">
+												<a href="{NOUVEAUTE.URL}">
+													<!-- SI NOUVEAUTE.VARIATION et NOUVEAUTE.VARIATION_PRIX -->
+													<span>{L_A_PARTIR_DE}</span>
+													<!-- FINSI -->
+													<!-- SI NOUVEAUTE.PROMO_PRIX -->
+													<strong>{DEVISE_PRE}{NOUVEAUTE.PROMO_PRIX}{DEVISE_POST}</strong>
+													<del>{DEVISE_PRE}{NOUVEAUTE.PRIX}{DEVISE_POST}</del>
+													<!-- SINON -->
+													<strong>{DEVISE_PRE}{NOUVEAUTE.PRIX}{DEVISE_POST}</strong>
+													<!-- FINSI -->
+												</a>
+											</p>
+										</div>
+										<!-- SI NOUVEAUTE.PROMO_TYPE et NOUVEAUTE.SOLDE egal 1 -->
+										<p class="etatPrix solde">{L_SOLDE} <span><!-- SI NOUVEAUTE.PROMO_POUR_ROUND --><strong><!-- SI NOUVEAUTE.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI NOUVEAUTE.PROMO_TYPE egal 2 -->{NOUVEAUTE.PROMO_POUR_ROUND}%<!-- SINONSI NOUVEAUTE.PROMO_TYPE egal 1 -->{DEVISE_PRE}{NOUVEAUTE.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+										<!-- SINONSI NOUVEAUTE.PROMO_TYPE et NOUVEAUTE.SOLDE egal 0 -->
+										<p class="etatPrix promo">{L_PROMOTION} <span><!-- SI NOUVEAUTE.PROMO_POUR_ROUND --><strong><!-- SI NOUVEAUTE.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI NOUVEAUTE.PROMO_TYPE egal 2 -->{NOUVEAUTE.PROMO_POUR_ROUND}%<!-- SINONSI NOUVEAUTE.PROMO_TYPE egal 1 -->{DEVISE_PRE}{NOUVEAUTE.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+										<!-- SINONSI NOUVEAUTE.NOUVEAUTE -->
+										<p class="etatPrix nouveaute">{L_NOUVEAU}</p>
+										<!-- FINSI -->
+										<!-- SI NOUVEAUTE.RESUME -->
+										<div class="description">{NOUVEAUTE.RESUME}</div>
+										<!-- FINSI -->
+										{NOUVEAUTE.FORM_PARAM}
+										<input type="hidden" id="quantiteAcc{NOUVEAUTE.ID}" name="{NOUVEAUTE.FORM_NB}" value="1" />
+									</div>
+								</div>
+		<!-- SI NOUVEAUTE.DERN_LIGNE ou NOUVEAUTE.NUM_LIGNE % 3 egal 2 -->
+							</div>
+		<!-- FINSI -->
+		<!-- SI NOUVEAUTE.DERN_LIGNE -->
+						</div>
+		<!-- FINSI -->
+	<!-- FIN NOUVEAUTE -->
+<!-- FIN SELEC -->

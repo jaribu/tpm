@@ -1,0 +1,22 @@
+						<h1 class="h1"><strong>{TITRE_PAGE}</strong></h1>
+					<!-- DEBUT BLOCK -->
+						<div class="block {BLOCK.TYPE}">
+							<!-- SI BLOCK.IMG -->
+								<div class="<!-- SI BLOCK.IMG_POSITION egal 'left' -->i-left{BLOCK.TYPE} <!-- SINONSI BLOCK.IMG_POSITION egal 'center' -->i-center{BLOCK.TYPE} <!-- SINONSI BLOCK.IMG_POSITION egal 'right' -->i-right{BLOCK.TYPE} <!-- FINSI -->i-{BLOCK.TYPE}"><!-- SI BLOCK.IMG_URL --><a href="{BLOCK.IMG_URL}" title="{BLOCK.IMG_NOM}"><img src="{BLOCK.IMG}" alt="{BLOCK.IMG_NOM}" /></a><!-- SINON --><img src="{BLOCK.IMG}" alt="{BLOCK.IMG_NOM}" /><!-- FINSI --></div>
+							<!-- FINSI -->
+							
+							<!-- SI BLOCK.TYPE different 'img' -->
+								<div class="t-{BLOCK.TYPE}">
+								<!-- DEBUT DESC -->
+									<!-- SI DESC.TYPE == 'titre' -->
+										<h2 class="h2">{DESC.TEXT}</h2>
+									<!-- SINONSI DESC.TYPE == 'soustitre' -->
+										<h3 class="h3">{DESC.TEXT}</h3>
+									<!-- SINON -->
+										{DESC.TEXT}
+									<!-- FINSI -->
+								<!-- FIN DESC -->
+								</div>
+							<!-- FINSI -->
+						</div>
+					<!-- FIN BLOCK -->

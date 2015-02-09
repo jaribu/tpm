@@ -1,0 +1,226 @@
+			<div id="processus-commande">
+				<p>
+					<a href="/p/panier.html">
+						<strong>1</strong>
+						<span>{L_MON_PANIER}</span>
+					</a>
+				</p>
+				<p>
+					<a href="/p/commande.html">
+						<strong>2</strong>
+						<span>{L_LIVRAISON}</span>
+					</a>
+				</p>
+				<p class="current">
+					<strong>3</strong>
+					<span>{L_PAIEMENT}</span>
+				</p>
+				<p>
+					<strong>4</strong>
+					<span>{L_CONFIRMATION}</span>
+				</p>
+			</div>
+<!-- DEBUT PANIER -->
+				<div id="col-pan-g">
+					<h1 class="titre-processus"><strong>{L_VOS_COORDONNEES}</strong></h1>
+	<!-- DEBUT !ADRESSE -->
+		<!-- DEBUT FACTURATION -->
+					<div id="AddFact">
+						<h2 class="h2"><span>{L_COOFACT}</span></h2>
+						<address>
+							{FACTURATION.CIVILITE} {FACTURATION.NOM} {FACTURATION.PRENOM}
+			<!-- SI FACTURATION.SOCIETE -->
+							<br/>{FACTURATION.SOCIETE}
+			<!-- FINSI -->
+							<br />{FACTURATION.ADRESSE}
+							<br />{FACTURATION.CP} {FACTURATION.VILLE} {FACTURATION.PAYS}</p>
+							<br />{FACTURATION.TEL}
+						</address>
+						<p><a href="{FACTURATION.URL_MODIF}">{L_MODIF_FACT}</a></p>
+					</div>
+		<!-- FIN FACTURATION -->
+		<!-- DEBUT LIVRAISON -->
+					<div id="AddLivr">
+						<h2 class="h2"><span>{L_COOLIV}</span></h2>
+						<address>
+							{LIVRAISON.CIVILITE} {LIVRAISON.NOM} {LIVRAISON.PRENOM}
+			<!-- SI LIVRAISON.SOCIETE -->
+							<br/>{LIVRAISON.SOCIETE}
+			<!-- FINSI -->
+							<br/>{LIVRAISON.ADRESSE}
+							<br/>{LIVRAISON.CP} {LIVRAISON.VILLE} {LIVRAISON.PAYS}
+							<br/>{LIVRAISON.TEL}
+						</address>
+						<p><a href="{LIVRAISON.URL_MODIF}">{L_MODIF_LIVR}</a></p>
+					</div>
+		<!-- FIN LIVRAISON -->
+	<!-- FIN ADRESSE -->					
+					<div class="clear1px"></div>
+				</div>
+				<div id="col-pan-d">
+					<div class="cadre-tableT2">
+						<div class="c1-cadre-tableT2">
+							<table class="tableT2 validation" summary="{L_PANIER}" id="votre-panier">
+								<thead>
+									<tr>
+										<th class="tdl" colspan="2"><div>{L_PANIER_ARTICLE}</div></th>
+										<th class="panier-prix tdc"><div>{L_SOUS_TOTAL}</div></th>
+									</tr>
+								</thead>
+								<tfoot>
+									<tr>
+										<th colspan="2" class="tdr">{L_PANIER_TOTAL_PROD}</th>
+										<td colspan="1" class="tdr">{DEVISE_PRE}{PANIER.TOTAL_PROD}{DEVISE_POST}</td>
+									</tr>
+									<tr>
+										<th colspan="2" class="tdr">{L_PANIER_TVA}</th>
+										<td colspan="1" class="tdr">{DEVISE_PRE}{PANIER.TVA_PROD}{DEVISE_POST}</td>
+									</tr>
+									<!-- SI PANIER.PAPIER_CADEAU -->
+									<tr>
+									<!-- SI PANIER.PAPIER_CADEAU_PRIX -->
+										<th colspan="2" class="tdr">{L_PAPIER_KDO}</th>
+										<td colspan="1" class="tdr">{DEVISE_PRE}{PANIER.PAPIER_CADEAU_PRIX}{DEVISE_POST}</td>
+									<!-- SINON -->
+										<th colspan="2" class="tdr">{L_PAPIER_KDO}</th>
+										<td colspan="1" class="tdr">{L_OFFERT}</td>
+									<!-- FINSI -->
+									</tr>
+									<!-- FINSI -->
+									<!-- SI PANIER.TOTAL_PERSO -->
+									<tr>
+										<th colspan="2" class="tdr">{L_PANIER_PERSO}</th>
+										<td colspan="1" class="tdr">{DEVISE_PRE}{PANIER.TOTAL_PERSO}{DEVISE_POST}</td>
+									</tr>
+									<!-- FINSI -->
+									<!-- SI PANIER.BON_REDUC -->
+									<tr>
+										<th colspan="2" class="tdr">{L_PANIER_BON_REDUC}</th>
+										<td colspan="1" class="tdr" id="td-remise">{DEVISE_PRE}{PANIER.BON_REDUC}{DEVISE_POST}</td>
+									</tr>
+									<!-- FINSI -->
+									<tr>
+										<th class="tdr" colspan="2">{L_PANIER_PORT}</th>
+										<td class="tdr" colspan="1">{DEVISE_PRE}{PANIER.FRAIS_PORT}{DEVISE_POST}</td>
+									</tr>
+									<tr class="total">
+										<th class="tdr" colspan="2">{L_PANIER_TOTAL} :</th>
+										<td class="tdr" colspan="1">{DEVISE_PRE}{PANIER.TOTAL}{DEVISE_POST}</td>
+									</tr>
+								</tfoot>
+							    <tbody>
+									<!-- DEBUT PROD --> 
+								    <tr class="prod-pan<!-- SI PROD.NUM_LIGNE est impair --> impair<!-- FINSI --><!-- SI PROD.PREM_LIGNE --> first<!-- FINSI --><!-- SI PROD.DERN_LIGNE --> last<!-- FINSI -->">
+										<td class="image-panier"><a href="{PROD.URL}"><img src="{PROD.IMG_50}" alt="" /></a></td>
+										<td class="panier-description">
+											<p class="panier-titre-produit"><a href="{PROD.URL}">{PROD.NOM}</a></p>
+											<p class="panier-marque-produit">{PROD.MARQ_NOM}</p>
+											<p>{L_PANIER_QUANTITE} : {PROD.NB}</p>
+											<!-- DEBUT LIST_PERSO -->
+											<p><strong>{LIST_PERSO.TITRE} :</strong> {LIST_PERSO.TEXT}<!-- SI LIST_PERSO.PRIX --> <strong>({LIST_PERSO.PRIX}€)</strong><!-- FINSI --></p>
+											<!-- FIN LIST_PERSO -->
+											<!-- DEBUT VARIATION -->
+											<p>{VARIATION.NOM}</p>
+											<!-- FIN VARIATION -->
+										</td>
+										<td class="tdr panier-sstot"><p><!-- SI PROD.PROMO_PRIX --><del>{DEVISE_PRE}{PROD.PRIX}{DEVISE_POST}</del><strong>{DEVISE_PRE}{PROD.PROMO_PRIX}{DEVISE_POST}</strong><!-- SINON --><strong>{DEVISE_PRE}{PROD.PRIX}{DEVISE_POST}</strong> <!-- FINSI --></p><!-- SI PROD.ECO_PART --><p class="ecopart">{L_ECOPARTP} : {DEVISE_PRE}{PROD.ECO_PART}{DEVISE_POST}</p><!-- FINSI --></td>
+									</tr>
+									<!-- FIN PROD -->
+							    </tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="clear1px"></div>
+<!-- FIN PANIER --> 
+<!-- DEBUT MODE_PAIEMENT -->
+				<h2 class="titre-processus"><strong>{L_MODE_PAIEMENT}</strong></h2>
+				<form class="formT3" id="form-cgv" action="{MODE_PAIEMENT.FORM}" method="post">
+					<fieldset id="choix-paiement">
+	<!-- DEBUT CB -->
+						<div id="div-cb-{CB.TYPE}" class="bloc-mode mode-paiement">
+							<label for="paicb{CB.TYPE}">
+								<input type="radio" name="{MODE_PAIEMENT.FORM_NAME}"  id="paicb{CB.TYPE}" value="{CB.FORM_VALUE}" />
+								<img src="<!-- SI CB.TYPE egal '201' -->{W_IMG_PATH}/c-paiement-paypal.jpg<!-- SINONSI CB.IMG egal '/_i/banques/cb-100.gif' -->{W_IMG_PATH}/c-paiement-cb.jpg<!-- SINON -->{CB.IMG}<!-- FINSI -->" alt="{L_PAI_CB} {CB.NOM}" /> 
+							</label>
+							<label class="label-nom-paiement" for="paicb{CB.TYPE}">{L_PAI_CB} {CB.NOM}</label>
+							<div class="clear1px"></div>
+						</div>
+	<!-- FIN CB -->
+	<!-- DEBUT AUTRE -->
+						<div class="bloc-mode mode-paiement">
+							<label for="paicb{AUTRE.TYPE}">
+								<input type="radio" name="{MODE_PAIEMENT.FORM_NAME}"  id="paicb{AUTRE.TYPE}" value="{AUTRE.FORM_VALUE}" />
+								<img src="{AUTRE.IMG}" alt="{AUTRE.NOM}" /> 
+							</label>
+							<label class="label-nom-paiement" for="paicb{AUTRE.TYPE}">{AUTRE.NOM}</label>
+							<div class="clear1px"></div>
+						</div>
+	<!-- FIN AUTRE -->
+	<!-- DEBUT CHEQUE -->
+						<div class="bloc-mode mode-paiement">
+							<label for="paicheque">
+								<input type="radio" name="{MODE_PAIEMENT.FORM_NAME}"  id="paicheque" value="{CHEQUE.FORM_VALUE}" />
+								<img src="{W_IMG_PATH}/c-paiement-cheque.jpg" alt="{L_PAI_CHEQUE}" /> 
+							</label>
+							<label class="label-nom-paiement" for="paicheque">{L_PAI_CHEQUE}</label>
+							<div class="clear1px"></div>
+						</div>
+	<!-- FIN CHEQUE -->
+	<!-- DEBUT VIREMENT -->
+						<div class="bloc-mode mode-paiement">
+							<label for="paivir">
+								<input type="radio" name="{MODE_PAIEMENT.FORM_NAME}"  id="paivir" value="{VIREMENT.FORM_VALUE}" />
+								<img src="{W_IMG_PATH}/c-paiement-virement.jpg" alt="{L_PAI_VIR}" /> 
+							</label>
+							<label class="label-nom-paiement" for="paivir">{L_PAI_VIR}</label>
+							<div class="clear1px"></div>
+						</div>
+	<!-- FIN VIREMENT -->
+					</fieldset>
+	<!-- DEBUT CGV -->
+		<!-- SI CGV.PREM_LIGNE -->
+					<fieldset>
+						<div id="contentCgv">
+		<!-- FINSI -->	
+		<!-- DEBUT BLOCK -->
+							<div class="block">
+			<!-- SI BLOCK.IMG -->
+								<div class="<!-- SI BLOCK.IMG_POSITION egal 'left' -->i-left{BLOCK.TYPE} <!-- SINONSI BLOCK.IMG_POSITION egal 'center' -->i-center{BLOCK.TYPE} <!-- SINONSI BLOCK.IMG_POSITION egal 'right' -->i-right{BLOCK.TYPE} <!-- FINSI -->i-{BLOCK.TYPE}"><!-- SI BLOCK.IMG_URL --><a href="{BLOCK.IMG_URL}" title="{BLOCK.IMG_URL_NOM}"><img src="{BLOCK.IMG}" alt="{BLOCK.IMG_NOM}" /></a><!-- SINON --><img src="{BLOCK.IMG}" alt="{BLOCK.IMG_NOM}" /><!-- FINSI --></div>
+			<!-- FINSI -->
+							
+			<!-- SI BLOCK.TYPE different 'img' -->
+								<div class="T{BLOCK.TYPE}">
+				<!-- DEBUT DESC -->
+					<!-- SI DESC.TYPE == 'titre' -->
+									<h3>{DESC.TEXT}</h3>
+					<!-- SINONSI DESC.TYPE == 'soustitre' -->
+									<h4>{DESC.TEXT}</h4>
+					<!-- SINON -->
+									{DESC.TEXT}
+					<!-- FINSI -->
+				<!-- FIN DESC -->
+								</div>
+			<!-- FINSI -->
+							</div>
+		<!-- FIN BLOCK -->
+		<!-- SI CGV.DERN_LIGNE -->
+						</div>
+					</fieldset>
+					<div id="valid-pai">
+						<button id="btn-paiement" class="button btnT3" type="submit" name="subpai"><span><span><span>{L_VALID_PAI}</span></span></span></button>
+						<div id="cgv" class="regroupement">
+							<label for="validCgv">
+								<input type="checkbox" name="{MODE_PAIEMENT.FORM_CGV}" id="validCgv" />
+								{L_LUETOK} <a class="thickbox" href="#TB_inline?height=500&width=700&inlineId=contentCgv">{L_CGV}</a>
+							</label>
+						<!-- DEBUT !PANIER -->								
+							<p>{L_PANIER_TOTAL} : <strong>{DEVISE_PRE}{PANIER.TOTAL}{DEVISE_POST}</strong></p>
+						<!-- FIN PANIER -->
+						</div>
+					</div>
+		<!-- FINSI -->
+	<!-- FIN CGV -->
+					<div class="clear1px"></div>
+				</form>
+<!-- FIN MODE_PAIEMENT -->

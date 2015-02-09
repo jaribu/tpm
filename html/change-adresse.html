@@ -1,0 +1,73 @@
+<!-- DEBUT ADRESSE -->
+						<h1 class="h1"><strong>{ADRESSE.TITRE}</strong></h2>
+	<!-- DEBUT ERREUR -->
+						<div class="Erreur">
+		<!-- DEBUT TEXT -->
+							<p><img class="pngfix warning" src="{W_IMG_PATH}/c-warning.png" alt="{L_ATTENTION}" />{TEXT.ERREUR}</p>
+		<!-- FIN TEXT -->
+						</div>
+	<!-- FIN ERREUR -->
+						<form class="formT1" action="{ADRESSE.FORM}" method="post" id="Enregistrement">
+							<fieldset>
+								<legend>{ADRESSE.TITRE2}</legend>
+								<div class="regroupement choix-horiz">
+	<!-- DEBUT VAL_CIVILITE -->
+		<!-- SI VAL_CIVILITE.PREM_LIGNE -->
+									<ul>
+		<!-- FINSI -->
+										<li>
+											<label for="{VAL_CIVILITE.NOM}">
+												<input type="radio" id="{VAL_CIVILITE.NOM}" name="{ADRESSE.FORM_CIVILITE}" value="{VAL_CIVILITE.VAL}" <!-- SI VAL_CIVILITE.SEL -->checked="checked"<!-- FINSI --> />
+												{VAL_CIVILITE.NOM}
+											</label>
+										</li>
+		<!-- SI VAL_CIVILITE.DERN_LIGNE -->
+									</ul>
+									<label for="{VAL_CIVILITE.NOM}"><!-- DEBUT !ERREUR --><!-- SI ERREUR.CIVILITE --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_CIVILITE}</label>
+		<!-- FINSI -->
+	<!-- FIN VAL_CIVILITE -->
+								</div>
+								<div class="regroupement">
+									<input class="textbox" type="text" id="prenom1" name="{ADRESSE.FORM_PRENOM}" value="{ADRESSE.VAL_PRENOM}" />
+									<label for="prenom1"><!-- DEBUT ERREUR --><!-- SI ERREUR.PRENOM --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_PRENOM}</label>
+								</div>
+								<div class="regroupement">
+									<input class="textbox" type="text" id="nom1" name="{ADRESSE.FORM_NOM}" value="{ADRESSE.VAL_NOM}" />
+									<label for="nom1"><!-- DEBUT ERREUR --><!-- SI ERREUR.NOM --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_NOM}</label>
+								</div>
+								<div class="regroupement">
+									<input class="textbox" type="text" id="societe1" name="{ADRESSE.FORM_SOCIETE}" value="{ADRESSE.VAL_SOCIETE}" />
+									<label for="societe1">{L_SOCIETE} <em>({L_FACULTATIF})</em></label>
+								</div>
+								<div class="regroupement">
+									<textarea id="adresse1" name="{ADRESSE.FORM_ADRESSE}" cols="20" rows="5">{ADRESSE.VAL_ADRESSE}</textarea>
+									<label for="adresse1"><!-- DEBUT ERREUR --><!-- SI ERREUR.ADRESSE --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_ADRESSE}</label>
+								</div>
+								<div class="regroupement">
+									<input class="textbox" type="text" id="cp1" name="{ADRESSE.FORM_CP}" value="{ADRESSE.VAL_CP}" />
+									<label for="cp1"><!-- DEBUT ERREUR --><!-- SI ERREUR.CP --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_CP}</label>
+								</div>
+								<div class="regroupement">
+									<input class="textbox" type="text" id="ville1" name="{ADRESSE.FORM_VILLE}" value="{ADRESSE.VAL_VILLE}" />
+									<label for="ville1"><!-- DEBUT ERREUR --><!-- SI ERREUR.VILLE --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_VILLE}</label>
+								</div>
+								<div class="regroupement">
+									<select id="pays1" name="{ADRESSE.FORM_PAYS}">
+	<!-- DEBUT VAL_PAYS -->
+										<option value="{VAL_PAYS.VAL}" <!-- SI VAL_PAYS.SEL -->selected="selected"<!-- FINSI -->>{VAL_PAYS.NOM}</option>
+	<!-- FIN VAL_PAYS -->
+									</select>
+									<label for="pays1"><!-- DEBUT ERREUR --><!-- SI ERREUR.PAYS --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_PAYS}</label>
+								</div>
+								<div class="regroupement">
+									<input class="textbox" type="text" id="tel1" name="{ADRESSE.FORM_TEL}" value="{ADRESSE.VAL_TEL}" />
+									<label for="tel1"><!-- DEBUT ERREUR --><!-- SI ERREUR.TEL --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_TEL}</label>
+								</div>
+							</fieldset>
+							<div class="valider zone-button2">
+								<button class="button btnT2" type="submit" id="btneannul" name="{ADRESSE.FORM_ANNU}"><span><span>{L_ANNULER}</span></span></button>
+								<button class="button btnT1" type="submit" id="btne" name="{ADRESSE.FORM_VALID}"><span><span>{L_MODIFIER}</span></span></button>
+							</div>
+							<p id="Cnil">{L_INFOCNIL}</p>
+						</form>
+<!-- FIN ADRESSE -->

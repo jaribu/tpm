@@ -1,0 +1,136 @@
+
+<h1 class="h1"><strong>{L_COM_CONFIRMATION_TITRE}</strong></h1>
+<ul id="menu-compte">
+<li class="current">
+<a href="compte.html">Mon compte</a>
+</li>
+<li>
+<a href="liste-commande.html">Mon historique de commande</a>
+</li>
+</ul>
+
+<div id="commentaires" class="wizicss-commentaires wizicss-com-boutique {INFO_OS} {INFO_NAVIGATEUR}{INFO_NAVIGATEUR_VERSION}<!-- SI INFO_NAVIGATEUR egal 'chrome' ou INFO_NAVIGATEUR egal 'safari' ou INFO_NAVIGATEUR egal 'webkit' --> {INFO_NAVIGATEUR} webkit<!-- SINON --> {INFO_NAVIGATEUR}<!-- FINSI -->">
+    <p class="wizicss-com-conf-texte">{L_COM_CONFIRMATION_TXT}</p>
+<!-- DEBUT ADD_COM -->
+    <!-- SI ADD_COM.OK ou ADD_COM.OK_VALID -->
+    <p class="wizicss-succes"><!-- SI ADD_COM.OK -->{L_SHOP_ADD_COM_OK}<!-- SINONSI ADD_COM.OK_VALID -->{L_SHOP_ADD_COM_VALID}<!-- FINSI --></p>
+    <!-- SINON -->
+    <form class="wizicss-com-form" action="{ADD_COM.FORM}" method="post">
+        <fieldset class="wizijs-comment">
+            <legend>{L_AJOUTER_COMMENTAIRE}</legend>
+            <div id="wizi-coms" class="wizicss-coms"></div>
+            <!-- DEBUT ERREUR -->
+                <!-- DEBUT TEXT -->
+                    <!-- SI TEXT.PREM_LIGNE -->
+            <ul class="wizicss-erreur-liste">
+                    <!-- FINSI -->
+                <li class="wizicss-erreur">{TEXT.ERREUR}</li>
+                    <!-- SI TEXT.DERN_LIGNE -->
+            </ul>
+                    <!-- FINSI -->
+                <!-- FIN TEXT -->
+            <!-- DEBUTSINON -->
+                <!-- SI ADD_COM.ERREUR_COMM egal 1 ou ADD_COM.ERREUR_COMM egal 2 -->
+            <p class="wizicss-com-conditions"><!-- SI ADD_COM.ERREUR_COMM egal 1 -->{L_COM_ERREUR_CLIENT}<!-- SINONSI ADD_COM.ERREUR_COMM egal 2 -->{L_COM_ERREUR_CLIENT_ACHETER}<!-- FINSI --></p>
+                <!-- FINSI -->
+            <!-- FIN ERREUR -->
+            
+        <!-- SI ADD_COM.FORM_CONTENU -->
+            <!-- SI ADD_COM.FORM_NOTE -->
+            <div class="wizicss-note-selection">
+                <p class="wizicss-votre-note">{L_VOTRE_NOTE}</p>
+                <ul class="wizicss-liste-etoiles wizijs-notes-echelle">
+                    <li>
+                        <label for="wizi-note01" title="{L_NOTE} : 1 {L_SUR} 5">1
+                            <input type="radio" name="{ADD_COM.FORM_NOTE}" id="wizi-note01" value="1" <!-- SI ADD_COM.VAL_NOTE egal 1 -->checked="checked"<!-- FINSI -->/>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="wizi-note02" title="{L_NOTE} : 2 {L_SUR} 5">2
+                            <input type="radio" name="{ADD_COM.FORM_NOTE}" id="wizi-note02" value="2" <!-- SI ADD_COM.VAL_NOTE egal 2 -->checked="checked"<!-- FINSI -->/>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="wizi-note03" title="{L_NOTE} : 3 {L_SUR} 5">3
+                            <input type="radio" name="{ADD_COM.FORM_NOTE}" id="wizi-note03" value="3" <!-- SI ADD_COM.VAL_NOTE egal 3 -->checked="checked"<!-- FINSI -->/>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="wizi-note04" title="{L_NOTE} : 4 {L_SUR} 5">4
+                            <input type="radio" name="{ADD_COM.FORM_NOTE}" id="wizi-note04" value="4" <!-- SI ADD_COM.VAL_NOTE egal 4 -->checked="checked"<!-- FINSI -->/>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="wizi-note05" title="{L_NOTE} : 5 {L_SUR} 5">5
+                            <input type="radio" name="{ADD_COM.FORM_NOTE}" id="wizi-note05" value="5" <!-- SI ADD_COM.VAL_NOTE egal 5 -->checked="checked"<!-- FINSI -->/>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <!-- FINSI -->
+            <div class="wizicss-regroupement">
+                <label class="wizicss-hidden" for="wizi-txt-commentaire">{L_COMMENTAIRE}</label>
+                <textarea id="wizi-txt-commentaire" class="wizicss-textarea wizijs-textarea" name="{ADD_COM.FORM_CONTENU}" placeholder="{L_AJOUTER_COMMENTAIRE}">{ADD_COM.VAL_CONTENU}</textarea>
+            </div>
+            <div class="wizi-action-container">
+                <div class="wizicss-regroupement">
+                    <label class="wizicss-hidden" for="wizi-txt-nom">{L_VOTRE_NOM}</label>
+                    <input id="wizi-txt-nom" class="wizicss-textbox" type="text" name="{ADD_COM.FORM_NOM}" value="{ADD_COM.VAL_NOM}" placeholder="{L_VOTRE_NOM}" />
+                </div>
+                <!-- SI ADD_COM.FORM_EMAIL -->
+                <div class="wizicss-regroupement">
+                    <label class="wizicss-hidden" for="wizi-txt-email">{L_VOTRE_EMAIL}</label>
+                    <input id="wizi-txt-email" class="wizicss-textbox" type="text" name="{ADD_COM.FORM_EMAIL}" value="{ADD_COM.VAL_EMAIL}" placeholder="{L_VOTRE_EMAIL}" /> 
+                    <span class="wizi-publier">{L_FACULT}</span>
+                </div>
+                <!-- FINSI -->
+                <!-- SI ADD_COM.FORM_LOGIN et ADD_COM.FORM_PASS -->
+                <div class="wizicss-bloc-connexion">
+                <!-- FINSI -->
+                <!-- SI ADD_COM.FORM_LOGIN -->
+                <p class="wizicss-texte-connexion">{L_COM_POUR_IDENTIFIER}</p>
+                <div class="wizicss-regroupement">
+                    <label class="wizicss-hidden" for="wizi-txt-pseudo">{L_EMAIL_CONNEXION}</label>
+                    <input id="wizi-txt-pseudo" class="wizicss-textbox" type="text" name="{ADD_COM.FORM_LOGIN}" value="{ADD_COM.VAL_LOGIN}" placeholder="{L_EMAIL_CONNEXION}" />
+                </div>
+                <!-- FINSI -->
+                <!-- SI ADD_COM.FORM_PASS -->
+                <div class="wizicss-regroupement">
+                    <label class="wizicss-hidden" for="wizi-txt-pass">{L_MOT_DE_PASSE}</label>
+                    <input id="wizi-txt-pass" class="wizicss-textbox" type="password" name="{ADD_COM.FORM_PASS}" value="{ADD_COM.VAL_PASS}" placeholder="{L_MOT_DE_PASSE}" />
+                </div>
+                <!-- FINSI -->
+                <!-- SI ADD_COM.FORM_LOGIN et ADD_COM.FORM_PASS -->
+                </div>
+                <!-- FINSI -->
+                <div class="wizicss-com-partage wizicss-regroupement">
+                    <p class="wizicss-com-partager">{L_PARTAGER_RESEAUX_SOCIAUX} :</p>
+                    <ul class="wizicss-com-liste-reseaux">
+                        <li>
+                            <label for="wizi-chk-fb">
+                                <input id="wizi-chk-fb" type="checkbox" name="com[fb]" value="fb" class="wizi-btn-ch wizi-fb-chk"/> 
+                                <img class="wizi-btn-ch" src="{W_IMG_PATH_GLOBAL}/logo_facebook_16.gif" />
+                            </label>
+                        </li>
+                        <li>
+                            <label for="wizi-chk-twitter">
+                                <input id="wizi-chk-twitter" type="checkbox" name="com[twt]" value="twitter" class="wizi-btn-ch wizi-twitter-chk" /> 
+                                <img class="wizi-btn-ch" src="{W_IMG_PATH_GLOBAL}/logo_twitter.gif" />
+                            </label>
+                        </li>
+                    </ul>
+                    <div class="wizicss-clear1px"></div>
+                </div>
+                <div class="wizicss-zone-btn">
+                    <button id="wizi-btn-valider-com" class="wizicss-button"><span><span>{L_VALID}</span></span></button>
+                    <div class="clear1px"></div>
+                </div>
+                {ADD_COM.FORM_HIDDEN_ID}
+            </div>
+        <!-- FINSI -->
+        </fieldset>
+    </form>
+    <!-- FINSI -->
+<!-- FIN SHOP_ADD_COM -->
+    <div class="clear1px"></div>
+</div>

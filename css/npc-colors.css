@@ -1,0 +1,800 @@
+/*
+Couleurs tons gris
+#666666 couleur de certains textes
+#e6e6e6 background étapes non atteintes (grisées)
+#222222 couleur de certains textes et bordures
+#eaeaea bordures de certains cadres
+#ffffff couleur de certains textes et background des champs de formulaires
+#f6f6f6 background et bordures certaines cellules de tableaux et cadres
+#000000 couleur de certains textes et text-shadow
+#fbfbfb background et bordures onglets déjà commandé ou non
+#ebebeb bordures onglet sélectionné déjà commandé ou non
+#d5d5d5 couleur "ou"
+#e2e2e2 couleur des bordures des champs de formulaires et du bouton retour
+
+Couleurs tons bleues
+#000000 background étape en cours et couleur de certains textes et titres mis en évidence et bordures des modes de livraison et paiement sélectionnés
+#888888 background étapes accomplies, entêtes de certains tableaux, boutons slider panier, quelques bordures et couleur de certains textes
+#ebebeb background et bordures certaines cellules de tableaux et certains titres et cadres (bleus pâle) et bordures cadre contact (bleu très très pâle)
+#f9f9f9 background cadre contact (bleu très très pâle) et des modes de livraison et paiement sélectionnés
+
+Couleurs tons rouges
+#c01b24 couleur de certains textes (essentiellement des prix)
+#fff1f1 background tableaux standards et certaines cellules de tableaux, complément pour frais de port gratuits et cadre tutorial de paiement et des erreurs
+#870007 couleur des erreurs et de certains textes du tutorial de paiement
+
+Boutons standards
+#303030 dégradé début boutons services supplémentaires et bordures boutons services supplémentaires
+#292929 dégradé fin boutons services supplémentaires
+
+Boutons Validation
+#17933d dégradé début boutons Validation et bordures boutons Validation
+#1aa745 dégradé fin boutons Validation
+#167000 text-shadow boutons Validation
+
+Boutons Annulation / Retour
+#f1f1f1 background boutons Annulation / Retour
+
+Boutons Facebook
+#7790c4 dégradé début
+#677eb0 dégradé fin
+#687fb1 bordures
+#253a6a text-shadow
+#a1b1d8 bordure interne
+
+Boutons Paypal
+#346799 dégradé début
+#175289 dégradé fin
+#185286 bordures
+#0d345a text-shadow
+#6792bb bordure interne
+*/
+
+.wizi-etape {
+	color: #666666;
+}
+
+.wizi-pointe {
+	border-color: #ffffff #ffffff #ffffff #e6e6e6;
+}
+
+.wizi-c1-etape {
+	background: #e6e6e6;
+}
+
+.wizi-middle .wizi-pointe {
+	border-color: transparent transparent transparent #e6e6e6;
+}
+
+.wizi-npc-etapes a {
+	color: #666666;
+}
+
+.wizi-current .wizi-c1-etape {
+	background: #000000;
+}
+
+.wizi-current .wizi-pointe {
+	border-color: transparent transparent transparent #000000;
+}
+
+.wizi-done .wizi-c1-etape {
+	background: #888888;
+}
+
+.wizi-done .wizi-pointe {
+	border-color: transparent transparent transparent #888888;
+}
+
+.wizi-npc-etapes .wizi-current, .wizi-npc-etapes .wizi-current a, .wizi-npc-etapes .wizi-done, .wizi-npc-etapes .wizi-done a {
+	color: #fff;
+}
+
+.wizi-pointe-bg, .wizi-middle .wizi-pointe-bg {
+	border-color: #e6e6e6 #e6e6e6 #e6e6e6 #ffffff;
+}
+
+.wizi-current .wizi-pointe-bg {
+	border-color: #000000 #000000 #000000 #ffffff;
+}
+
+.wizi-done .wizi-pointe-bg {
+	border-color: #888888 #888888 #888888 #ffffff;
+}
+
+.wizi-btn span {
+	background: #303030;
+	background: -moz-linear-gradient(top,  #303030 0%, #292929 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#303030), color-stop(100%,#292929));
+	background: -webkit-linear-gradient(top,  #303030 0%,#292929 100%);
+	background: -o-linear-gradient(top,  #303030 0%,#292929 100%);
+	background: -ms-linear-gradient(top,  #303030 0%,#292929 100%);
+	background: linear-gradient(to bottom,  #303030 0%,#292929 100%);
+	border-color: #303030;
+}
+
+.wizi-btn span span {
+	-webkit-box-shadow: inset -1px 1px 0 0px rgba(255, 255, 255, 0.3);
+	-moz-box-shadow: inset -1px 1px 0 0px rgba(255, 255, 255, 0.3);
+	box-shadow: inset -1px 1px 0 0px rgba(255, 255, 255, 0.3);
+	text-shadow: 1px 1px 1px #000000;
+	color: #fff;
+}
+
+.wizi-npc-h1 {
+	color: #222222;
+}
+
+.wizi-npc-h1 span {
+	color: #000000;
+}
+
+.wizi-panier-sauvegarde {
+	background: url(/_t/_/images/npc-diskette.png) no-repeat left center;
+	color: #666666;
+}
+
+.wizi-panier {
+	border-color: #eaeaea;
+}
+
+.wizi-panier td {
+	background: #ffffff;
+	border-color: #eaeaea;
+}
+
+.wizi-panier thead th {
+	background: none;
+}
+
+.wizi-panier thead th div {
+	background: #888888;
+	color: #ffffff;
+}
+
+.wizi-option-val {
+	font-size: 1.1em;
+	color: #666666;
+}
+
+.wizi-livraison-tr td, .wizi-livraison-comp-tr td {
+	background: #ffffff;
+}
+
+.wizi-panier .wizi-livraison-tr td {
+	border-color: #eaeaea;
+}
+
+.wizi-panier .wizi-livraison-tr:nth-last-child(4) td {
+	border-bottom: none;
+}
+
+.wizi-panier .wizi-livraison-comp-tr td {
+	border-color: #eaeaea;
+}
+
+.wizi-livraison-comp {
+	background: none;
+	color: #c01b24;
+}
+
+.wizi-livraison-comp a {
+	color: #888888;
+}
+
+.wizi-panier .last td {
+	border-color: #eaeaea;
+}
+
+.wizi-panier tfoot tr:nth-last-child(2) td {
+	border-color: #000;
+}
+
+.wizi-form-remise-tr td {
+	background: #f6f6f6;
+	-moz-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 1);
+	-webkit-box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 1);
+	box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 1);
+}
+
+.wizi-remise-h1 {
+	color: #222222;
+}
+
+.wizi-panier .wizi-total-th {
+	background: #ffffff;
+	border-color: #ffffff;
+}
+
+.wizi-total-panier {
+	color: #000000;
+}
+
+.wizi-total-panier-prix {
+	color: #c01b24;
+}
+
+.wizi-liste-options {
+	background: #ffffff;
+	border-color: #eaeaea;
+}
+
+.wizi-liste-options .wizi-npc-h1 span {
+	color: #222222;
+}
+
+.wizi-option-ajout {
+	border-color: #eaeaea;
+}
+
+#wizi-suivi-sms {
+	background: url(/_t/_/images/npc-sms.png) no-repeat 8px 6px;
+}
+
+#wizi-message-colis {
+	background: url(/_t/_/images/npc-message-colis.png) no-repeat 9px 6px;
+}
+
+#wizi-papier-cadeau {
+	background: url(/_t/_/images/npc-papier-cadeau.png) no-repeat 10px 8px;
+}
+
+#wizi-message-colis .wizi-avantage-h1, #wizi-suivi-sms .wizi-avantage-h1 {
+	color: #222222;
+}
+
+.wizi-option-ajout .wizi-papier-desc {
+	font-size: 1.1em;
+}
+
+.wizi-papier-prix {
+	color: #222222;
+}
+
+.wizi-papier-prix strong, .wizi-sms-prix strong {
+	color: #c01b24;
+}
+
+.wizi-sms-prix, .wizi-message-prix, .wizi-papier-prix {
+	color: #c01b24;
+}
+
+.wizi-estimation, .wizi-fidelite, .wizi-panier-contact {
+	background: #f6f6f6;
+	color: #222222;
+}
+
+.wizi-estimation {
+	background: #f6f6f6 url(/_t/_/images/npc-livraison.png) no-repeat 13px 14px;
+}
+
+.wizi-fidelite {
+	background: #f6f6f6 url(/_t/_/images/npc-fidelite.png) no-repeat 15px 10px;
+}
+
+.wizi-panier-contact {
+	background: #f6f6f6 url(/_t/_/images/npc-contact.png) no-repeat 17px 10px;
+}
+
+.wizi-estimation-val, .wizi-fidelite-val, .wizi-panier-contact a {
+	color: #000000;
+}
+
+.wizi-ident-choix li {
+	background: #fbfbfb;
+	border-color: #fbfbfb;
+	color: #666666;
+}
+
+.wizi-ident-choix li .wizi-choix-h1 {
+	color: #222222;
+}
+
+.wizi-ident-choix .wizi-selected {
+	background: #f6f6f6;
+	border-color: #ebebeb;
+	border-bottom: 1px solid #f6f6f6;
+}
+
+.wizi-blocT1, .msie6 #wizi-ident-client.wizi-selected, .msie6 #wizi-create-client.wizi-selected {
+	background: #f6f6f6;
+	border-color: #ebebeb;
+}
+
+.wizi-npc-h2 {
+	background: #ebebeb;
+	color: #222222;
+}
+
+.wizi-npc-h2 span {
+	color: #000000;
+}
+
+.wizi-ident-bloc {
+	color: #666666;
+}
+
+.wizi-ident-btn {
+	-webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.6);
+	box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.6);
+}
+
+.wizi-ident-btn span {
+	color: #fff;
+	-webkit-box-shadow: inset -1px 1px 0 0px rgba(255, 255, 255, 0.3);
+	-moz-box-shadow: inset -1px 1px 0 0px rgba(255, 255, 255, 0.3);
+	box-shadow: inset -1px 1px 0 0px rgba(255, 255, 255, 0.3);
+}
+
+.wizi-ident-btn .wizi-ident-btn-picto {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.wizi-ident-btn .wizi-ident-btn-picto span {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+/*Bouton Facebook*/
+.wizi-ident-facebook {
+	background: #7790c4;
+	background: -moz-linear-gradient(top,  #7790c4 0%, #677eb0 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7790c4), color-stop(100%,#677eb0));
+	background: -webkit-linear-gradient(top,  #7790c4 0%,#677eb0 100%);
+	background: -o-linear-gradient(top,  #7790c4 0%,#677eb0 100%);
+	background: -ms-linear-gradient(top,  #7790c4 0%,#677eb0 100%);
+	background: linear-gradient(to bottom,  #7790c4 0%,#677eb0 100%);
+	border-color: #687fb1;
+	text-shadow: 1px 1px 1px #253a6a;
+}
+
+.wizi-ident-facebook .wizi-ident-btn-picto {
+	border-color: #a1b1d8;
+}
+
+.wizi-ident-facebook .wizi-ident-btn-picto span {
+	border-color: #687fb1;
+	background: url('/_t/_/images/npc-btn-facebook.png') no-repeat center center;
+}
+
+/*Bouton Paypal*/
+.wizi-ident-paypal {
+	background: #346799;
+	background: -moz-linear-gradient(top,  #346799 0%, #175289 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#346799), color-stop(100%,#175289));
+	background: -webkit-linear-gradient(top,  #346799 0%,#175289 100%);
+	background: -o-linear-gradient(top,  #346799 0%,#175289 100%);
+	background: -ms-linear-gradient(top,  #346799 0%,#175289 100%);
+	background: linear-gradient(to bottom,  #346799 0%,#175289 100%);
+	border-color: #185286;
+	text-shadow: 1px 1px 1px #0d345a;
+}
+
+.wizi-ident-paypal .wizi-ident-btn-picto {
+	border-color: #6792bb;
+}
+
+.wizi-ident-paypal .wizi-ident-btn-picto span {
+	border-color: #1a548a;
+	background: url('/_t/_/images/npc-btn-paypal.png') no-repeat center 9px;
+}
+
+.wizi-ident-bloc em span {
+	color: #222222;
+}
+
+.wizi-ou {
+	color: #d5d5d5;
+}
+
+.wizi-label {
+	color: #222222;
+}
+
+.wizi-textbox, .wizi-textarea {
+	background: #ffffff;
+	border-color: #e2e2e2;
+	-moz-box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.08);
+	-webkit-box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.08);
+	box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.08); 
+	color: #666666;
+}
+
+.wizi-textbox:hover, .wizi-textbox:focus, .wizi-textarea:hover, .wizi-textarea:focus {
+	border-color: #ebebeb;
+	-moz-box-shadow: inset 1px 1px 1px 0px rgba(2, 156, 215, 0.15);
+	-webkit-box-shadow: inset 1px 1px 1px 0px rgba(2, 156, 215, 0.15);
+	box-shadow: inset 1px 1px 1px 0px rgba(2, 156, 215, 0.15); 
+	color: #222222;
+}
+
+.wizi-is-not-valid .wizi-textbox, .wizi-is-not-valid .wizi-textarea, .wizi-is-not-valid .wizi-select {
+	background: #fff1f1;
+	border-color: #e88383;
+}
+
+.wizi-npc-form fieldset {
+	border: none;
+}
+
+.wizi-npc-form legend {
+	color: #000000;
+}
+
+.wizi-npc-form legend .facultatif {
+	color: #666666;
+}
+
+.wizi-is-not-valid {
+	background: url(/_t/_/images/npc-champ-ko.png) no-repeat right 5px;
+}
+
+.msie6 .wizi-is-not-valid {
+	background: url(/_t/_/images/npc-champ-ko-ie6.png) no-repeat right 5px;
+}
+
+.wizi-is-valid {
+	background: url(/_t/_/images/npc-champ-ok.png) no-repeat right 5px;
+}
+
+.msie6 .wizi-is-valid {
+	background: url(/_t/_/images/npc-champ-ok-ie6.png) no-repeat right 5px;
+}
+
+.wizi-form-info {
+	color: #666666;
+}
+
+.wizi-is-not-valid .wizi-form-info {
+	background: #fff1f1;
+}
+
+.wizi-form-precision {
+	color: #666666;
+}
+
+.wizi-form-correction {
+	color: #888888;
+}
+
+.wizi-fs-checkbox label {
+	color: #222222;
+}
+
+.wizi-btn-retour span {
+	background: #f1f1f1;
+	border: none;
+}
+
+.wizi-btn-retour span span {
+	color: #222222;
+	text-shadow: none;
+}
+
+#wizi-panier-validation #wizi-btn-continuer span span {
+	background: url(/_t/_/images/npc-btn-continuer.png) no-repeat 10px center;
+}
+
+#wizi-panier-validation #wizi-btn-recalculer span span {
+	background: url(/_t/_/images/npc-btn-recalculer.png) no-repeat 10px center;
+}
+
+.wizi-btn-valider span {
+	background: #17933d;
+	background: -moz-linear-gradient(top,  #17933d 0%, #1aa745 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#17933d), color-stop(100%,#1aa745));
+	background: -webkit-linear-gradient(top,  #17933d 0%,#1aa745 100%);
+	background: -o-linear-gradient(top,  #17933d 0%,#1aa745 100%);
+	background: -ms-linear-gradient(top,  #17933d 0%,#1aa745 100%);
+	background: linear-gradient(to bottom,  #17933d 0%,#1aa745 100%);
+	-moz-box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.3);
+	-webkit-box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.3);
+	box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.3);
+	border-color: #1aa745;
+}
+
+.wizi-btn-valider:hover span, .wizi-btn-valider:focus span {
+	background: #1aa846;
+	background: -moz-linear-gradient(top,  #1aa846 0%, #17933d 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1aa846), color-stop(100%,#17933d));
+	background: -webkit-linear-gradient(top,  #1aa846 0%,#17933d 100%);
+	background: -o-linear-gradient(top,  #1aa846 0%,#17933d 100%);
+	background: -ms-linear-gradient(top,  #1aa846 0%,#17933d 100%);
+	background: linear-gradient(to bottom,  #1aa846 0%,#17933d 100%);
+}
+
+.wizi-btn-valider span span {
+	background: url(/_t/_/images/npc-btn-valider.png) no-repeat right 7px;
+	text-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	color: #000000;
+}
+
+.wizi-btn-valider:hover span span, .wizi-btn-valider:focus span span {
+	background: url(/_t/_/images/npc-btn-valider.png) no-repeat right -93px;
+	color: #ffffff;
+}
+
+.wizi-pass-oublie {
+	color: #222222;
+}
+
+.wizi-panier-recap-h1 {
+	background: #888888;
+	color: #ffffff;
+}
+
+.wizi-c1-panier-recap {
+	border-color: #888888;
+}
+
+.wizi-table-page a {
+	color: #000000;
+}
+
+.wizi-table-page td, .wizi-table-page tbody th {
+	background: #ffffff;
+	border-color: #eaeaea;
+}
+
+.wizi-parrainage-tr td, .wizi-remise-tr td {
+	background: #fff1f1;
+	border-color: #fff1f1;
+}
+
+.wizi-table-page .wizi-prod-td-photo, .wizi-table-options .wizi-option-td-photo {
+	border-right: none;
+}
+
+.wizi-table-page .wizi-option-td-infos2 {
+	border-right: none;
+}
+
+.wizi-table-page .wizi-prod-td-infos, .wizi-table-options .wizi-option-td-infos {
+	border-left: none;
+	border-right: none;
+}
+
+.wizi-table-page .wizi-prod-td-prix, .wizi-table-options .wizi-option-td-prix {
+	border-left: none;
+}
+
+.wizi-table-page .wizi-prod-td-prix a, .wizi-table-options .wizi-option-td-prix a {
+	color: #000000;
+}
+
+.wizi-table-page tbody th {
+	background: none;
+	color: #222222;
+}
+
+.wizi-prod-nom, .wizi-option-nom, .wizi-option-desc {
+	color: #222222;
+}
+
+.wizi-prod-nom a {
+	color: #222222;
+}
+
+.wizi-prod-perso, .wizi-prod-var {
+	color: #666666;
+}
+
+.wizi-prod-suppr {
+	color: #999;
+}
+
+.wizi-prod-stock {
+	color: #222222;
+}
+
+.wizi-prod-stock-ok {
+	background: url(/_t/_/images/npc-stock-ok.png) no-repeat left 5px;
+}
+
+.wizi-prod-stock-ko {
+	background: url(/_t/_/images/npc-stock-ko.png) no-repeat left 5px;
+}
+
+.wizi-prod-prix strong, .wizi-option-prix {
+	color: #c01b24;
+}
+
+.wizi-prod-prix del, .wizi-option-prix del {
+	color: #666;
+}
+
+.wizi-prod-prix-unit .wizi-prod-prix, .wizi-prod-prix-unit .wizi-prod-prix strong {
+	color: #222222;
+}
+
+#wizi-btn-prec a, #wizi-btn-suiv a {
+	background: #888888 url(/_t/_/images/npc-recap-panier-nav2.png) no-repeat left top;
+}
+
+#wizi-btn-prec a {
+	background: #888888 url(/_t/_/images/npc-recap-panier-nav2.png) no-repeat -16px -23px;
+}
+
+#wizi-btn-prec a.disable {
+	background: #888888 url(/_t/_/images/npc-recap-panier-nav2.png) no-repeat 10px -23px;
+}
+
+#wizi-btn-suiv a {
+	background: #888888 url(/_t/_/images/npc-recap-panier-nav2.png) no-repeat -16px 4px;
+}
+
+#wizi-btn-suiv a.disable {
+	background: #888888 url(/_t/_/images/npc-recap-panier-nav2.png) no-repeat 10px 4px;
+}
+
+.wizi-panier-options-h1 {
+	background: #f6f6f6;
+	border-color: #eaeaea;
+	color: #666666;
+}
+
+.wizi-recap-total {
+	background: #ebebeb;
+}
+
+.wizi-recap-total p {
+	color: #000000;
+}
+
+.wizi-recap-total .wizi-recap-total-val {
+	color: #c01b24;
+}
+
+html>/**/body .wizi-npc-livr-thead-td {
+	background: #f6f6f6;
+}
+
+.wizi-npc-livr-thead-td {
+	background: #f6f6f6;
+}
+
+.wizi-form-livr {
+	border-color: #eaeaea;
+}
+
+.wizi-form-livr.wizi-selected/*, .msie-old #wizi-modes-livraison .wizi-selected*/ {
+	border-color: #000000;
+	background: #f9f9f9;
+}
+
+.wizi-form-livr-mode p {
+	color: #222;
+}
+
+.wizi-form-livr-mode .wizi-livr-mode-h1 {
+	color: #000000;
+}
+
+.wizi-livr-mode-h1 {
+	color: #000000;
+}
+
+.wizi-form-livr-prix p {
+	color: #c01b24;
+}
+
+.wizi-form-livr-detail-offert {
+	color: #222;
+}
+
+.wizi-delais-infos {
+	color: #666666;
+}
+
+.wizi-form-paie {
+	border-color: #eaeaea;
+}
+
+.wizi-form-paie.wizi-selected {
+	border-color: #000000;
+	background: #f9f9f9;
+}
+
+.wizi-paie-mode-h1 {
+	color: #000;
+}
+
+.wizi-form-paie p span {
+	color: #c01b24;
+}
+
+.wizi-zone-validation a {
+	color: #c33e3e;
+}
+
+.wizi-validation-total strong {
+	color: #c01b24;
+}
+
+.wizi-zone-confirmation p, .wizi-zone-tuto p {
+	color: #222222;
+}
+
+.wizi-zone-confirmation {
+	background: #f6f6f6;
+}
+
+.wizi-confirmation-num {
+	background: url(/_t/_/images/npc-v.png) no-repeat left 6px;
+}
+
+.wizi-zone-confirmation .wizi-confirmation-num {
+	color: #2bab0d;
+}
+
+.wizi-confirmation-suivi {
+	color: #666666;
+}
+
+.wizi-confirmation-suivi a {
+	color: #888888;
+}
+
+.wizi-zone-tuto {
+	background: #fff1f1;
+}
+
+.wizi-tuto-illust {
+	background: url(/_t/_/images/npc-tuto-cheque.png) no-repeat left top;
+}
+
+.wizi-zone-tuto .wizi-tuto-illust {
+	color: #870007;
+}
+
+.wizi-table, .wizi-table th, .wizi-table td {
+	border-color: #222222;
+	color: #222222;
+	background: #ffffff;
+}
+
+.wizi-table thead th {
+	background: #222222;
+	color: #ffffff;
+}
+
+.wizi-confirmation-fs-adr {
+	border-color: #eaeaea;
+}
+
+.wizi-confirmation-fs-adr .wizi-confirmation-h2 {
+	color: #222222;
+}
+
+/* ----------------- Panier vide ------------------ */
+.wizi-panier-vide {
+	background: url(/_t/_/images/npc-sac-clair.png) no-repeat left top;
+}
+
+.wizi-panier-vide-txt {
+	color: #888888;
+}
+
+.wizi-panier-vide-txt strong {
+	color: #000000;
+}
+
+#wizi-btn-commencer span span {
+	background: url(/_t/_/images/npc-btn-commencer-clair.png) no-repeat right 13px;
+}
+
+#wizi-btn-commencer span span span {
+	border-right: 1px solid #000000;
+	color: #ffffff;
+	background: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}

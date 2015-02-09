@@ -1,0 +1,391 @@
+		<div class="clear1px"></div>
+	</div>
+	<!-- SI pas W_P_PANIER et pas W_C_VALIDATION_RAPIDE et pas W_C_FIN et pas W_P_VALIDATION et pas W_P_COMMANDE et pas W_P_VALIDATION-PAIEMENT-CHEQUE et pas W_P_VALIDATION-PAIEMENT-CB et pas W_P_VALIDATION-PAIEMENT-VIREMENT et pas W_P_VALIDATION-PAIEMENT-CARDSOFF et pas W_P_PAIEMENT-CB-REFUSE -->
+		<div class="barre-lateral-d">
+			<form id="form-recherche" method="get" action="{RECHERCHE_FORM}">
+				<fieldset>
+					<legend>{L_RECHERCHE}</legend>
+					<div>
+						<input type="text" name="{RECHERCHE_FORM_NAME}" id="search" value="{L_VOTRERECHERCHE}" />
+						<button class="button" type="submit" id="btn-recherche" name="btn-recherche"><span><span>{L_OK}</span></span></button>
+						<div class="clear1px">&nbsp;</div>
+					</div>
+					<div class="clear1px">&nbsp;</div>
+				</fieldset>
+				<div class="clear1px">&nbsp;</div>
+			</form>
+		<!-- SI W_P_BLOG -->
+			<!-- DEBUT BLOG -->
+				<!-- DEBUT CAT -->
+					<!-- SI CAT.PREM_LIGNE -->
+			<div class="bloc-lat menu-lat">
+				<p class="h3"><strong>{L_BLOG}</strong></p>
+				<ul>
+					<!-- FINSI -->
+					<li<!-- SI CAT.PREM_LIGNE et CAT.SEL --> class="first current"<!-- SINONSI CAT.PREM_LIGNE --> class="first"<!-- SINONSI CAT.SEL --> class="current"<!-- FINSI -->><span><a href="{CAT.URL}">{CAT.NOM}</a></span></li>
+					<!-- SI CAT.DERN_LIGNE -->
+				</ul>
+				<div class="clear1px"></div>
+			</div>
+					<!-- FINSI -->
+				<!-- FIN CAT -->
+			<!-- FIN BLOG -->
+		<!-- FINSI -->
+			
+			<!-- DEBUT MENU -->
+				<!-- DEBUT PRINCIPAL -->
+					<!-- SI PRINCIPAL.PREM_LIGNE -->
+			<div class="bloc-lat menu-lat">
+				<p class="h3"><strong>{L_MENU_SECONDAIRE}</strong></p>
+				<ul>
+					<!-- FINSI -->
+					<li<!-- SI PRINCIPAL.SEL --> class="current"<!-- FINSI -->>
+						<span><a href="{PRINCIPAL.URL}">{PRINCIPAL.NOM}</a></span>
+					</li>
+					<!-- SI PRINCIPAL.DERN_LIGNE -->	
+				</ul>
+				<div class="clear1px">&nbsp;</div>
+			</div>
+					<!-- FINSI -->
+				<!-- FIN PRINCIPAL -->
+			<!-- FIN MENU -->
+			<form id="form-newsletter" class="bloc-lat" action="{NEWSLETTER_FORM}" method="post">
+				<p class="titre-bloc-lat"><strong>{L_NEWSLETTER}</strong></p>
+				<fieldset>
+					<p>{L_TEXTE_NEWSLETTER}</p>
+					<div>
+						<input class="textbox" type="text" name="{NEWSLETTER_FORM_NAME}" id="Newsletter" value="{L_VOTRE_EMAIL}" />
+						<button type="submit" name="BtnNewsletter" id="btn-newsletter"><span><span>{L_OK}</span></span></button>
+					</div>
+					<div class="clear1px">&nbsp;</div>
+				</fieldset>
+			</form>
+			
+			<!-- SI SHOP_SEL_COM_COUNT > 0 -->
+			<div class="bloc-lat wizi-note">
+				<p class="h3"><strong>{L_NOTE_BOUTIQUE}</strong></p>
+				<div class="wizicss-etoiles-completes">
+					<p class="wizicss-etoiles-valeur">({SHOP_COM_NOTE}/5)</p>
+					<div class="wizicss-etoiles-bg" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+					    <div class="wizicss-etoiles-fg" style="width: {SHOP_COM_NOTE_POUR}%;">
+					    	<meta itemprop="worstRating" content="1" />
+							<meta itemprop="ratingValue" content="{SHOP_COM_NOTE}" />
+							<meta itemprop="worstRating" content="5" />
+							<meta itemprop="reviewCount" content="{SHOP_COM_COUNT}" />
+						</div>
+					</div>
+				</div>
+				<p><a class="wizicss-lire-avis wizijs-lire-avis" href="{SHOP_ALL_COM_URL}">{L_LIRE_AVIS_CLIENTS} ({SHOP_COM_COUNT})</a></p>	
+				<div class="clear1px">&nbsp;</div>
+			</div>
+			<!-- FINSI -->	
+			
+			<!-- SI W_C_BLOG -->
+			<div class="bloc-lat">
+				<div id="rss-blog">
+				<!-- DEBUT BLOG -->
+					<p>
+						<a href="{BLOG.URL_RSS}">
+							<strong>{L_BLOG}</strong>
+							{L_FLUXRSS}
+						</a>
+					</p>
+				<!-- FIN BLOG -->
+				</div>
+				<div class="clear1px"></div>
+			</div>
+			<!-- FINSI -->
+			<!-- DEBUT PAVE -->
+		<!-- SI PAVE.MISE_EN_FORME -->
+		<div class="bloc-lat">
+			<p class="titre-bloc-lat"><strong>{PAVE.NOM}</strong></p>
+		<!-- SINON -->
+		<div class="bloc-lat-no-mef">
+		<!-- FINSI -->
+		<!-- DEBUT BLOCK -->
+					<div class="block">
+			<!-- SI BLOCK.IMG -->
+						<div class="<!-- SI BLOCK.IMG_POSITION egal 'left' -->Ileft{BLOCK.TYPE} <!-- SINONSI BLOCK.IMG_POSITION egal 'center' -->Icenter{BLOCK.TYPE} <!-- SINONSI BLOCK.IMG_POSITION egal 'right' -->Iright{BLOCK.TYPE} <!-- FINSI -->I{BLOCK.TYPE}"><!-- SI BLOCK.IMG_URL --><a href="{BLOCK.IMG_URL}" title="{BLOCK.IMG_URL_NOM}"><img src="{BLOCK.IMG}" alt="{BLOCK.IMG_NOM}" /></a><!-- SINON --><img src="{BLOCK.IMG}" alt="{BLOCK.IMG_NOM}" /><!-- FINSI --></div>
+			<!-- FINSI -->	
+			<!-- SI BLOCK.TYPE different 'img' -->
+						<div class="T{BLOCK.TYPE}">
+				<!-- DEBUT DESC -->
+					<!-- SI DESC.TYPE == 'titre' -->
+							<p class="sous-titre-bloc-lat">{DESC.TEXT}</p>
+					<!-- SINONSI DESC.TYPE == 'soustitre' -->
+							<p class="sous-sous-titre-bloc-lat">{DESC.TEXT}</p>
+					<!-- SINON -->
+							{DESC.TEXT}
+					<!-- FINSI -->
+				<!-- FIN DESC -->
+						</div>
+			<!-- FINSI -->
+					</div>
+		<!-- FIN BLOCK -->
+		<!-- SI PAVE.MISE_EN_FORME -->
+			<div class="clear1px"></div>
+		</div>
+		<!-- SINON -->
+			<div class="clear1px"></div>
+		</div>
+		<!-- FINSI -->
+	<!-- FIN PAVE -->
+	</div>
+<!-- FINSI -->
+<!-- SI W_P_INDEX -->
+		<!-- SI TAILLE_MARQ -->
+		<!-- DEBUT MARQ -->
+		<!-- SI MARQ.PREM_LIGNE -->
+		<div class="clear1px">&amp;</div>
+		<div id="MenuMarque" class="carrousel">
+			<ul>
+		<!-- FINSI -->
+				<li>
+					<!-- SI MARQ.IMG_50 -->
+					<a href="{MARQ.URL}"><img src="{MARQ.IMG_50}" alt="{MARQ.NOM}" /></a>
+					<!-- SINON -->
+					<a class="marque-simg" href="{MARQ.URL}">{MARQ.NOM}</a>
+					<!-- FINSI -->
+				</li>
+		<!-- SI MARQ.DERN_LIGNE  -->
+			</ul>
+			<div class="clear1px"></div>
+		</div>
+		<!-- FINSI -->
+		<!-- FIN MARQ -->
+		<!-- FINSI -->
+<!-- FINSI -->
+<div class="clear1px">&amp;</div>
+</div>
+<div class="footer">
+<!-- SI pas W_P_PRODUIT -->
+	<div id="c1-footer">
+
+	<!-- on est pas sur une fiche  -->
+	<!-- SI pas W_C_BLOG ou (W_C_BLOG et pas W_C_BLOG_AFF) -->
+		<!-- il n'y a pas de blog ou il n'est pas affiché -->
+		<!-- DEBUT MENU -->
+			<!-- DEBUT SECONDAIRE -->
+				<!-- SI SECONDAIRE.PREM_LIGNE -->
+
+		<div id="bloc-menu-sec" class="bloc-foot">
+			<div class="c1-bloc-foot">
+				<p class="titre-foot"><strong>{L_MENU_SECONDAIRE}</strong></p>
+				<ul class="menu-foot">
+				<!-- FINSI -->
+					<li<!-- SI SECONDAIRE.PREM_LIGNE et SECONDAIRE.SEL --> class="first current"<!-- SINONSI SECONDAIRE.SEL --> class="current"<!-- SINONSI SECONDAIRE.PREM_LIGNE --> class="first"<!-- FINSI -->><a href="{SECONDAIRE.URL}">{SECONDAIRE.NOM}</a></li>
+				<!-- SI SECONDAIRE.DERN_LIGNE -->
+				</ul>
+			</div>
+		</div>
+				<!-- FINSI -->
+			<!-- FIN SECONDAIRE -->
+		<!-- FIN MENU -->
+	<!-- SINON -->
+		<!-- il y a un blog et il est affiché -->
+		<!-- DEBUT MENU -->
+			<!-- SI MENU.SECONDAIRE -->
+				<!-- DEBUT SECONDAIRE -->
+					<!-- SI SECONDAIRE.PREM_LIGNE -->
+		<div id="bloc-menu-sec" class="bloc-foot">
+			<div class="c1-bloc-foot">
+				<p class="titre-foot"><strong>{L_MENU_SECONDAIRE}</strong></p>
+				<ul class="menu-foot">
+					<!-- FINSI -->
+					<li<!-- SI SECONDAIRE.PREM_LIGNE et SECONDAIRE.SEL --> class="first current"<!-- SINONSI SECONDAIRE.SEL --> class="current"<!-- SINONSI SECONDAIRE.PREM_LIGNE --> class="first"<!-- FINSI -->><a href="{SECONDAIRE.URL}">{SECONDAIRE.NOM}</a></li>
+					<!-- SI SECONDAIRE.DERN_LIGNE -->
+				</ul>
+			</div>
+		</div>
+					<!-- FINSI -->
+				<!-- FIN SECONDAIRE -->
+				<!-- DEBUT !BLOG -->
+					<!-- SI W_C_BLOGCOM -->
+						<!-- DEBUT DERN_COM(0,3) -->
+							<!-- SI DERN_COM.PREM_LIGNE -->
+		<div id="bloc-dern-com" class="bloc-foot">
+			<div class="c1-bloc-foot">
+				<p class="titre-foot"><strong>{L_DERNIERS_COM}</strong></p>
+				<ul class="dern-com">
+							<!-- FINSI -->
+					<li><a href="{DERN_COM.URL}#com">{DERN_COM.AUTEUR}</a> : {DERN_COM.CONTENU(0,130)}</li>
+							<!-- SI DERN_COM.NUM_LIGNE egal 3 ou DERN_COM.DERN_LIGNE -->
+				</ul>
+			</div>
+		</div>
+							<!-- FINSI -->
+						<!-- FIN DERN_COM -->
+					<!-- FINSI -->
+					<!-- DEBUT DERN_POST -->
+						<!-- SI DERN_POST.PREM_LIGNE -->
+		<div id="bloc-dern-billets" class="bloc-foot<!-- SI pas W_C_BLOGCOM --> billets-large<!-- FINSI -->">
+			<div class="c1-bloc-foot">
+				<p class="titre-foot"><strong>{L_DERNIERS_BILLETS}</strong></p>
+				<ul class="menu-foot">
+						<!-- FINSI -->
+					<li<!-- SI DERN_POST.PREM_LIGNE et DERN_POST.SEL --> class="first current"<!-- SINONSI DERN_POST.SEL --> class="current"<!-- SINONSI DERN_POST.PREM_LIGNE --> class="first"<!-- FINSI -->><a href="{DERN_POST.URL}">{DERN_POST.TITRE}</a></li>
+						<!-- SI DERN_POST.DERN_LIGNE -->
+				</ul>
+			</div>
+		</div>
+						<!-- FINSI -->
+					<!-- FIN DERN_POST -->
+				<!-- FIN BLOG -->
+			<!-- SINON -->
+				<!-- DEBUT !BLOG -->
+					<!-- SI W_C_BLOGCOM -->
+						<!-- DEBUT DERN_COM(0,3) -->
+							<!-- SI DERN_COM.PREM_LIGNE -->
+		<div id="bloc-dern-com" class="bloc-foot">
+			<div class="c1-bloc-foot">
+				<p class="titre-foot"><strong>{L_DERNIERS_COM}</strong></p>
+				<ul class="dern-com">
+							<!-- FINSI -->
+					<li><a href="{DERN_COM.URL}#com">{DERN_COM.AUTEUR}</a> : {DERN_COM.CONTENU(0,130)}</li>
+							<!-- SI DERN_COM.NUM_LIGNE egal 3 ou DERN_COM.DERN_LIGNE -->
+				</ul>
+			</div>
+		</div>
+							<!-- FINSI -->
+						<!-- FIN DERN_COM -->
+					<!-- FINSI -->
+					<!-- DEBUT DERN_POST -->
+						<!-- SI DERN_POST.PREM_LIGNE -->
+		<div id="bloc-dern-billets" class="bloc-foot<!-- SI pas W_C_BLOGCOM --> billets-large<!-- FINSI -->">
+			<div class="c1-bloc-foot">
+				<p class="titre-foot"><strong>{L_DERNIERS_BILLETS}</strong></p>
+				<ul class="menu-foot">
+						<!-- FINSI -->
+					<li<!-- SI DERN_POST.PREM_LIGNE et DERN_POST.SEL --> class="first current"<!-- SINONSI DERN_POST.SEL --> class="current"<!-- SINONSI DERN_POST.PREM_LIGNE --> class="first"<!-- FINSI -->><a href="{DERN_POST.URL}">{DERN_POST.TITRE}</a></li>
+						<!-- SI DERN_POST.DERN_LIGNE -->
+				</ul>
+			</div>
+		</div>
+						<!-- FINSI -->
+					<!-- FIN DERN_POST -->
+				<!-- FIN BLOG -->
+			<!-- FINSI -->
+		<!-- FIN MENU -->
+	<!-- FINSI -->
+	</div>
+<!-- SINON -->
+	<div id="c1-footer">
+	<!-- on est sur une fiche -->
+	<!-- DEBUT MENU -->
+		<!-- SI MENU.PRINCIPAL ou MENU.SECONDAIRE -->
+			<!-- DEBUT PRINCIPAL -->
+				<!-- SI PRINCIPAL.PREM_LIGNE -->
+		<div id="bloc-menu-princ" class="bloc-foot">
+			<div class="c1-bloc-foot">
+				<p class="titre-foot"><strong>{L_MENU}</strong></p>
+				<ul class="menu-foot">
+				<!-- FINSI -->
+					<li<!-- SI PRINCIPAL.PREM_LIGNE et PRINCIPAL.SEL --> class="first current"<!-- SINONSI PRINCIPAL.SEL --> class="current"<!-- SINONSI PRINCIPAL.PREM_LIGNE --> class="first"<!-- FINSI -->><a href="{PRINCIPAL.URL}">{PRINCIPAL.NOM}</a></li>
+				<!-- SI PRINCIPAL.DERN_LIGNE -->
+				</ul>
+			</div>
+		</div>
+				<!-- FINSI -->
+			<!-- FIN PRINCIPAL -->
+			<!-- DEBUT SECONDAIRE -->
+				<!-- SI SECONDAIRE.PREM_LIGNE -->
+		<div id="bloc-menu-sec" class="bloc-foot">
+			<div class="c1-bloc-foot">
+				<p class="titre-foot"><strong>{L_MENU_SECONDAIRE}</strong></p>
+				<ul class="menu-foot">
+				<!-- FINSI -->
+					<li<!-- SI SECONDAIRE.PREM_LIGNE et SECONDAIRE.SEL --> class="first current"<!-- SINONSI SECONDAIRE.SEL --> class="current"<!-- SINONSI SECONDAIRE.PREM_LIGNE --> class="first"<!-- FINSI -->><a href="{SECONDAIRE.URL}">{SECONDAIRE.NOM}</a></li>
+				<!-- SI SECONDAIRE.DERN_LIGNE -->
+				</ul>
+			</div>
+		</div>
+				<!-- FINSI -->
+			<!-- FIN SECONDAIRE -->
+		<!-- FINSI -->
+	<!-- FIN MENU -->
+
+		<div class="clear1px;"></div>
+	</div>
+<!-- FINSI -->
+	<div id="bas-foot">
+		<p id="menu-footer">
+	<!-- DEBUT MENU --><!-- DEBUT FOOT --><a href="{FOOT.URL}" <!-- SI FOOT.SEL -->class="selected"<!-- FINSI -->>{FOOT.NOM}</a> - <!-- FIN FOOT --><!-- FIN MENU --><a href="/p/contact.html">{L_CONTACT}</a> - <a href="/p/credits.html">{L_CREDITS}</a>
+		</p>
+		<div class="clear1px"></div>
+	</div>
+</div>
+<div id="panier-pop">
+	<div id="c1-panier-pop">
+	<!-- DEBUT PANIER -->
+		<a id="fermer-panier"><img src="{W_IMG_PATH}/p-btn-fermer-pop.png" alt="X" /></a>
+		<p id="p-cont-panier">{L_CONTENU_PANIER} :</p>
+		<div id="diapo-panier">
+			<ul>
+		<!-- DEBUT PROD -->
+			<!-- SI PROD.PREM_LIGNE ou PROD.NUM_LIGNE % 2 egal 0 -->
+				<li>
+			<!-- FINSI -->
+					<div class="prod<!-- SI PROD.NUM_LIGNE % 2 egal 0 et pas PROD.DERN_LIGNE --> first<!-- FINSI -->">
+						<a class="photo" href="{PROD.URL}"><img src="{PROD.IMG_50}" alt="" /></a>
+						<p class="nom"><a href="{PROD.URL}">{PROD.NOM}</a></p>
+						<p class="marque"><a href="{PROD.URL}">{PROD.MARQ_NOM}</a></p>
+						<p class="prix">
+							<a href="{PROD.URL}">
+				<!-- SI PROD.PROMO_PRIX -->
+								{DEVISE_PRE}{PROD.PROMO_PRIX}{DEVISE_POST}
+				<!-- SINON -->
+								{DEVISE_PRE}{PROD.PRIX}{DEVISE_POST}
+				<!-- FINSI -->
+							</a>
+						</p>
+						<p class="quantite"><a href="{PROD.URL}">{L_QUANTITE} : <strong>{PROD.NB}</strong></a></p>
+						<div class="clear1px">&nbsp;</div>
+					</div>
+			<!-- SI PROD.DERN_LIGNE ou PROD.NUM_LIGNE % 2 egal 1 -->
+				</li>
+			<!-- FINSI -->
+		<!-- FIN PROD -->
+			</ul>
+		</div>
+		<p id="total-panier-pop"><a href="/p/panier.html">{L_TOTAL} : <span>{DEVISE_PRE}<!-- SI PANIER.TOTAL_PROD -->{PANIER.TOTAL_PROD}<!-- SINON -->{PANIER.TOTAL}<!-- FINSI -->{DEVISE_POST}</span><span class="nb-art">{PANIER.NB_PROD} {L_NB_ARTICLES}</span></a></p>
+		<div id="commander-panier-pop">
+			<p>
+				<a id="btn-aller-pop" class="button btnT4" href="/p/panier.html"><span><span>{L_ALLER_PANIER}</span></span></a>
+				<a id="btn-commander-pop" class="button btnT5" href="/p/panier.html"><span><span>{L_COMMANDER}</span></span></a>
+			</p>
+		</div>
+	<!-- FIN PANIER -->
+	</div>
+</div>
+
+<div id="compte-pop">
+	<div id="c1-compte-pop">
+		<ul>
+	<!-- DEBUT CLIENT -->
+			<li>
+				<a href="/compte/compte.html">
+					<strong>{L_INFOS_PERSONNELLES}</strong>
+					<span>{L_MODIFIER_COORDONNEES}</span>
+				</a>
+			</li>
+			<li>
+				<a href="/compte/liste-commande.html">
+					<strong>{L_MES_COMMANDES}</strong>
+					<span>{L_CONSULTER_COMMANDES}</span>
+				</a>
+			</li>
+			<li><a href="/deco.php"><strong>{L_DECONNECTION}</strong></a></li>
+	<!-- DEBUTSINON -->
+			<li><a href="/p/compte.html"><strong>{L_CONNEXION}</strong></a></li>
+	<!-- FIN CLIENT -->
+		</ul>
+	</div>
+</div>
+<div id="ssmenu"></div>
+<div id="tooltip"></div>
+<div id="modal-ajpan"></div>
+{WIZI_DEBUG}
+{WIZI_CODE}
+{FIN_BODY_SCRIPT}
+</body>
+</html>

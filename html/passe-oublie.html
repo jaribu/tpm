@@ -1,0 +1,25 @@
+<!-- DEBUT PASSE_OUBLIE -->
+						<h1 class="h1"><strong>{L_MOT_PASS}</strong></h1>
+						<form method="post" action="{PASSE_OUBLIE.FORM}">
+	<!-- SI PASSE_OUBLIE.OK -->
+							<p id="PwdOk" class="success">{L_PASSE_OUBLIE_OK}</p>
+	<!-- SINON -->
+		<!-- DEBUT ERREUR -->
+							<div class="Erreur">
+			<!-- DEBUT TEXT -->
+								<p><img class="pngfix warning" src="{W_IMG_PATH}/c-warning.png" alt="{L_ATTENTION}" /> {TEXT.ERREUR}</p>
+			<!-- FIN TEXT -->
+							</div>
+		<!-- DEBUTSINON -->
+							<p>{L_CHANGE_PWD}</p>
+		<!-- FIN ERREUR -->
+							<div id="pass-oublie" class="regroupement">
+								<label for="CMail"><!-- DEBUT ERREUR --><!-- SI ERREUR.EMAIL --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_MAIL}</label>
+								<input class="textbox" type="text" name="{PASSE_OUBLIE.FORM_EMAIL}" value="{PASSE_OUBLIE.VAL_EMAIL}" id="CMail" />
+								<button class="button btnT3" type="submit" name="{PASSE_OUBLIE.FORM_VALID}" id="BtnContact"><span><span>{L_ENVOYER}</span></span></button>
+							</div>
+	<!-- FINSI -->
+							<div class="clear1px"></div>
+						</form>
+						<p id="Cnil">{L_INFOCNIL}</p>
+<!-- FIN PASSE_OUBLIE -->

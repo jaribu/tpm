@@ -1,0 +1,83 @@
+			<div id="processus-commande">
+				<p>
+					<strong>1</strong>
+					<span>{L_MON_PANIER}</span>
+				</p>
+				<p>
+					<strong>2</strong>
+					<span>{L_LIVRAISON}</span>
+				</p>
+				<p>
+					<strong>3</strong>
+					<span>{L_PAIEMENT}</span>
+				</p>
+				<p class="current">
+					<strong>4</strong>
+					<span>{L_CONFIRMATION}</span>
+				</p>
+			</div>
+			<div class="fin-commande">
+				<h2 class="h1"><strong>{L_CONFIRMATION_COMMANDE}</strong></h2>
+				<!-- SI VIREMENT_ACTIF -->
+				<div id="ThxCom">
+					<p>{L_THX_COM_VIR}</p>
+				</div>
+				<div id="NumCom">
+					<p><strong>{L_NUM_COM}</strong> : {NUMERO_COMMANDE}</p>
+				</div>
+				<!-- SI VIREMENT_RIB_ACTIF -->
+				<table>
+					<thead>
+						<tr>
+							<th>{L_CODE_ETAB}</th>
+							<th>{L_CODE_GUICHET}</th>
+							<th>{L_NUM_COMPTE}</th>
+							<th>{L_CLE_RIB}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{VIREMENT_CODE_ETAB}</td>
+							<td>{VIREMENT_CODE_GUICHET}</td>
+							<td>{VIREMENT_NUM_COMPTE}</td>
+							<td>{VIREMENT_CLE_RIB_RICE}</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- FINSI -->
+				<!-- SI VIREMENT_IBAN_ACTIF -->
+				<table>
+					<thead>
+						<tr>
+							<th>{L_IBAN}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{VIREMENT_IBAN}</td>
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<thead>
+						<tr>
+							<th>{L_BIC}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{VIREMENT_BIC}</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- FINSI -->
+				<div id="InfosTit">
+					<p><strong>{L_TIT_COMPTE} :</strong> {VIREMENT_TITULAIRE}</p>
+					<p><strong>{L_NOM_BANK} :</strong> {VIREMENT_NOM_BANQUE}</p>
+					<p><strong>{L_ADD_BANK} :</strong> {VIREMENT_ADRESE_BANQUE}</p>
+				</div>
+				{CONVERSION}
+				<!-- FINSI -->
+				<div class="clear1px"></div>
+				<!-- INCLUDE INC_COMMENTER_CONFIRMATION -->
+			</div>

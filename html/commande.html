@@ -1,0 +1,83 @@
+<!-- DEBUT COMMANDE -->
+			<div id="processus-commande">
+				<p>
+					<a href="/p/panier.html">
+						<strong>1</strong>
+						<span>{L_MON_PANIER}</span>
+					</a>
+				</p>
+				<p class="current">
+					<strong>2</strong>
+					<span>{L_LIVRAISON}</span>
+				</p>
+				<p>
+					<strong>3</strong>
+					<span>{L_PAIEMENT}</span>
+				</p>
+				<p>
+					<strong>4</strong>
+					<span>{L_CONFIRMATION}</span>
+				</p>
+			</div>
+			<h1 class="h1 titre-processus"><strong>{L_COMMANDE}</strong></h1>
+		    <form action="{COMMANDE.FORM}" method="post">
+				<!-- DEBUT LIVRAISON -->
+					<!-- SI LIVRAISON.PREM_LIGNE -->
+					<div id="ChoixLivraison">
+						<h2 class="h2"><strong>{L_CHOIX_LIVRAISON}</strong></h2>
+						<!-- FINSI -->
+						<div class="bloc-mode mode-livr<!-- SI LIVRAISON.PREM_LIGNE ou LIVRAISON.NUM_LIGNE % 3 egal 0 --> first<!-- FINSI -->">
+							<label for="Livraison{LIVRAISON.ID}">
+								<input name="{LIVRAISON.FORM_LIVR}" id="Livraison{LIVRAISON.ID}" value="{LIVRAISON.VAL_LIVR}" <!-- SI LIVRAISON.MONDIAL_RELAY -->class="mondialRelay"<!-- FINSI --> <!-- SI LIVRAISON.SEL -->checked="checked"<!-- FINSI --> type="radio" />
+								<span>
+									<strong>{LIVRAISON.NOM}</strong>
+									{L_PANIER_PORT} : <span>{LIVRAISON.PRIX} {DEVISE}</span>
+								</span>
+							</label>
+							<p class="LivrDesc">{LIVRAISON.DESC}</p>
+							<!-- SI LIVRAISON.MONDIAL_RELAY -->
+							<div class="bloc-info"><div><p>{L_MONDIAL_RELAY_CONSEIL}</p></div></div>
+							<!-- FINSI -->
+							<div class="clear1px"></div>
+						</div>
+					<!-- SI LIVRAISON.DERN_LIGNE -->
+					<span class="picto-selected">&nbsp;</span>
+					</div>
+					<!-- FINSI -->
+				<!-- FIN LIVRAISON -->
+				<!-- DEBUT LIVRAISON -->
+					<!-- DEBUT MONDIALRELAY -->
+					<!-- SI MONDIALRELAY.PREM_LIGNE -->
+					<iframe id="frame-mondial-relay" src="{MONDIALRELAY.URL}" style="border:0px; width:500px; height:500px; <!-- SI pas LIVRAISON.SEL -->display: none;<!-- FINSI -->" scrolling="no"></iframe>
+					<!-- FINSI -->
+					<!-- FIN MONDIALRELAY -->
+				<!-- FIN LIVRAISON -->
+				<!-- DEBUT PAPIER_CADEAU -->
+					<div id="PapierKdo">
+						<h2>{L_PAPIER_KDO}</h2>
+						<div class="regroupement">
+							<label for="paperkdo">
+								<input name="{PAPIER_CADEAU.FORM_PAPIER}" id="paperkdo" value="1" type="checkbox" />
+								{L_VOULEZ_VOUS_PAPIER_KDO}
+							</label>
+						</div>
+						<p>
+						<!-- SI PAPIER_CADEAU.PRIX -->
+							{L_COUT_KDO} : <strong>{PAPIER_CADEAU.PRIX} {DEVISE}</strong>
+						<!-- SINON -->
+							{L_KDO_OFFERT}
+						<!-- FINSI -->
+						</p>
+					</div>
+				<!-- FIN PAPIER_CADEAU -->
+				<!-- DEBUT MESSAGE_COLIS -->
+					<div id="MsgColis" class="regroupement">
+						<h2>{L_MSG_COLIS}</h2>
+						<textarea name="{MESSAGE_COLIS.FORM_MSG}" cols="40" rows="6"></textarea>
+					</div>
+				<!-- FIN MESSAGE_COLIS -->
+			    <div class="valider zone-button">
+			    	<button class="button btnT3" type="submit" id="btnl" name="{COMMANDE.FORM_VALID}"><span><span>{L_POUR_COM}</span></span></button>
+			    </div>
+			</form>
+<!-- FIN COMMANDE -->

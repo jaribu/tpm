@@ -1,0 +1,31 @@
+<!-- DEBUT CHANGE_PASSE -->
+						<h2 class="h1"><strong>{L_MOT_PASS}</strong></h2>
+						<form class="formT1" method="post" action="{CHANGE_PASSE.FORM}">
+							<!-- SI CHANGE_PASSE.OK -->
+							<p id="PwdOk" class="success">{L_CHANGE_PASSE_OK}</p>
+							<!-- SINON -->
+							<!-- DEBUT ERREUR -->
+							<div class="Erreur">
+								<!-- DEBUT TEXT -->
+								<p><img class="pngfix warning" src="{W_IMG_PATH}/c-warning.png" alt="{L_ATTENTION}" /> {TEXT.ERREUR}</p>
+								<!-- FIN TEXT -->
+							</div>
+							<!-- FIN ERREUR -->
+							<p id="PwdOk">{L_MODIF_PWD}</p>
+							<div class="regroupement">
+								<input class="textbox" type="password" name="{CHANGE_PASSE.FORM_PASSE}" id="newPwd" />
+								<label for="newPwd"><!-- DEBUT ERREUR --><!-- SI ERREUR.PASSE --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_PASSE}</label>
+							</div>
+							<div class="regroupement">
+								<input class="textbox" type="password" name="{CHANGE_PASSE.FORM_PASSE2}" id="newPwd2" />
+								<label for="newPwd2"><!-- DEBUT ERREUR --><!-- SI ERREUR.PASSE --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_PASSE2}</label>
+							</div>
+							<input type="hidden" name="{CHANGE_PASSE.FORM_CODE}" id="code" value="{CHANGE_PASSE.VAL_CODE}"/>
+							<div id="Valider" class="zone-button">
+								<button class="button btnT1" type="submit" name="{CHANGE_PASSE.FORM_VALID}" id="BtnChange"><span><span>{L_ENVOYER}</span></span></button>
+							</div>
+							<!-- FINSI -->
+						</form>
+						<p id="Cnil">{L_INFOCNIL}</p>
+						<div class="clear1px"></div>
+<!-- FIN CHANGE_PASSE -->

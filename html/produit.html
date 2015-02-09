@@ -1,0 +1,581 @@
+<div class="hproduct">
+<!-- DEBUT PROD -->
+	<!-- SI pas PROD.INDISPONIBLE -->
+		<!-- INCLUDE PROD-PLUS -->
+	<!-- FINSI -->
+	<form id="formProd" action="/panier.php" method="post" enctype="multipart/form-data">
+		<div id="zone-photo">
+			<div id="principale">
+				<a class="lightbox photo" rel="galerie-fiche" href="{PROD.IMG}"><img src="{PROD.IMG_250}" alt="{PROD.IMG_NOM}" /></a>
+				<span>{L_CLIQUEZ_POUR_ZOOMER} [+]</span>
+			</div>
+			<!-- DEBUT IMG_SUP -->
+				<!-- SI IMG_SUP.PREM_LIGNE -->
+			<div id="miniatures">
+				<span>{L_AUTRES_VUES}</span>
+				<div id="c1-miniatures">
+					<a id="prec" class="disable"><img src="{W_IMG_PATH}/c-img-prec.png" alt="{L_PRECEDENT}" /></a>
+					<ul>
+					<!-- FINSI -->
+						<li<!-- SI IMG_SUP.PREM_LIGNE --> class="first"<!-- FINSI -->><a class="lightbox photo" rel="galerie-fiche" href="{IMG_SUP.IMG}"><img src="{IMG_SUP.IMG_50}" alt="{IMG_SUP.IMG_NOM}" /></a></li>
+					<!-- SI IMG_SUP.DERN_LIGNE -->
+					</ul>
+					<a id="suiv"><img src="{W_IMG_PATH}/c-img-suiv.png" alt="{L_SUIVANT}" /></a>
+					<div class="clear1px">&nbsp;</div>
+				</div>
+				<div class="clear1px">&nbsp;</div>
+			</div>
+				<!-- FINSI -->
+			<!-- FIN IMG_SUP -->
+		</div>
+		<div id="zone-achat">
+			<div id="zone-sup">
+				<!-- SI pas PROD.INDISPONIBLE -->
+						<button class="button btn-ajpan btn-ajpan-fiche" type="submit" id="BtnAddCartSup" name="BtnAddCart">
+							<span>
+								<span>
+									<span class="prix">
+									<!-- SI PROD.VARIATION et PROD.VARIATION_PRIX -->
+										{L_A_PARTIR_DE}
+									<!-- FINSI -->
+									<!-- SI PROD.PROMO_PRIX -->
+										<span class="prix"><strong class="lePrix">{DEVISE_PRE}{PROD.PROMO_PRIX}{DEVISE_POST}</strong></span>
+										<del class="lePrixHpromo">{DEVISE_PRE}{PROD.PRIX}{DEVISE_POST}</del>
+										<!-- SI PROD.ECO_PART --><span id="ecopart">{L_ECOPART} {DEVISE_PRE}{PROD.ECO_PART}{DEVISE_POST}</span><!-- FINSI -->
+									<!-- SINON -->
+										<span class="prix"><strong class="lePrix">{DEVISE_PRE}{PROD.PRIX}{DEVISE_POST}</strong></span>
+										<del class="lePrixHpromo"></del>
+										<!-- SI PROD.ECO_PART --><span id="ecopart">{L_ECOPART} {DEVISE_PRE}{PROD.ECO_PART}{DEVISE_POST}</span><!-- FINSI -->
+									<!-- FINSI -->
+									</span>
+									{L_AJOUT_PANIER}
+								</span>
+							</span>
+						</button>
+				<!-- FINSI -->
+			<h1 id="titre-fiche"><span class="fn"><strong>{PROD.NOM}</strong></span></h1>
+			<!-- SI PROD.MARQ_NOM -->
+			<p class="brand"><a href="{PROD.MARQ_URL}">{PROD.MARQ_NOM}</a></p>
+			<!-- FINSI -->
+			<div class="clear1px"></div>
+			<p id="description-courte">{PROD.RESUME} <a class="savoir-plus" href="#BtnAddCart">{L_SAVOIR_PLUS}</a></p>
+			<div class="clear1px"></div>
+		</div>
+			<div id="bloc-achat">
+	<!-- SI pas PROD.INDISPONIBLE -->
+				<div id="stock-vari">
+					<!-- SI PROD.VARIATION2 -->
+					<div id="variations">
+						<!-- DEBUT LIST_VARIATION -->
+						<div class="bloc-variations">
+							<p class="titre-variation">{LIST_VARIATION.NOM} :</p>
+							<!-- SI LIST_VARIATION.IMG -->
+							<a class="lightbox {LIST_VARIATION.IMG_URL_CLASS} <!-- DEBUT VARIATION --><!-- SI VARIATION.TYPE egal 'menu' et VARIATION.PREM_LIGNE -->variationGroupeMenuImg<!-- FINSI --><!-- FIN VARIATION -->" rel="galerie-fiche-listvar-{LIST_VARIATION.ID}" href="{LIST_VARIATION.IMG}"><img class="{LIST_VARIATION.IMG_CLASS}" src="{LIST_VARIATION.IMG_50}" alt="{LIST_VARIATION.IMG_NOM}"  /></a>
+							<!-- FINSI -->
+							<!-- SI LIST_VARIATION.QTE et LIST_VARIATION.GROUPE  -->
+							<span><input class="textbox {LIST_VARIATION.QTE_CLASS}" name="{LIST_VARIATION.QTE_NAME}" id="{LIST_VARIATION.QTE_ID}" value="1" /> x </span>
+							<!-- FINSI -->
+							<!-- DEBUT VARIATION -->
+								<!-- SI LIST_VARIATION.GROUPE -->
+							<div class="variationGroupeMenu">
+								<!-- FINSI -->
+								<!-- SI LIST_VARIATION.GROUPE -->
+								<h4>{VARIATION.NOM}</h4>
+								<!-- FINSI -->
+								<!-- SI VARIATION.TYPE egal 'menu' -->
+									<!-- SI VARIATION.IMG -->
+								<a class="lightbox {VARIATION.IMG_URL_CLASS}" rel="galerie-fiche-var-{VARIATION.ID}" href="{VARIATION.IMG}">
+									<img class="{VARIATION.IMG_CLASS}" src="{VARIATION.IMG_50}" alt="{VARIATION.IMG_NOM}" />
+								</a>
+									<!-- FINSI -->
+								<select name="{VARIATION.FORM_NAME}" class="{VARIATION.CLASS}">
+									<!-- DEBUT OPTION -->
+									<option<!-- SI OPTION.SEL --> selected="selected"<!-- FINSI --> value="{OPTION.FORM_VALUE}">{OPTION.NOM} <!-- SI pas LIST_VARIATION.GROUPE et pas OPTION.VIDE et OPTION.PRIX --><!-- SI OPTION.PROMO_PRIX -->{DEVISE_PRE}{OPTION.PROMO_PRIX}{DEVISE_POST}<!-- SINON -->{DEVISE_PRE}{OPTION.PRIX}{DEVISE_POST}<!-- FINSI --><!-- FINSI --></option>
+									<!-- FIN OPTION -->
+								</select>
+								<!-- SI pas LIST_VARIATION.GROUPE et LIST_VARIATION.QTE  -->
+								<span class="qte-combo">{L_COMPOSANT_QTE} : <input class="textbox {VARIATION.QTE_CLASS}" name="{VARIATION.QTE_NAME}" id="{VARIATION.QTE_ID}" value="1" /> </span>
+									<!-- FINSI -->
+								<!-- SINON -->
+									<!-- DEBUT OPTION -->
+										<!-- SI OPTION.PREM_LIGNE -->
+								<div class="variationOption">
+										<!-- FINSI -->
+									<div class="variationRadio">
+										<!-- SI OPTION.IMG -->
+										<a class="photo-variation lightbox {OPTION.IMG_URL_CLASS}" rel="galerie-fiche-option-{OPTION.ID}" href="{OPTION.IMG}"><img class="{OPTION.IMG_CLASS}" src="{OPTION.IMG_50}" alt="{OPTION.IMG_NOM}" width="30" height="30" /></a>
+										<!-- FINSI -->
+										<div class="quantite-choix">
+											<p>
+												<input id="{OPTION.ID}" class="{OPTION.CLASS}" name="{OPTION.FORM_NAME}" value="{OPTION.FORM_VALUE}" type="{VARIATION.TYPE}" <!-- SI OPTION.SEL --> checked="checked"<!-- FINSI -->/>
+												<label for="{OPTION.ID}"> {OPTION.NOM} <!-- SI pas LIST_VARIATION.GROUPE et pas OPTION.VIDE et OPTION.PRIX --><!-- SI OPTION.PROMO_PRIX -->{DEVISE_PRE}{OPTION.PROMO_PRIX}{DEVISE_POST} <del>{DEVISE_PRE}{OPTION.PRIX}{DEVISE_POST}</del><!-- SINON -->{DEVISE_PRE}{OPTION.PRIX}{DEVISE_POST}<!-- FINSI --><!-- FINSI --> </label>
+											</p>
+										<!-- SI pas LIST_VARIATION.GROUPE et pas OPTION.VIDE et LIST_VARIATION.QTE  -->
+											<p <!-- SI pas OPTION.SEL --> style="display:none;"<!-- FINSI --> class="variationQuantiteRadio">
+												<label for="{OPTION.QTE_ID}">{L_QUANTITE} :</label>
+												<input class="{OPTION.QTE_CLASS} textbox" name="{OPTION.QTE_NAME}" id="{OPTION.QTE_ID}" value="1" />
+											</p>
+										<!-- FINSI -->
+										</div>
+										<div class="clear1px"></div>
+									</div>
+										<!-- SI OPTION.DERN_LIGNE -->	
+								</div>
+										<!-- FINSI -->
+									<!-- FIN OPTION -->
+								<!-- FINSI -->
+																
+								<!-- SI LIST_VARIATION.GROUPE -->
+							</div>
+								<!-- FINSI -->
+							<!-- FIN VARIATION -->
+							<div class="clear1px"></div>
+						</div>
+						<!-- FIN LIST_VARIATION -->
+						<div class="clear1px"></div>
+					</div>
+					<!-- FINSI -->
+					<!-- SI PROD.PERSONALISATION2 -->
+					<div id="Personnalisation">
+						<p class="titre-personnalisation"><span>{L_PERSO_PROD}</span></p>
+						<!-- DEBUT LIST_PERSONALISATION -->
+						<div class="bloc-personnalisation">
+							<label for="perso-{LIST_PERSONALISATION.NUM_LIGNE}">{LIST_PERSONALISATION.TITRE}<!-- SI LIST_PERSONALISATION.PRIX > 0 --> <span>({LIST_PERSONALISATION.PRIX}€)</span><!-- FINSI --><!-- SI LIST_PERSONALISATION.OBLIG --> *<!-- FINSI --> :</label>
+							<!-- SI LIST_PERSONALISATION.FORM_TYPE egal 'SELECT' -->
+							<select id="perso-{LIST_PERSONALISATION.NUM_LIGNE}" name="{LIST_PERSONALISATION.FORM_NAME}">
+								<!-- SI pas LIST_PERSONALISATION.OBLIG -->
+								<option value="">{L_AUCUN}</option>
+								<!-- FINSI -->
+								<!-- DEBUT FORM_OPTION -->
+								<option<!-- SI LIST_PERSONALISATION.FORM_VALUE egal FORM_OPTION.VALUE --> selected="selected"<!-- FINSI -->>{FORM_OPTION.VALUE}</option>
+								<!-- FIN FORM_OPTION -->
+							</select>
+							<!-- SINONSI LIST_PERSONALISATION.FORM_TYPE egal 'UPLOAD' -->
+							<input id="perso-{LIST_PERSONALISATION.NUM_LIGNE}" type="file" class="fileForm<!-- SI LIST_PERSONALISATION.OBLIG --> obligForm<!-- FINSI -->" name="{LIST_PERSONALISATION.FORM_NAME}" value="{LIST_PERSONALISATION.FORM_VALUE}" />
+							<br />{L_FICHIERS_AUTORISES} : <!-- DEBUT FORM_OPTION --><!-- SI pas FORM_OPTION.PREM_LIGNE -->, {FORM_OPTION.VALUE}<!-- SINON -->{FORM_OPTION.VALUE}<!-- FINSI --><!-- FIN FORM_OPTION -->
+							<!-- SINONSI LIST_PERSONALISATION.FORM_TYPE egal 'DATE' -->
+							<input autocomplete="off" id="perso-{LIST_PERSONALISATION.NUM_LIGNE}" type="text" class="textbox dateForm<!-- SI LIST_PERSONALISATION.OBLIG --> obligForm<!-- FINSI -->" name="{LIST_PERSONALISATION.FORM_NAME}" value="{LIST_PERSONALISATION.FORM_VALUE}" />
+							<!-- SINONSI LIST_PERSONALISATION.FORM_TYPE egal 'TEXT' et LIST_PERSONALISATION.FORM_OPTION egal 0 -->
+							<textarea id="perso-{LIST_PERSONALISATION.NUM_LIGNE}" class="textForm<!-- SI LIST_PERSONALISATION.OBLIG --> obligForm<!-- FINSI -->" name="{LIST_PERSONALISATION.FORM_NAME}">{LIST_PERSONALISATION.FORM_VALUE}</textarea>
+							<!-- SINON -->
+							<input id="perso-{LIST_PERSONALISATION.NUM_LIGNE}" type="text" class="textbox textForm<!-- SI LIST_PERSONALISATION.OBLIG --> obligForm<!-- FINSI -->" name="{LIST_PERSONALISATION.FORM_NAME}" maxlength="{LIST_PERSONALISATION.FORM_OPTION}" value="{LIST_PERSONALISATION.FORM_VALUE}" />
+							<!-- FINSI -->
+							<div class="clear1px">&nbsp;</div>
+						</div>
+						<!-- FIN LIST_PERSONALISATION -->
+					</div>
+					<!-- FINSI -->
+					<div class="bloc-variations-quantite">
+						<label><p class="titre-variation">{L_QUANTITE} :</p></label>
+						<input class="textbox" type="text" id="quantite" name="nb_prod" value="1" />
+					</div>
+					<!-- SI W_C_STOCK -->
+						<!-- SI PROD.STOCK ou PROD.STOCK > 0 -->
+					<p class="leStock StockOK">{PROD.STOCK_PHRASE}</p>
+						<!-- SINON -->
+					<p class="leStock StockKO">{PROD.STOCK_PHRASE}</p>
+						<!-- FINSI -->
+					<!-- SINON -->
+					<p class="leStock"></p>
+					<!-- FINSI -->
+					<div class="clear1px">&nbsp;</div>
+				</div>
+				<!-- SI PROD.PROMO_TYPE ou PROD.NOUVEAUTE -->
+				<p class="etatPrix etatPrixFiche<!-- SI PROD.PROMO_TYPE et PROD.SOLDE egal 1 --> solde<!-- SINONSI PROD.PROMO_TYPE --> promo<!-- SINON --> nouveaute<!-- FINSI -->">
+					<!-- SI PROD.PROMO_TYPE -->
+						<!-- SI PROD.SOLDE egal 1 -->
+					<span class="etat">{L_SOLDE}</span> 
+						<!-- SINON -->
+					<span class="etat">{L_PROMOTION}</span> 
+						<!-- FINSI -->
+					<span><!-- SI PROD.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<strong class="promoPourc"><!-- SI PROD.PROMO_TYPE egal 2 -->{PROD.PROMO_POUR_ROUND}%<!-- SINONSI PROD.PROMO_TYPE egal 1 -->{DEVISE_PRE}{PROD.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong></span>
+					<!-- SINON -->
+					{L_NOUVEAU}
+					<!-- FINSI -->
+				</p>
+				<div class="clear1px"></div>
+				<!-- FINSI -->
+				<p id="prix-fiche" class="price">
+				<!-- SI PROD.VARIATION et PROD.VARIATION_PRIX -->
+					{L_A_PARTIR_DE}
+				<!-- FINSI -->
+				<!-- SI PROD.PROMO_PRIX -->
+					<span class="prix"><strong class="lePrix">{DEVISE_PRE}{PROD.PROMO_PRIX}{DEVISE_POST}</strong></span>
+					<del class="lePrixHpromo">{DEVISE_PRE}{PROD.PRIX}{DEVISE_POST}</del>
+					<!-- SI PROD.ECO_PART --><span id="ecopart">{L_ECOPART} {DEVISE_PRE}{PROD.ECO_PART}{DEVISE_POST}</span><!-- FINSI -->
+					<p class="promoPhrasePourc"<!-- SI pas PROD.PROMO_POURC_ROUND --> style="display:none;"<!-- FINSI -->>{L_UNE_REDUCTION_DE} <span class="promoReduc">{PROD.PROMO_POURC_ROUND}%</span></p>
+				<!-- SINON -->
+					<span class="prix"><strong class="lePrix">{DEVISE_PRE}{PROD.PRIX}{DEVISE_POST}</strong></span>
+					<!-- SI PROD.ECO_PART --><span id="ecopart">{L_ECOPART} {DEVISE_PRE}{PROD.ECO_PART}{DEVISE_POST}</span><!-- FINSI -->
+				<!-- FINSI -->
+				</p>
+				<p class="p-ajpan">
+					<button class="button btn-ajpan btn-ajpan-fiche prod-var" type="submit" id="BtnAddCart" name="BtnAddCart">
+						<span>
+							<span>
+								{L_AJOUT_PANIER}
+							</span>
+						</span>
+					</button>
+				</p>
+				<!-- SI PROD.PROMO_TYPE et PROD.SOLDE egal 1 -->
+				<p id="PrixPromo" class="promoPhrase"><span class="promo-du"><span class="promoType">{L_SOLDES_DU}</span> <span class="promoDateDebut">{PROD.PROMO_DEBUT}</span></span> {L_AU} <span class="promoDateFin">{PROD.PROMO_FIN}</span></p>
+				<!-- SINONSI PROD.PROMO_TYPE -->
+				<p id="PrixPromo" class="promoPhrase"><span class="promo-du"><span class="promoType">{L_PROMOTION_DU}</span> <span class="promoDateDebut">{PROD.PROMO_DEBUT}</span></span> {L_AU} <span class="promoDateFin">{PROD.PROMO_FIN}</span></p>
+				<!-- SINON -->
+				<p id="PrixPromo" class="promoPhrase" style="display:none;"><span class="promoType"></span> <span class="promoDateDebut"></span> {L_AU} <span class="promoDateFin"></span></p>
+				<!-- FINSI -->
+				<!-- INCLUDE INC_NOTE_PRODUIT -->
+				<div class="clear1px">&nbsp;</div>
+	<!-- SINON -->
+				<p class="prod-indisponible">{L_INDISPONIBLE}.</p>
+	<!-- FINSI -->
+			</div>
+		</div>
+		<!-- DEBUT !PARTAGE -->
+			<div id="partage" class="wizicss-partage">
+				<div id="partage-email">
+					<p>{L_TRANSMETTRE}</p>
+					<a href="#wizi-partage-form" id="sendFriend" class="wizicss-partage-email-btn button<!-- SI pas PARTAGE.OK_TWIT --><!-- DEBUT ERREUR --><!-- SI ERREUR.NOM ou ERREUR.EMAIL ou ERREUR.NOM_DEST ou ERREUR.EMAIL_DEST --> current<!-- FINSI --><!-- DEBUTSINON --> current<!-- FIN ERREUR --><!-- FINSI -->"><span><span>{L_PAR_EMAIL}</span></span></a>
+				</div>
+				<div id="partage-reseaux">
+					<p>{L_PARTAGER_RESEAUX_SOCIAUX}</p>
+					<!-- SI W_C_FB_BUTTON -->
+					<iframe id="btn-like" src="http://www.facebook.com/plugins/like.php?href=http://{PROD.URL}&amp;layout=button_count&amp;show_faces=false&amp;send=false&amp;width=90&amp;action=like&amp;font=arial&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width: 90px; height: 21px;"></iframe>
+					<!-- FINSI -->
+					<a id="btn-twitter" href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-lang="fr">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+					<a target="_blank" href="{PARTAGE.FORM}" id="btn-facebook" title="{L_SUR_VOTRE_FACEBOOK}"><img src="{W_IMG_PATH}/btn-facebook.png" alt="{L_SUR_VOTRE_FACEBOOK}" /></a>
+					<div id="btn-plusone"><g:plusone size="medium"></g:plusone></div>
+				</div>
+				<div class="clear1px"></div>
+			</div>
+		<!-- FIN PARTAGE -->
+		<div class="clear1px"></div>
+		<input type="hidden" name="id_prod" value="{PROD.ID}" />
+	</form>
+	<!-- DEFINE $PARTAGE_RESEAUX = 0 -->
+		<!-- SI W_C_FB_BUTTON ou W_C_TWITTER_BUTTON ou W_C_GOOGLE_PLUS_BUTTON ou W_C_PINTEREST_BUTTON -->
+			<!-- DEFINE $PARTAGE_RESEAUX = 1 -->
+		<!-- FINSI -->
+	<!-- DEBUT !PARTAGE -->
+		<form class="wizicss-partage-form<!-- SI $MODAL_SOMBRE et $MODAL_SOMBRE egal 1 --> wizicss-partage-form-sombre<!-- FINSI -->" id="wizi-partage-form" method="post" action="{PARTAGE.FORM}">
+			<!-- DEBUT ERREUR -->
+				<!-- SI ERREUR.NOM ou ERREUR.EMAIL ou ERREUR.INVALID_EMAIL_EXP ou ERREUR.NOM_DEST ou ERREUR.EMAIL_DEST -->
+			<ul class="wizicss-erreurs-liste">
+					<!-- DEBUT TEXT -->
+				<li class="wizicss-erreur">{TEXT.ERREUR}</li>
+					<!-- FIN TEXT -->
+			</ul>
+				<!-- FINSI -->
+			<!-- DEBUTSINON -->
+				<!-- SI PARTAGE.OK_FRIEND -->
+			<p class="wizicss-succes">{L_PARTAGE_OK}</p>
+				<!-- SINON -->
+			<p class="wizicss-partage-form-txt">{L_INFO_CALL_FRIEND}</p>
+				<!-- FINSI -->
+			<!-- FIN ERREUR -->
+			<!-- SI pas PARTAGE.INFO_PERSO -->
+			<fieldset class="wizijs-partage-etape1">
+				<div class="wizicss-regroupement">
+					<label for="CNom"><!-- DEBUT ERREUR --><!-- SI ERREUR.NOM --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_VOTRE_NOM}</label>
+					<input class="wizicss-textbox" type="text" name="{PARTAGE.FORM_NOM}" value="{PARTAGE.VAL_NOM}" id="CNom" />
+				</div>
+				<div class="wizicss-regroupement">
+					<label for="CMailExp"><!-- DEBUT ERREUR --><!-- SI ERREUR.EMAIL --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_EMAIL_EXP}</label>
+					<input class="wizicss-textbox" type="text" name="{PARTAGE.FORM_EMAIL_EXP}" value="{PARTAGE.VAL_EMAIL_EXP}" id="CMailExp" />
+				</div>
+				<div class="wizicss-regroupement">
+					<label for="CNomDest"><!-- DEBUT ERREUR --><!-- SI ERREUR.NOM_DEST --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_NOM_DEST}</label>
+					<input class="wizicss-textbox" type="text" name="{PARTAGE.FORM_NOM_DEST}" value="{PARTAGE.VAL_NOM_DEST}" id="CNomDest" />
+				</div>
+				<div class="wizicss-regroupement">
+					<label for="CMail"><!-- DEBUT ERREUR --><!-- SI ERREUR.EMAIL_DEST --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_EMAIL_DEST}</label>
+					<input class="wizicss-textbox" type="text" name="{PARTAGE.FORM_EMAIL_DEST}" value="{PARTAGE.VAL_EMAIL_DEST}" id="CMail" />
+					{PARTAGE.FORM_HIDDEN_ID}
+				</div>
+			</fieldset>
+			<!-- SINON -->
+			<fieldset class="wizijs-partage-etape2">
+				<div class="wizicss-regroupement">
+					<label for="CSujet"><!-- DEBUT ERREUR --><!-- SI ERREUR.SUJET --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_SUJET}</label>
+					<input class="wizicss-textbox" type="text" name="{PARTAGE.FORM_SUJET}" id="CSujet" value="{PARTAGE.VAL_SUJET}" />
+				</div>
+				<div class="wizicss-regroupement">
+					<label for="CMessage"><!-- DEBUT ERREUR --><!-- SI ERREUR.MESSAGE --><img alt="{L_ATTENTION}" src="{W_IMG_PATH}/c-warning.png" /> <!-- FINSI --><!-- FIN ERREUR -->{L_MESSAGE}</label>
+					<textarea class="wizicss-textarea" name="{PARTAGE.FORM_MESSAGE}" id="CMessage" rows="6" cols="80">{PARTAGE.VAL_MESSAGE}</textarea>
+				</div>
+				<div class="wizicss-regroupement wizicss-regroupement-chk">
+					<input class="wizicss-checkbox" type="checkbox" name="{PARTAGE.FORM_NEWSLETTER}" id="CNewsletter" /> 
+					<label class="wizicss-label-chk" for="CNewsletter">
+						{L_PARTAGE_INSCRIPTION_NEWSLETTER}
+					</label>
+				</div>
+			</fieldset>
+			<!-- FINSI -->
+			<div class="wizicss-zone-btn">
+				<button class="wizicss-button wizicss-btnT1" type="submit" name="{PARTAGE.FORM_VALID}">
+					<span><span><!-- SI PARTAGE.FORM_CANCEL -->{L_ENVOYER}<!-- SINON -->{L_SUITE}<!-- FINSI --></span></span>
+				</button>
+				<!-- SI PARTAGE.INFO_PERSO -->
+				<button class="wizicss-button wizicss-btnT2" type="submit" value="cancel" name="{PARTAGE.FORM_CANCEL}" id="BtnCancel">
+					<span><span>{L_ANNULER}</span></span>
+				</button>
+				<!-- FINSI -->
+			</div>
+		</form>
+		<!-- FIN PARTAGE -->
+	<ul id="liste-infos" class="liste-onglets">
+	<!-- DEBUT LIST_CROSS(0,0) -->
+		<li class="current" id="li-cross-sell"><a class="current" href="#cross-sell-fiche"><span>{L_PRODUITS_ASSOCIES}</span></a></li>
+	<!-- FIN LIST_CROSS -->
+		<li id="li-description" <!-- DEBUT LIST_CROSS(0,0) --><!-- DEBUTSINON --> class="current"<!-- FIN LIST_CROSS -->><a<!-- DEBUT LIST_CROSS(0,0) --><!-- DEBUTSINON --> class="current"<!-- FIN LIST_CROSS --> href="#description"><span>{L_DESCRIPTION}</span></a></li>
+	<!-- DEBUT LIST_CARAC -->
+		<!-- SI LIST_CARAC.PREM_LIGNE -->
+		<li id="li-caracteristiques"><a href="#caracteristiques"><span>{L_CARACTERISTIQUES}</span></a></li>
+		<!-- FINSI -->
+	<!-- FIN LIST_CARAC -->
+	<!-- DEBUT ADD_COM -->
+        <li><a <!-- DEBUT ERREUR --><!-- SI ERREUR.PREM_LIGNE--> class="current" <!-- FINSI --><!-- FIN ERREUR --> href="#commentaires" id="a-commentaires" ><span>{L_COMMENTAIRES} ({PROD_COM_COUNT})</span></a></li>
+    <!-- FIN ADD_COM -->
+	</ul>
+	<div id="description" class="cont-onglet">
+		<!-- DEBUT DESC -->
+			<!-- SI DESC.TYPE egal 'titre' -->
+		<h2 class="h2">{DESC.TEXT}</h2>
+			<!-- SINONSI DESC.TYPE egal 'soustitre' -->
+		<h3 class="h3">{DESC.TEXT}</h3>
+			<!-- SINON -->
+		{DESC.TEXT}
+			<!-- FINSI -->
+		<!-- FIN DESC -->
+	</div>
+	<!-- DEBUT LIST_CARAC -->
+		<!-- SI LIST_CARAC.PREM_LIGNE -->
+	<div id="caracteristiques" class="cont-onglet">
+		<ul>
+		<!-- FINSI -->
+			<li>{LIST_CARAC.NOM}</li>
+		<!-- SI LIST_CARAC.DERN_LIGNE -->
+		</ul>
+	</div>
+		<!-- FINSI -->
+	<!-- FIN LIST_CARAC -->
+	
+	<!-- DEBUT LIST_CROSS(0,2) -->
+		<!-- SI LIST_CROSS.PREM_LIGNE -->
+	<div id="cross-sell-fiche" class="list-prod cross-sell cont-onglet">
+		<!-- FINSI -->
+		<!-- SI LIST_CROSS.PREM_LIGNE ou LIST_CROSS.NUM_LIGNE % 3 egal 0 -->
+		<div class="ligne-prod">
+		<!-- FINSI -->
+			<div itemscope itemtype="http://schema.org/Product" class="prod<!-- SI LIST_CROSS.NUM_LIGNE % 3 egal 2 --> last<!-- FINSI -->">
+				<div class="cont-prod<!-- SI LIST_CROSS.PROMO_TYPE ou LIST_CROSS.NOUVEAUTE --> avec-etat<!-- FINSI -->">
+					<div class="haut-prod">
+						<a class="photo" href="{LIST_CROSS.URL}">
+							<img src="{LIST_CROSS.IMG_150}" alt="{LIST_CROSS.NOM[SCRIPT]}" />
+						</a>
+						<div class="infos-prod">
+						<p class="nom"><a href="{LIST_CROSS.URL}" itemprop="name">{LIST_CROSS.NOM[SCRIPT]}</a></p>
+						<!-- SI LIST_CROSS.MARQ_NOM --><p class="brand"><a href="{LIST_CROSS.URL}">{LIST_CROSS.MARQ_NOM}</a></p><!-- FINSI -->
+						<!-- SI LIST_CROSS.NOTE -->
+					    <div class="wizicss-etoiles-bg" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+					        <div class="wizicss-etoiles-fg" style="width: {LIST_CROSS.NOTE_POUR}%;">
+					        	<meta itemprop="worstRating" content="1" />
+								<meta itemprop="ratingValue" content="{LIST_CROSS.NOTE}" />
+								<meta itemprop="worstRating" content="5" />
+								<meta itemprop="reviewCount" content="{PROD_COM_COUNT}" />
+							</div>
+					    </div>
+					    <!-- FINSI -->
+						</div>
+						<a href="{LIST_CROSS.URL}" class="button btn-ajpan<!-- SI LIST_CROSS.VARIATION ou LIST_CROSS.VARIATION2 --> prod-var<!-- FINSI -->">
+							<span><span>{L_SAVOIR_PLUS}</span></span>
+						</a>
+					</div>
+					<div class="bas-prod">
+						<p class="prix">
+							<a href="{LIST_CROSS.URL}">
+								<!-- SI LIST_CROSS.VARIATION et LIST_CROSS.VARIATION_PRIX -->
+								<span>{L_A_PARTIR_DE}</span>
+								<!-- FINSI -->
+								<!-- SI LIST_CROSS.PROMO_PRIX -->
+								<del>{DEVISE_PRE}{LIST_CROSS.PRIX}{DEVISE_POST}</del>
+								<strong>{DEVISE_PRE}{LIST_CROSS.PROMO_PRIX}{DEVISE_POST}</strong>
+								<!-- SINON -->
+								<strong>{DEVISE_PRE}{LIST_CROSS.PRIX}{DEVISE_POST}</strong>
+								<!-- FINSI -->
+							</a>
+						</p>
+					</div>
+					<!-- SI LIST_CROSS.PROMO_TYPE et LIST_CROSS.SOLDE egal 1 -->
+					<p class="etatPrix solde">{L_SOLDE} <span><!-- SI LIST_CROSS.PROMO_POUR_ROUND --><strong><!-- SI LIST_CROSS.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI LIST_CROSS.PROMO_TYPE egal 2 -->{LIST_CROSS.PROMO_POUR_ROUND}%<!-- SINONSI LIST_CROSS.PROMO_TYPE egal 1 -->{DEVISE_PRE}{LIST_CROSS.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+					<!-- SINONSI LIST_CROSS.PROMO_TYPE et LIST_CROSS.SOLDE egal 0 -->
+					<p class="etatPrix promo">{L_PROMOTION} <span><!-- SI LIST_CROSS.PROMO_POUR_ROUND --><strong><!-- SI LIST_CROSS.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI LIST_CROSS.PROMO_TYPE egal 2 -->{LIST_CROSS.PROMO_POUR_ROUND}%<!-- SINONSI LIST_CROSS.PROMO_TYPE egal 1 -->{DEVISE_PRE}{LIST_CROSS.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+					<!-- SINONSI LIST_CROSS.NOUVEAUTE -->
+					<p class="etatPrix nouveaute">{L_NOUVEAU}</p>
+					<!-- FINSI -->
+				<!-- SI LIST_CROSS.RESUME -->
+					<div class="description">{LIST_CROSS.RESUME}</div>
+				<!-- FINSI -->
+				<div class="clear1px"></div>
+				</div>
+				<div class="clear1px"></div>
+			</div>
+		<!-- SI LIST_CROSS.DERN_LIGNE ou LIST_CROSS.NUM_LIGNE % 3 egal 2 -->
+		</div>
+		<!-- FINSI -->
+		<!-- SI LIST_CROSS.DERN_LIGNE ou LIST_CROSS.NUM_LIGNE egal 2 -->
+	</div>
+		<!-- FINSI -->
+	<!-- FIN LIST_CROSS -->
+    <!-- SI ADD_COM.PREM_LIGNE -->
+    <div id="commentaires" class="wizicss-commentaires cont-onglet {INFO_OS} {INFO_NAVIGATEUR}{INFO_NAVIGATEUR_VERSION}<!-- SI INFO_NAVIGATEUR egal 'chrome' ou INFO_NAVIGATEUR egal 'safari' ou INFO_NAVIGATEUR egal 'webkit' --> {INFO_NAVIGATEUR} webkit<!-- SINON --> {INFO_NAVIGATEUR}<!-- FINSI -->">
+        <div class="wizicss-com-liste">
+            <div class="wizicss-com-liste-haut">
+    <!-- DEBUT ADD_COM -->
+        <!-- SI pas ADD_COM.OK et pas ADD_COM.OK_VALID -->
+                <button id="wizi-btn-ajout-com" class="wizicss-button wizicss-btn-ajout-com wizijs-btn-ajout-com"><span><span>{L_POSTCOM}</span></span></button>
+        <!-- FINSI -->
+    <!-- FIN ADD_COM -->
+                <p class="wizicss-com-nb">{PROD_COM_COUNT_L}</p>
+                <div class="wizicss-clear1px"></div>
+            </div>
+            <!-- DEBUT COM -->
+            <div class="wizicss-com" id="wizi-com-{COM.ID}" itemprop="reviews" itemscope itemtype="http://schema.org/Review">
+                <p class="wizicss-com-infos">
+                    <span class="wizicss-com-pseudo"><strong itemprop="author">{COM.AUTEUR}</strong> - </span>
+                    <span class="wizicss-com-date"><meta itemprop="datePublished" content="{COM.DATE_R}" />{COM.DATE}</span> <span class="wizicss-com-heure"> {L_A} {COM.HEURE}</span>
+                </p>
+                <div class="wizicss-etoiles-bg" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                    <div class="wizicss-etoiles-fg wizicss-etoile-{COM.NOTE}">
+                        <meta itemprop="worstRating" content="1">
+                        <meta itemprop="ratingValue" content="{COM.NOTE}" />
+                        <meta itemprop="worstRating" content="5">
+                    </div>
+                </div>
+                <p class="wizicss-com-texte" itemprop="description">{COM.CONTENU}</p>
+            </div>
+            <!-- FIN COM -->
+            <p class="wizicss-com-tous"><a href="{PROD_ALL_COM_URL}">{PROD_COM_FULL_L} <strong>{PROD.NOM}</strong></a></p>
+        </div>
+    <!-- DEBUT ADD_COM -->
+        <!-- SI ADD_COM.OK ou ADD_COM.OK_VALID -->
+        <p class="wizicss-succes"><!-- SI ADD_COM.OK -->{L_ADD_COM_OK}<!-- SINONSI ADD_COM.OK_VALID -->{L_ADD_COM_VALID}<!-- FINSI --></p>
+        <!-- SINON -->
+        <form class="wizicss-com-form" action="{ADD_COM.FORM}" method="post" id="addCom">
+            <fieldset class="wizijs-comment">
+                <legend>{L_AJOUTER_COMMENTAIRE}</legend>
+                <div id="wizi-coms" class="wizicss-coms"></div>
+                <!-- DEBUT ERREUR -->
+                    <!-- DEBUT TEXT -->
+                        <!-- SI TEXT.PREM_LIGNE -->
+                <ul class="wizicss-erreur-liste">
+                        <!-- FINSI -->
+                    <li class="wizicss-erreur">{TEXT.ERREUR}</li>
+                        <!-- SI TEXT.DERN_LIGNE -->
+                </ul>
+                        <!-- FINSI -->
+                    <!-- FIN TEXT -->
+                <!-- FIN ERREUR -->
+                
+            <!-- SI ADD_COM.FORM_CONTENU -->
+                <!-- SI ADD_COM.FORM_NOTE -->
+                <div class="wizicss-note-selection">
+                    <p class="wizicss-votre-note">{L_VOTRE_NOTE}</p>
+                    <ul class="wizicss-liste-etoiles wizijs-notes-echelle">
+                        <li>
+                            <label for="wizi-note01" title="{L_NOTE} : 1 {L_SUR} 5">1
+                                <input type="radio" name="{ADD_COM.FORM_NOTE}" id="wizi-note01" value="1" <!-- SI ADD_COM.VAL_NOTE egal 1 -->checked="checked"<!-- FINSI -->/>
+                            </label>
+                        </li>
+                        <li>
+                            <label for="wizi-note02" title="{L_NOTE} : 2 {L_SUR} 5">2
+                                <input type="radio" name="{ADD_COM.FORM_NOTE}" id="wizi-note02" value="2" <!-- SI ADD_COM.VAL_NOTE egal 2 -->checked="checked"<!-- FINSI -->/>
+                            </label>
+                        </li>
+                        <li>
+                            <label for="wizi-note03" title="{L_NOTE} : 3 {L_SUR} 5">3
+                                <input type="radio" name="{ADD_COM.FORM_NOTE}" id="wizi-note03" value="3" <!-- SI ADD_COM.VAL_NOTE egal 3 -->checked="checked"<!-- FINSI -->/>
+                            </label>
+                        </li>
+                        <li>
+                            <label for="wizi-note04" title="{L_NOTE} : 4 {L_SUR} 5">4
+                                <input type="radio" name="{ADD_COM.FORM_NOTE}" id="wizi-note04" value="4" <!-- SI ADD_COM.VAL_NOTE egal 4 -->checked="checked"<!-- FINSI -->/>
+                            </label>
+                        </li>
+                        <li>
+                            <label for="wizi-note05" title="{L_NOTE} : 5 {L_SUR} 5">5
+                                <input type="radio" name="{ADD_COM.FORM_NOTE}" id="wizi-note05" value="5" <!-- SI ADD_COM.VAL_NOTE egal 5 -->checked="checked"<!-- FINSI -->/>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <!-- FINSI -->
+                <div class="wizicss-regroupement">
+                    <label class="wizicss-hidden" for="wizi-txt-commentaire">{L_COMMENTAIRE}</label>
+                    <textarea id="wizi-txt-commentaire" class="wizicss-textarea wizijs-textarea" name="{ADD_COM.FORM_CONTENU}" placeholder="{L_AJOUTER_COMMENTAIRE}">{ADD_COM.VAL_CONTENU}</textarea>
+                </div>
+                <div class="wizi-action-container">
+                    <div class="wizicss-regroupement">
+                        <label class="wizicss-hidden" for="wizi-txt-nom">{L_VOTRE_NOM}</label>
+                        <input id="wizi-txt-nom" class="wizicss-textbox" type="text" name="{ADD_COM.FORM_NOM}" value="{ADD_COM.VAL_NOM}" placeholder="{L_VOTRE_NOM}" />
+                    </div>
+                    <!-- SI ADD_COM.FORM_EMAIL -->
+                    <div class="wizicss-regroupement">
+                        <label class="wizicss-hidden" for="wizi-txt-email">{L_VOTRE_EMAIL}</label>
+                        <input id="wizi-txt-email" class="wizicss-textbox" type="text" name="{ADD_COM.FORM_EMAIL}" value="{ADD_COM.VAL_EMAIL}" placeholder="{L_VOTRE_EMAIL}" /> 
+                    </div>
+                    <!-- FINSI -->
+                    <!-- SI ADD_COM.FORM_LOGIN et ADD_COM.FORM_PASS -->
+                    <div class="wizicss-bloc-connexion">
+                    <!-- FINSI -->
+                    <!-- SI ADD_COM.FORM_LOGIN -->
+                    <p class="wizicss-texte-connexion">{L_COM_POUR_IDENTIFIER}</p>
+                    <div class="wizicss-regroupement">
+                        <label class="wizicss-hidden" for="wizi-txt-pseudo">{L_EMAIL_CONNEXION}</label>
+                        <input id="wizi-txt-pseudo" class="wizicss-textbox" type="text" name="{ADD_COM.FORM_LOGIN}" value="{ADD_COM.VAL_LOGIN}" placeholder="{L_EMAIL_CONNEXION}" />
+                    </div>
+                    <!-- FINSI -->
+                    <!-- SI ADD_COM.FORM_PASS -->
+                    <div class="wizicss-regroupement">
+                        <label class="wizicss-hidden" for="wizi-txt-pass">{L_MOT_DE_PASSE}</label>
+                        <input id="wizi-txt-pass" class="wizicss-textbox" type="password" name="{ADD_COM.FORM_PASS}" value="{ADD_COM.VAL_PASS}" placeholder="{L_MOT_DE_PASSE}" />
+                    </div>
+                    <!-- FINSI -->
+                    <!-- SI ADD_COM.FORM_LOGIN et ADD_COM.FORM_PASS -->
+                    </div>
+                    <!-- FINSI -->
+                    <div class="wizicss-com-partage wizicss-regroupement">
+                        <p class="wizicss-com-partager">{L_PARTAGER_RESEAUX_SOCIAUX} :</p>
+                        <ul class="wizicss-com-liste-reseaux">
+                            <li>
+                                <label for="wizi-chk-fb">
+                                    <input id="wizi-chk-fb" type="checkbox" name="com[fb]" value="fb" class="wizi-btn-ch wizi-fb-chk"/> 
+                                    <img class="wizi-btn-ch" src="{W_IMG_PATH_GLOBAL}/logo_facebook_16.gif" />
+                                </label>
+                            </li>
+                            <li>
+                                <label for="wizi-chk-twitter">
+                                    <input id="wizi-chk-twitter" type="checkbox" name="com[twt]" value="twitter" class="wizi-btn-ch wizi-twitter-chk" /> 
+                                    <img class="wizi-btn-ch" src="{W_IMG_PATH_GLOBAL}/logo_twitter.gif" />
+                                </label>
+                            </li>
+                        </ul>
+                        <div class="wizicss-clear1px"></div>
+                    </div>
+                    <div class="wizicss-zone-btn">
+                        <button id="wizi-btn-valider-com" class="wizicss-button"><span><span>{L_VALID}</span></span></button>
+                        <div class="clear1px"></div>
+                    </div>
+                    {ADD_COM.FORM_HIDDEN_ID}
+                </div>
+            <!-- FINSI -->
+            </fieldset>
+        </form>
+        <!-- FINSI -->
+        <!-- FIN ADD_COM -->
+        <div class="clear1px"></div>
+    </div>
+    <!-- FINSI -->
+<!-- FIN PROD -->
+</div>

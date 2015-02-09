@@ -1,0 +1,69 @@
+<!-- INCLUDE INC_NPC_PANIER -->
+<!-- DEBUT PANIER --> 
+	<!-- DEBUT LIST_CROSS(0,3) -->
+		<!-- SI LIST_CROSS.PREM_LIGNE -->
+		<div id="cross-sell-pan" class="list-prod cross-sell">
+		<!-- FINSI -->
+		<!-- SI LIST_CROSS.PREM_LIGNE ou LIST_CROSS.NUM_LIGNE % 4 egal 0 -->
+			<div class="ligne-prod">
+		<!-- FINSI -->
+				<div itemscope itemtype="http://schema.org/Product" class="prod<!-- SI LIST_CROSS.NUM_LIGNE % 4 egal 3 --> last<!-- FINSI -->">
+					<div class="cont-prod<!-- SI (LIST_CROSS.PROMO_PRIX et LIST_CROSS.SOLDE egal 1) ou (LIST_CROSS.PROMO_PRIX et LIST_CROSS.SOLDE egal 0) ou LIST_CROSS.NOUVEAUTE --> avec-etat<!-- FINSI -->">
+						<div class="haut-prod">
+							<a class="photo" href="{LIST_CROSS.URL}">
+								<img src="{LIST_CROSS.IMG_150}" alt="{LIST_CROSS.NOM[SCRIPT]}" />
+							</a>
+							<div class="infos-prod">
+								<p class="nom"><a href="{LIST_CROSS.URL}" itemprop="name">{LIST_CROSS.NOM[SCRIPT]}</a></p>
+								<!-- SI PROD.MARQ_NOM --><p class="brand"><a href="{PROD.URL}">{PROD.MARQ_NOM}</a></p><!-- FINSI -->
+								<!-- SI LIST_CROSS.NOTE -->
+							    <div class="wizicss-etoiles-bg" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+							        <div class="wizicss-etoiles-fg" style="width: {LIST_CROSS.NOTE_POUR}%;">
+							        	<meta itemprop="worstRating" content="1" />
+										<meta itemprop="ratingValue" content="{LIST_CROSS.NOTE}" />
+										<meta itemprop="worstRating" content="5" />
+										<meta itemprop="reviewCount" content="{PROD_COM_COUNT}" />
+									</div>
+							    </div>
+							    <!-- FINSI -->
+							</div>
+							<a href="{LIST_CROSS.URL}" class="button btn-ajpan<!-- SI LIST_CROSS.VARIATION ou LIST_CROSS.VARIATION2 --> prod-var<!-- FINSI -->">
+								<span><span>{L_SAVOIR_PLUS}</span></span>
+							</a>
+						</div>
+						<div class="bas-prod">
+							<p class="prix">
+								<a href="{LIST_CROSS.URL}">
+									<!-- SI LIST_CROSS.VARIATION et LIST_CROSS.VARIATION_PRIX -->
+									<span>{L_A_PARTIR_DE}</span>
+									<!-- FINSI -->
+									<!-- SI LIST_CROSS.PROMO_PRIX -->
+									<del>{DEVISE_PRE}{LIST_CROSS.PRIX}{DEVISE_POST}</del>
+									<strong>{DEVISE_PRE}{LIST_CROSS.PROMO_PRIX}{DEVISE_POST}</strong>
+									<!-- SINON -->
+									<strong>{DEVISE_PRE}{LIST_CROSS.PRIX}{DEVISE_POST}</strong>
+									<!-- FINSI -->
+								</a>
+							</p>
+						</div>
+						<!-- SI LIST_CROSS.PROMO_TYPE et LIST_CROSS.SOLDE egal 1 -->
+						<p class="etatPrix solde">{L_SOLDE} <span><!-- SI LIST_CROSS.PROMO_POUR_ROUND --><strong><!-- SI LIST_CROSS.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI LIST_CROSS.PROMO_TYPE egal 2 -->{LIST_CROSS.PROMO_POUR_ROUND}%<!-- SINONSI LIST_CROSS.PROMO_TYPE egal 1 -->{DEVISE_PRE}{LIST_CROSS.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+						<!-- SINONSI LIST_CROSS.PROMO_TYPE et LIST_CROSS.SOLDE egal 0 -->
+						<p class="etatPrix promo">{L_PROMOTION} <span><!-- SI LIST_CROSS.PROMO_POUR_ROUND --><strong><!-- SI LIST_CROSS.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI LIST_CROSS.PROMO_TYPE egal 2 -->{LIST_CROSS.PROMO_POUR_ROUND}%<!-- SINONSI LIST_CROSS.PROMO_TYPE egal 1 -->{DEVISE_PRE}{LIST_CROSS.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+						<!-- SINONSI LIST_CROSS.NOUVEAUTE -->
+						<p class="etatPrix nouveaute">{L_NOUVEAU}</p>
+						<!-- FINSI -->
+					<!-- SI LIST_CROSS.RESUME -->
+						<div class="description">{LIST_CROSS.RESUME}</div>
+					<!-- FINSI -->
+					</div>
+				</div>
+		<!-- SI LIST_CROSS.DERN_LIGNE ou LIST_CROSS.NUM_LIGNE % 4 egal 3 -->
+				<div class="clear1px"></div>
+			</div>
+		<!-- FINSI -->
+		<!-- SI LIST_CROSS.DERN_LIGNE ou LIST_CROSS.NUM_LIGNE egal 3 -->
+		</div>
+		<!-- FINSI -->
+	<!-- FIN LIST_CROSS -->
+<!-- FIN PANIER -->
