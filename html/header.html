@@ -11,8 +11,8 @@
 	<!-- DEBUT BLOG --><link rel="alternate" type="application/rss+xml" title="{L_FLUX_RSS} {NOM_BOUTIQUE}" href="{BLOG.URL_RSS}" /><!-- FIN BLOG -->
 	<title>{META_TITRE}</title>
 	{COMMON_JS}
-	<link rel="stylesheet" href="{COMBO_CSS}<!-- SI W_C_AVIS -->&amp;avis=1<!-- FINSI -->&amp;modaloverlay.css&amp;screen.css&amp;1.0.22" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{W_CSS_PATH_GLOBAL}/jquery-ui-1.8.21.custom.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{COMBO_CSS}&amp;sp1=1<!-- SI W_C_AVIS -->&amp;avis=1<!-- FINSI -->&amp;modaloverlay.css&amp;screen.css&amp;2.0.5&amp;custom.css&0.2.9.294{SP1_CSS_VERSION}" type="text/css" media="screen" />
 <!-- SI W_P_PANIER ou W_C_VALIDATION_RAPIDE ou W_C_FIN -->
 	<link type="text/css" href="{W_CSS_PATH_GLOBAL}/npc.css?1.0.3" rel="stylesheet" media="screen" />
 	<link type="text/css" href="{W_CSS_PATH}/npc-colors.css?1.0.2" rel="stylesheet" media="screen" />
@@ -34,7 +34,7 @@
 		var _info_os = '{INFO_OS}';
 		var paysShop = '{PAYS_SHOP}';
 	</script>
-	<script type="text/javascript" charset="utf-8" src="{COMBO_JS}<!-- SI W_C_AVIS -->&amp;avis=1<!-- FINSI -->&amp;config.js&amp;var.js&amp;mondial-relay-custom.js&amp;jquery.qtip-1.0.0-rc3.min.js&amp;easySlider1.7.js&amp;menu.js&amp;panier-compte-recherche.js&amp;listes.js&amp;fiche.js&amp;commande.js&amp;footer.js&amp;1.0.2"></script>
+	<script type="text/javascript" charset="utf-8" src="{COMBO_JS}&amp;sp1=1<!-- SI W_C_AVIS -->&amp;avis=1<!-- FINSI -->&amp;config.js&amp;var.js&amp;mondial-relay-custom.js&amp;jquery.qtip-1.0.0-rc3.min.js&amp;easySlider1.7.js&amp;menu.js&amp;panier-compte-recherche.js&amp;listes.js&amp;fiche.js&0.0.1&amp;commande.js&amp;footer.js&amp;1.0.7{SP1_JS_VERSION}"></script>
 	<script type="text/javascript" src="{W_JS_PATH_GLOBAL}/jquery-ui-1.8.23.custom.min.js"></script>
 	<script type="text/javascript" src="{W_JS_PATH_GLOBAL}/jquery.scrollTo-1.4.2.js"></script>
 <!-- SI W_P_PANIER ou W_C_VALIDATION_RAPIDE -->
@@ -50,7 +50,7 @@
 <![endif]-->
 <!-- Début des scripts avis -->
 <!-- SI W_C_AVIS -->
-    <script src="http://connect.facebook.net/en_US/all.js" type="text/javascript"></script>
+    <script src="http://connect.facebook.net/fr_FR/all.js" type="text/javascript"></script>
     <script src="http://platform.twitter.com/anywhere.js?id=OIdlx33gzgrpTxmdTXIthw&amp;v=1" type="text/javascript"></script>
 <!-- FINSI -->
 	<script type="text/javascript" src="https://apis.google.com/js/plusone.js">{lang: 'fr'}</script>
@@ -66,11 +66,15 @@
 	<!-- SI CSS_PERSO -->
 	<link rel="stylesheet" href="{W_CSS_PATH_GLOBAL}/{CSS_PERSO}" type="text/css" media="screen" />
 	<!-- FINSI -->
+	<link rel="icon" href="{W_IMG_PATH}/favicon.ico" />
 </head>
 <body class="{INFO_OS} {INFO_NAVIGATEUR}{INFO_NAVIGATEUR_VERSION}<!-- SI INFO_NAVIGATEUR egal 'chrome' ou INFO_NAVIGATEUR egal 'safari' ou INFO_NAVIGATEUR egal 'webkit' --> {INFO_NAVIGATEUR} webkit<!-- SINON --> {INFO_NAVIGATEUR}<!-- FINSI -->">
 	{DEBUT_BODY_SCRIPT}
-	<!-- DEBUT ERREUR --><div id="basicModal"><!-- DEBUT TEXT --><p>{TEXT.ERREUR}</p><!-- FIN TEXT --></div><!-- FIN ERREUR -->
-	<!-- DEBUT PROD --><!-- DEBUT ERREUR --><div id="basicModal"><!-- DEBUT TEXT --><p>{TEXT.ERREUR}</p><!-- FIN TEXT --></div><!-- FIN ERREUR --><!-- FIN PROD -->
+	<!-- DEBUT ERREUR -->
+		<div id="basicModal" style="display: none;"><!-- DEBUT TEXT --><p>{TEXT.ERREUR}</p><!-- FIN TEXT --></div>
+	<!-- DEBUTSINON -->
+		<!-- DEBUT PROD --><!-- DEBUT ERREUR --><div id="basicModal" style="display: none;"><!-- DEBUT TEXT --><p>{TEXT.ERREUR}</p><!-- FIN TEXT --></div><!-- FIN ERREUR --><!-- FIN PROD -->
+	<!-- FIN ERREUR -->
 	<div class="header">
 		<div class="c1-header">
 			<div class="slogan">
@@ -88,23 +92,40 @@
 				</a>
 				</<!-- SI W_P_INDEX -->h1<!-- SINON -->p<!-- FINSI -->>
 			</div>
-			<div class="compte-panier">
-				<p id="mon-compte">
-						<a href="/p/compte.html">{L_MON_COMPTE}</a>
-						<!-- DEBUT CLIENT --> / <a id="lien-deconnexion" href="/deco.php">{L_DECONNECTION}</a><!-- DEBUTSINON --> / <a id="lien-deconnexion" href="/p/compte.html">{L_CONNEXION}</a><!-- FIN CLIENT -->
-				</p>
-				<p id="mon-panier">
-					<a href="/p/panier.html">
-						<strong>{L_MON_PANIER} :</strong>
-						<span id="nb_prod"><!-- DEBUT PANIER -->{PANIER.NB_PROD} {L_NB_ARTICLES}<!-- DEBUTSINON -->{L_AUCUN_ARTICLE}<!-- FIN PANIER --></span>
-					</a>
-				</p>
-			</div>
-		</div>
+			<p class="top-quality">Retour accepté - Expédition rapide - Achats sécurisés</p>
+			<div class="top-bar">
+				<form id="form-recherche" method="get" action="{RECHERCHE_FORM}">
+					<fieldset>
+						<legend>{L_RECHERCHE}</legend>
+						<div class="form-search">
+							<input type="text" name="{RECHERCHE_FORM_NAME}" class="input-text" id="search" value="{L_VOTRERECHERCHE}" />
+							<button class="button" type="submit" id="btn-recherche" name="btn-recherche"><span><span>CHERCHER >></span></span></button>
+							<!--<div class="clear1px">&nbsp;</div>-->
+						</div><!-- .form-search -->
+						<!--<div class="clear1px">&nbsp;</div>-->
+					</fieldset>
+					<!--<div class="clear1px">&nbsp;</div>-->
+				</form>
+			</div><!-- .top-bar -->
+			<div class="block-basket">
+        		<strong><span id="mon-panier"><a class="block-basket-title" href="/p/panier.html">{L_MON_PANIER} :</a>
+                            <span id="nb_prod"><!-- DEBUT PANIER --><span class="block-basket-content">{PANIER.NB_PROD} {L_NB_ARTICLES}</span><!-- DEBUTSINON --><span class="block-basket-empty">{L_AUCUN_ARTICLE}</span><!-- FIN PANIER --></span>
+                        </span>
+    		    </strong>
+   			</div><!-- .block-basket -->
+			<div class="block-account">
+        		<strong><span id="mon-compte"><a class="block-account-content" href="/p/compte.html">Accéder à mon compte</a>
+        		</span></strong>
+			</div><!-- .block-account -->
+			<h3>Top tendance, top budget !</h3>
+
+
+	</div>
+
 		<div id="div_menu" class="menu">
 			<ul id="menu">
-				<li class="li-first">
-					<a href="/"><span>{L_ACCUEIL}</span></a>
+				<li class="li-first <!-- SI W_P_INDEX --> current<!-- FINSI -->">
+					<a href="/"><span><span></span></span></a>
 				</li>
 			<!-- SI W_C_BLOG -->
 				<li id="blog">
@@ -113,15 +134,15 @@
 			<!-- FINSI -->
 		<!-- DEBUT CAT -->
 			<!-- DEBUT SOUS_CAT -->
-				<!-- SI SOUS_CAT.PREM_LIGNE -->
+				<!-- SI SOUS_CAT.PREM_LIGNE et CAT.ID different 43 et CAT.ID different 71 et CAT.ID different 73 -->
 				<li id="li{CAT.ID}" class="ssm<!-- SI CAT.SEL --> current<!-- FINSI -->">
 					<a id="a{CAT.ID}" class="a-cat wizi-cat" href="{CAT.URL}"><span>{CAT.NOM}</span></a>
 				<!-- FINSI -->
 			<!-- DEBUTSINON -->
-				<li<!-- SI CAT.SEL --> class="current"<!-- FINSI -->>
+				<li id="li{CAT.ID}"<!-- SI CAT.SEL --> class="current"<!-- FINSI -->>
 					<a href="{CAT.URL}" class="wizi-cat"><span>{CAT.NOM}</span></a>
 			<!-- FIN SOUS-CAT -->
-			<!-- DEBUT SOUS_CAT --> 
+			<!-- DEBUT SOUS_CAT -->
 				<!-- SI SOUS_CAT.PREM_LIGNE -->
 				<div id="ss{CAT.ID}" style="display: none;">
 					<ul>
@@ -135,10 +156,46 @@
 				</li>
 		<!-- FIN CAT -->
 			</ul>
-		</div>	
-	</div>
+		</div>
+
 	<div class="clear1px"></div>
-	<div class="content<!-- SI pas W_P_INDEX --> avec-fil-ariane<!-- FINSI -->">
+		<!-- SI W_P_CAT ou W_P_SOUSCAT et W_P_PRODUIT different 'TRUE' -->
+		<div class="landing-category">
+		<!-- SI CAT_ID egal 5 ou CAT_ID egal 6 ou CAT_ID egal 7 ou CAT_ID egal 8 ou CAT_ID egal 9 ou CAT_ID egal 19 ou CAT_ID egal 37 -->	<!-- Cuisine -->
+		<a href="/cuisine/tout-le-catalogue-cuisine/" alt="Tout le catalogue CUISINE"><img alt="Tout le catalogue CUISINE" src="{W_IMG_PATH}/category/bandeau-cuisine.jpg"></a>
+		<!-- FINSI -->
+		<!-- SI CAT_ID egal 15 ou CAT_ID egal 22 ou CAT_ID egal 20 ou CAT_ID egal 16 ou CAT_ID egal 23 ou CAT_ID egal 21 ou CAT_ID egal 38 -->	<!-- Maison / Entretien -->
+		<a href="/maison-entretien/tout-le-catalogue-maison-entretien/" alt="Tout le catalogue MAISON / ENTRETIEN"><img alt="Tout le catalogue MAISON / ENTRETIEN" src="{W_IMG_PATH}/category/bandeau-maison-entretien.jpg"></a>
+		<!-- FINSI -->
+		<!-- SI CAT_ID egal 10 ou CAT_ID egal 18 ou CAT_ID egal 17 ou CAT_ID egal 14 ou CAT_ID egal 13 ou CAT_ID egal 39 -->	<!-- Bricolage -->
+		<a href="/bricolage/tout-le-catalogue-bricolage/" alt="Tout le catalogue BRICOLAGE"><img alt="Tout le catalogue BRICOLAGE" src="{W_IMG_PATH}/category/bandeau-bricolage.jpg"></a>
+		<!-- FINSI -->
+		<!-- SI CAT_ID egal 32 ou CAT_ID egal 35 ou CAT_ID egal 34 ou CAT_ID egal 33 ou CAT_ID egal 40 -->	<!-- Jardin -->
+		<a href="/jardin/tout-le-catalogue-jardin/" alt="Tout le catalogue JARDIN"><img alt="Tout le catalogue JARDIN" src="{W_IMG_PATH}/category/bandeau-jardin.jpg"></a>
+		<!-- FINSI -->
+		<!-- SI CAT_ID egal 24 ou CAT_ID egal 27 ou CAT_ID egal 26 ou CAT_ID egal 25 ou CAT_ID egal 41 -->	<!-- Loisirs -->
+		<a href="/loisirs/tout-le-catalogue-loisirs/" alt="Tout le catalogue LOISIRS"><img alt="Tout le catalogue LOISIRS" src="{W_IMG_PATH}/category/bandeau-loisirs.jpg"></a>
+		<!-- FINSI -->
+		<!-- SI CAT_ID egal 28 ou CAT_ID egal 31 ou CAT_ID egal 30 ou CAT_ID egal 29 ou CAT_ID egal 42 -->	<!-- Beauté / Santé -->
+		<a href="/beaute-sante/tout-le-catalogue-beaute-sante/" alt="Tout le catalogue BEAUTE / SANTE"><img alt="Tout le catalogue BEAUTE / SANTE" src="{W_IMG_PATH}/category/bandeau-beaute-sante.jpg"></a>
+		<!-- FINSI -->
+		<!-- SI CAT_ID egal 71 -->	<!-- Noël -->
+		<a href="/noel/" alt="Toute la sélection Noël"><img alt="Toute la sélection Noël" src="{W_IMG_PATH}/category/bandeau-noel.jpg"></a>
+		<!-- FINSI -->
+		<!-- SI CAT_ID egal 73 -->	<!-- Soldes -->
+		<a href="/soldes/" alt="Toute la sélection de produits soldés"><img alt="Toute la sélection de produits soldés" src="{W_IMG_PATH}/category/bandeau-soldes.jpg"></a>
+		<!-- FINSI -->					
+		<!-- SI CAT_ID egal 36 -->	<!-- Ventes Flash -->
+		<a href="/ventes-flash/" alt="Ventes Flash"><img alt="Ventes Flash" src="{W_IMG_PATH}/category/bandeau-ventes-flash.jpg"></a>
+		<!-- FINSI -->
+		<!-- SI CAT_ID egal 43 ou CAT_ID egal 70 ou CAT_ID egal 69 ou CAT_ID egal 68 ou CAT_ID egal 67 ou CAT_ID egal 66 ou CAT_ID egal 65 ou CAT_ID egal 64 ou CAT_ID egal 63 ou CAT_ID egal 62 ou CAT_ID egal 61 ou CAT_ID egal 60 ou CAT_ID egal 59 ou CAT_ID egal 58 ou CAT_ID egal 57 ou CAT_ID egal 56 ou CAT_ID egal 55 ou CAT_ID egal 54 ou CAT_ID egal 53 ou CAT_ID egal 52 ou CAT_ID egal 51 ou CAT_ID egal 50 ou CAT_ID egal 49 ou CAT_ID egal 48 ou CAT_ID egal 47 ou CAT_ID egal 46 ou CAT_ID egal 45 ou CAT_ID egal 44 ou CAT_ID egal 72 -->	<!-- Magnetix + ss-cat beauté-->
+		<a href="/magnetix/" alt="Bijoux Magnetix"><img alt="Bijoux Magnetix" src="{W_IMG_PATH}/category/bandeau-magnetix.jpg"></a>
+		<!-- FINSI -->		
+		<div class="ombre-top"></div>
+		</div>
+		<!-- FINSI -->
+	<div class="content<!-- SI pas W_P_INDEX --> avec-fil-ariane<!-- FINSI --><!-- SI W_P_INDEX--> homepage<!-- FINSI -->">
+
 		<!-- SI pas W_P_INDEX -->
 		<!-- DEBUT FIL_ARIANE -->
 			<!-- SI FIL_ARIANE.PREM_LIGNE -->
@@ -166,9 +223,9 @@
 			<span>{FIL_ARIANE.NOM}</span>
 			<!-- FINSI -->
 			<!-- SI FIL_ARIANE.DERN_LIGNE -->
-			</span>		
+			</span>
 		</p>
 			<!-- FINSI -->
 		<!-- FIN FIL_ARIANE -->
 	<!-- FINSI -->
-		<div class="contenu<!-- SI W_P_PRODUIT --> large<!-- SINONSI W_P_PANIER ou W_C_VALIDATION_RAPIDE ou W_C_FIN ou W_P_VALIDATION ou W_P_COMMANDE ou W_P_VALIDATION-PAIEMENT-CHEQUE ou W_P_VALIDATION-PAIEMENT-CB ou W_P_VALIDATION-PAIEMENT-VIREMENT ou W_P_VALIDATION-PAIEMENT-CARDSOFF ou W_P_PAIEMENT-CB-REFUSE --> no-column<!-- FINSI -->">
+		<div class="contenu no-column<!-- SI W_P_INDEX ou W_P_PRODUIT ou W_P_CAT ou W_P_SOUSCAT--> large<!-- FINSI -->">

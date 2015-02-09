@@ -3,10 +3,10 @@
 	<!-- SI pas PROD.INDISPONIBLE -->
 		<!-- INCLUDE PROD-PLUS -->
 	<!-- FINSI -->
-	<form id="formProd" action="/panier.php" method="post" enctype="multipart/form-data">
+	<form id="formProd"<!-- SI PROD.VENTE_FLASH --> class="prod-flash"<!-- FINSI --> action="/panier.php" method="post" enctype="multipart/form-data">
 		<div id="zone-photo">
 			<div id="principale">
-				<a class="lightbox photo" rel="galerie-fiche" href="{PROD.IMG}"><img src="{PROD.IMG_250}" alt="{PROD.IMG_NOM}" /></a>
+				<a class="lightbox photo" rel="galerie-fiche" href="{PROD.IMG}"><img src="{PROD.IMG}" alt="{PROD.IMG_NOM}" /></a>
 				<span>{L_CLIQUEZ_POUR_ZOOMER} [+]</span>
 			</div>
 			<!-- DEBUT IMG_SUP -->
@@ -55,7 +55,7 @@
 				<!-- FINSI -->
 			<h1 id="titre-fiche"><span class="fn"><strong>{PROD.NOM}</strong></span></h1>
 			<!-- SI PROD.MARQ_NOM -->
-			<p class="brand"><a href="{PROD.MARQ_URL}">{PROD.MARQ_NOM}</a></p>
+			<p class="brand">Marque : <a href="{PROD.MARQ_URL}">{PROD.MARQ_NOM}</a></p>
 			<!-- FINSI -->
 			<div class="clear1px"></div>
 			<p id="description-courte">{PROD.RESUME} <a class="savoir-plus" href="#BtnAddCart">{L_SAVOIR_PLUS}</a></p>
@@ -180,7 +180,8 @@
 					<!-- FINSI -->
 					<div class="clear1px">&nbsp;</div>
 				</div>
-				<!-- SI PROD.PROMO_TYPE ou PROD.NOUVEAUTE -->
+                <!-- INCLUDE INC_AUTO_VENTE_FLASH_OG -->
+                <!-- SI pas PROD.VENTE_FLASH et (PROD.PROMO_TYPE ou PROD.NOUVEAUTE) -->
 				<p class="etatPrix etatPrixFiche<!-- SI PROD.PROMO_TYPE et PROD.SOLDE egal 1 --> solde<!-- SINONSI PROD.PROMO_TYPE --> promo<!-- SINON --> nouveaute<!-- FINSI -->">
 					<!-- SI PROD.PROMO_TYPE -->
 						<!-- SI PROD.SOLDE egal 1 -->
@@ -209,16 +210,31 @@
 					<!-- SI PROD.ECO_PART --><span id="ecopart">{L_ECOPART} {DEVISE_PRE}{PROD.ECO_PART}{DEVISE_POST}</span><!-- FINSI -->
 				<!-- FINSI -->
 				</p>
-				<p class="p-ajpan">
-					<button class="button btn-ajpan btn-ajpan-fiche prod-var" type="submit" id="BtnAddCart" name="BtnAddCart">
-						<span>
-							<span>
-								{L_AJOUT_PANIER}
-							</span>
-						</span>
-					</button>
-				</p>
-				<!-- SI PROD.PROMO_TYPE et PROD.SOLDE egal 1 -->
+                <!-- SI W_C_ALERTE_STOCK et W_C_STOCK et PROD.COMMANDABLE different 2 -->
+                <div id="prod-add-cart" class="<!-- SI PROD.COMMANDABLE egal 0 -->not-buyable<!-- SINON -->buyable<!-- FINSI -->">
+                    <div id="c1-prod-add-cart" class="w_ajoutPanier<!-- SI pas PROD.VARIATION2 --><!-- SI PROD.STOCK ou PROD.STOCK > 0 --> commandable<!-- SINON --> noncommandable<!-- FINSI --><!-- FINSI -->">
+                        <button class="button btn-ajpan btn-ajpan-fiche<!-- SI PROD.VARIATION ou PROD.VARIATION2 --> prod-var<!-- FINSI -->" type="submit" id="BtnAddCart" name="BtnAddCart"><span><span>{L_AJOUT_PANIER}</span></span></button>
+                        <!-- SI PROD.COMMANDABLE egal 1 -->
+                        <a class="button btnT2" id="alert-btn"><span><span>{L_AVERTIR_DISPONIBLE}</span></span></a>
+                        <!-- SINON -->
+                        <a class="button btnT1" id="alert-btn"><span><span>{L_AVERTIR_DISPONIBLE}</span></span></a>
+                        <!-- FINSI -->
+                    </div>
+                </div>
+                <div class="clear1px"></div>
+                <!-- SINON -->
+                <p class="p-ajpan">
+                    <button class="button btn-ajpan btn-ajpan-fiche<!-- SI PROD.VARIATION ou PROD.VARIATION2 --> prod-var<!-- FINSI -->" type="submit" id="BtnAddCart" name="BtnAddCart">
+                        <span>
+                            <span>
+                                {L_AJOUT_PANIER}
+                            </span>
+                        </span>
+                    </button>
+                </p>
+                <!-- FINSI -->
+
+                <!-- SI PROD.PROMO_TYPE et PROD.SOLDE egal 1 -->
 				<p id="PrixPromo" class="promoPhrase"><span class="promo-du"><span class="promoType">{L_SOLDES_DU}</span> <span class="promoDateDebut">{PROD.PROMO_DEBUT}</span></span> {L_AU} <span class="promoDateFin">{PROD.PROMO_FIN}</span></p>
 				<!-- SINONSI PROD.PROMO_TYPE -->
 				<p id="PrixPromo" class="promoPhrase"><span class="promo-du"><span class="promoType">{L_PROMOTION_DU}</span> <span class="promoDateDebut">{PROD.PROMO_DEBUT}</span></span> {L_AU} <span class="promoDateFin">{PROD.PROMO_FIN}</span></p>
@@ -226,12 +242,15 @@
 				<p id="PrixPromo" class="promoPhrase" style="display:none;"><span class="promoType"></span> <span class="promoDateDebut"></span> {L_AU} <span class="promoDateFin"></span></p>
 				<!-- FINSI -->
 				<!-- INCLUDE INC_NOTE_PRODUIT -->
+                <!-- INCLUDE INC_AUTO_PRIX_DEGRESSIF -->
 				<div class="clear1px">&nbsp;</div>
 	<!-- SINON -->
 				<p class="prod-indisponible">{L_INDISPONIBLE}.</p>
 	<!-- FINSI -->
+
 			</div>
 		</div>
+				
 		<!-- DEBUT !PARTAGE -->
 			<div id="partage" class="wizicss-partage">
 				<div id="partage-email">
@@ -249,6 +268,16 @@
 				</div>
 				<div class="clear1px"></div>
 			</div>
+			<!--<img alt="La TVA augmente pas nos prix" src="{W_IMG_PATH}/tva20.png" width="112px" height="110px" style="padding: 10px 0 0 20px" />-->
+			<script language="javascript" type="text/javascript">
+				$(document).ready(function() {
+					$(".offre_news").css('cursor', 'pointer');
+					$(".offre_news").click(function(){
+					$("#newsletter").focus();
+					});
+				});
+			</script>
+			<img class="offre_news" style="padding: 10px 0 0 10px" alt="Frais de port offerts dès 60€ d'achat" src="http://www.taspasmieux.fr/_t/7500/images/info_news.jpg">
 		<!-- FIN PARTAGE -->
 		<div class="clear1px"></div>
 		<input type="hidden" name="id_prod" value="{PROD.ID}" />
@@ -324,11 +353,9 @@
 			</div>
 		</form>
 		<!-- FIN PARTAGE -->
+
 	<ul id="liste-infos" class="liste-onglets">
-	<!-- DEBUT LIST_CROSS(0,0) -->
-		<li class="current" id="li-cross-sell"><a class="current" href="#cross-sell-fiche"><span>{L_PRODUITS_ASSOCIES}</span></a></li>
-	<!-- FIN LIST_CROSS -->
-		<li id="li-description" <!-- DEBUT LIST_CROSS(0,0) --><!-- DEBUTSINON --> class="current"<!-- FIN LIST_CROSS -->><a<!-- DEBUT LIST_CROSS(0,0) --><!-- DEBUTSINON --> class="current"<!-- FIN LIST_CROSS --> href="#description"><span>{L_DESCRIPTION}</span></a></li>
+		<li id="li-description" class="current"><a class="current" href="#description"><span>{L_DESCRIPTION}</span></a></li>
 	<!-- DEBUT LIST_CARAC -->
 		<!-- SI LIST_CARAC.PREM_LIGNE -->
 		<li id="li-caracteristiques"><a href="#caracteristiques"><span>{L_CARACTERISTIQUES}</span></a></li>
@@ -361,73 +388,7 @@
 		<!-- FINSI -->
 	<!-- FIN LIST_CARAC -->
 	
-	<!-- DEBUT LIST_CROSS(0,2) -->
-		<!-- SI LIST_CROSS.PREM_LIGNE -->
-	<div id="cross-sell-fiche" class="list-prod cross-sell cont-onglet">
-		<!-- FINSI -->
-		<!-- SI LIST_CROSS.PREM_LIGNE ou LIST_CROSS.NUM_LIGNE % 3 egal 0 -->
-		<div class="ligne-prod">
-		<!-- FINSI -->
-			<div itemscope itemtype="http://schema.org/Product" class="prod<!-- SI LIST_CROSS.NUM_LIGNE % 3 egal 2 --> last<!-- FINSI -->">
-				<div class="cont-prod<!-- SI LIST_CROSS.PROMO_TYPE ou LIST_CROSS.NOUVEAUTE --> avec-etat<!-- FINSI -->">
-					<div class="haut-prod">
-						<a class="photo" href="{LIST_CROSS.URL}">
-							<img src="{LIST_CROSS.IMG_150}" alt="{LIST_CROSS.NOM[SCRIPT]}" />
-						</a>
-						<div class="infos-prod">
-						<p class="nom"><a href="{LIST_CROSS.URL}" itemprop="name">{LIST_CROSS.NOM[SCRIPT]}</a></p>
-						<!-- SI LIST_CROSS.MARQ_NOM --><p class="brand"><a href="{LIST_CROSS.URL}">{LIST_CROSS.MARQ_NOM}</a></p><!-- FINSI -->
-						<!-- SI LIST_CROSS.NOTE -->
-					    <div class="wizicss-etoiles-bg" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-					        <div class="wizicss-etoiles-fg" style="width: {LIST_CROSS.NOTE_POUR}%;">
-					        	<meta itemprop="worstRating" content="1" />
-								<meta itemprop="ratingValue" content="{LIST_CROSS.NOTE}" />
-								<meta itemprop="worstRating" content="5" />
-								<meta itemprop="reviewCount" content="{PROD_COM_COUNT}" />
-							</div>
-					    </div>
-					    <!-- FINSI -->
-						</div>
-						<a href="{LIST_CROSS.URL}" class="button btn-ajpan<!-- SI LIST_CROSS.VARIATION ou LIST_CROSS.VARIATION2 --> prod-var<!-- FINSI -->">
-							<span><span>{L_SAVOIR_PLUS}</span></span>
-						</a>
-					</div>
-					<div class="bas-prod">
-						<p class="prix">
-							<a href="{LIST_CROSS.URL}">
-								<!-- SI LIST_CROSS.VARIATION et LIST_CROSS.VARIATION_PRIX -->
-								<span>{L_A_PARTIR_DE}</span>
-								<!-- FINSI -->
-								<!-- SI LIST_CROSS.PROMO_PRIX -->
-								<del>{DEVISE_PRE}{LIST_CROSS.PRIX}{DEVISE_POST}</del>
-								<strong>{DEVISE_PRE}{LIST_CROSS.PROMO_PRIX}{DEVISE_POST}</strong>
-								<!-- SINON -->
-								<strong>{DEVISE_PRE}{LIST_CROSS.PRIX}{DEVISE_POST}</strong>
-								<!-- FINSI -->
-							</a>
-						</p>
-					</div>
-					<!-- SI LIST_CROSS.PROMO_TYPE et LIST_CROSS.SOLDE egal 1 -->
-					<p class="etatPrix solde">{L_SOLDE} <span><!-- SI LIST_CROSS.PROMO_POUR_ROUND --><strong><!-- SI LIST_CROSS.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI LIST_CROSS.PROMO_TYPE egal 2 -->{LIST_CROSS.PROMO_POUR_ROUND}%<!-- SINONSI LIST_CROSS.PROMO_TYPE egal 1 -->{DEVISE_PRE}{LIST_CROSS.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
-					<!-- SINONSI LIST_CROSS.PROMO_TYPE et LIST_CROSS.SOLDE egal 0 -->
-					<p class="etatPrix promo">{L_PROMOTION} <span><!-- SI LIST_CROSS.PROMO_POUR_ROUND --><strong><!-- SI LIST_CROSS.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI LIST_CROSS.PROMO_TYPE egal 2 -->{LIST_CROSS.PROMO_POUR_ROUND}%<!-- SINONSI LIST_CROSS.PROMO_TYPE egal 1 -->{DEVISE_PRE}{LIST_CROSS.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
-					<!-- SINONSI LIST_CROSS.NOUVEAUTE -->
-					<p class="etatPrix nouveaute">{L_NOUVEAU}</p>
-					<!-- FINSI -->
-				<!-- SI LIST_CROSS.RESUME -->
-					<div class="description">{LIST_CROSS.RESUME}</div>
-				<!-- FINSI -->
-				<div class="clear1px"></div>
-				</div>
-				<div class="clear1px"></div>
-			</div>
-		<!-- SI LIST_CROSS.DERN_LIGNE ou LIST_CROSS.NUM_LIGNE % 3 egal 2 -->
-		</div>
-		<!-- FINSI -->
-		<!-- SI LIST_CROSS.DERN_LIGNE ou LIST_CROSS.NUM_LIGNE egal 2 -->
-	</div>
-		<!-- FINSI -->
-	<!-- FIN LIST_CROSS -->
+
     <!-- SI ADD_COM.PREM_LIGNE -->
     <div id="commentaires" class="wizicss-commentaires cont-onglet {INFO_OS} {INFO_NAVIGATEUR}{INFO_NAVIGATEUR_VERSION}<!-- SI INFO_NAVIGATEUR egal 'chrome' ou INFO_NAVIGATEUR egal 'safari' ou INFO_NAVIGATEUR egal 'webkit' --> {INFO_NAVIGATEUR} webkit<!-- SINON --> {INFO_NAVIGATEUR}<!-- FINSI -->">
         <div class="wizicss-com-liste">
@@ -577,5 +538,138 @@
         <div class="clear1px"></div>
     </div>
     <!-- FINSI -->
-<!-- FIN PROD -->
+ 
 </div>
+    <div class="j_crosselling">
+   		<!-- DEBUT LIST_CROSS(0,3) -->
+		<!-- SI LIST_CROSS.PREM_LIGNE -->
+	<div id="" class="list-prod cross-sell">
+		<!-- FINSI -->
+		<!-- SI LIST_CROSS.PREM_LIGNE ou LIST_CROSS.NUM_LIGNE % 4 egal 0 -->
+		<div class="ligne-prod">
+		<!-- FINSI -->
+			<div itemscope itemtype="http://schema.org/Product" class="prod<!-- SI LIST_CROSS.NUM_LIGNE % 4 egal 3 --> last<!-- FINSI -->">
+				<div class="cont-prod<!-- SI LIST_CROSS.PROMO_TYPE ou LIST_CROSS.NOUVEAUTE --> avec-etat<!-- FINSI -->">
+					<div class="haut-prod">
+						<a class="photo" href="{LIST_CROSS.URL}">
+							<img src="{LIST_CROSS.IMG_150}" alt="{LIST_CROSS.NOM[SCRIPT]}" />
+						</a>
+						<div class="infos-prod">
+						<p class="nom"><a href="{LIST_CROSS.URL}" itemprop="name">{LIST_CROSS.NOM[SCRIPT]}</a></p>
+						<!-- SI LIST_CROSS.MARQ_NOM --><p class="brand"><a href="{LIST_CROSS.URL}">{LIST_CROSS.MARQ_NOM}</a></p><!-- FINSI -->
+						<!-- SI LIST_CROSS.NOTE -->
+					    <div class="wizicss-etoiles-bg" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+					        <div class="wizicss-etoiles-fg" style="width: {LIST_CROSS.NOTE_POUR}%;">
+					        	<meta itemprop="worstRating" content="1" />
+								<meta itemprop="ratingValue" content="{LIST_CROSS.NOTE}" />
+								<meta itemprop="worstRating" content="5" />
+								<meta itemprop="reviewCount" content="{PROD_COM_COUNT}" />
+							</div>
+					    </div>
+					    <!-- FINSI -->
+						</div>
+						<a href="{LIST_CROSS.URL}" class="button btn-ajpan<!-- SI LIST_CROSS.VARIATION ou LIST_CROSS.VARIATION2 --> prod-var<!-- FINSI -->">
+							<span><span>{L_SAVOIR_PLUS}</span></span>
+						</a>
+					</div>
+					<div class="bas-prod">
+						<p class="prix">
+							<a href="{LIST_CROSS.URL}">
+								<!-- SI LIST_CROSS.VARIATION et LIST_CROSS.VARIATION_PRIX -->
+								<span>{L_A_PARTIR_DE}</span>
+								<!-- FINSI -->
+								<!-- SI LIST_CROSS.PROMO_PRIX -->
+								<del>{DEVISE_PRE}{LIST_CROSS.PRIX}{DEVISE_POST}</del>
+								<strong>{DEVISE_PRE}{LIST_CROSS.PROMO_PRIX}{DEVISE_POST}</strong>
+								<!-- SINON -->
+								<strong>{DEVISE_PRE}{LIST_CROSS.PRIX}{DEVISE_POST}</strong>
+								<!-- FINSI -->
+							</a>
+						</p>
+					</div>
+                    <!-- SI LIST_CROSS.VENTE_FLASH -->
+                    <div class="flash-sale">
+                        <p class="flash-sale-h1">
+                            {L_VENTE_FLASH}
+                        </p>
+                        <p class="countdown" id="countdown-{LIST_CROSS.ID}" data-year="{LIST_CROSS.ANNEE_FIN}" data-month="{LIST_CROSS.MOIS_FIN}" data-day="{LIST_CROSS.JOUR_FIN}" data-hour="{LIST_CROSS.HEURE_FIN}" data-min="{LIST_CROSS.MINUTE_FIN}" data-sec="{LIST_CROSS.SECONDE_FIN}">
+                            <span class="flash-sale-h2">{L_PLUS_QUE}</span>
+                            <span class="dash weeks-dash">
+                                <span class="digit">0</span>
+                                <span class="digit">0</span>
+                                <span class="dash-ext">{L_ABBR_SEMAINES}</span>
+                            </span>
+                            <span class="dash days-dash">
+                                <span class="digit">0</span>
+                                <span class="digit">0</span>
+                                <span class="dash-ext">{L_ABBR_JOURS}</span>
+                            </span>
+                            <span class="dash hours-dash">
+                                <span class="digit">0</span>
+                                <span class="digit">0</span>
+                                <span class="dash-ext">{L_ABBR_HEURES}</span>
+                            </span>
+                            <span class="dash minutes-dash">
+                                <span class="digit">0</span>
+                                <span class="digit">0</span>
+                                <span class="dash-ext">{L_ABBR_MINUTES}</span>
+                            </span>
+                            <span class="dash seconds-dash">
+                                <span class="digit">0</span>
+                                <span class="digit">0</span>
+                                <span class="dash-ext">{L_ABBR_SECONDES}</span>
+                            </span>
+                        </p>
+                    </div>
+                    <!-- SINONSI LIST_CROSS.PROMO_TYPE et LIST_CROSS.SOLDE egal 1 -->
+					<p class="etatPrix solde">{L_SOLDE} <span><!-- SI LIST_CROSS.PROMO_POUR_ROUND --><strong><!-- SI LIST_CROSS.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI LIST_CROSS.PROMO_TYPE egal 2 -->{LIST_CROSS.PROMO_POUR_ROUND}%<!-- SINONSI LIST_CROSS.PROMO_TYPE egal 1 -->{DEVISE_PRE}{LIST_CROSS.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+					<!-- SINONSI LIST_CROSS.PROMO_TYPE et LIST_CROSS.SOLDE egal 0 -->
+					<p class="etatPrix promo">{L_PROMOTION} <span><!-- SI LIST_CROSS.PROMO_POUR_ROUND --><strong><!-- SI LIST_CROSS.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI LIST_CROSS.PROMO_TYPE egal 2 -->{LIST_CROSS.PROMO_POUR_ROUND}%<!-- SINONSI LIST_CROSS.PROMO_TYPE egal 1 -->{DEVISE_PRE}{LIST_CROSS.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
+					<!-- SINONSI LIST_CROSS.NOUVEAUTE -->
+					<p class="etatPrix nouveaute">{L_NOUVEAU}</p>
+					<!-- FINSI -->
+				<!-- SI LIST_CROSS.RESUME -->
+					<div class="description">{LIST_CROSS.RESUME}</div>
+				<!-- FINSI -->
+				<div class="clear1px"></div>
+				</div>
+				<div class="clear1px"></div>
+			</div>
+		<!-- SI LIST_CROSS.DERN_LIGNE ou LIST_CROSS.NUM_LIGNE % 4 egal 3 -->
+		</div>
+		<!-- FINSI -->
+		<!-- SI LIST_CROSS.DERN_LIGNE ou LIST_CROSS.NUM_LIGNE egal 3 -->
+	</div>
+		<!-- FINSI -->
+	<!-- FIN LIST_CROSS -->
+	</div>
+
+
+
+	<!-- Code Google de la balise de remarketing -->
+<!--------------------------------------------------
+Les balises de remarketing ne peuvent pas être associées aux informations personnelles ou placées sur des pages liées aux catégories à caractère sensible. Pour comprendre et savoir comment configurer la balise, rendez-vous sur la page http://google.com/ads/remarketingsetup.
+--------------------------------------------------->
+<script type="text/javascript">
+var google_tag_params = {
+ecomm_prodid: 'wz-{PROD.REF}',
+ecomm_pagetype: "product",
+ecomm_totalvalue: '{PROD.PRIX_AFFICHE_SCRIPT}',
+};
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 978457685;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/978457685/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<!-- FIN PROD -->
+<div class="retargeting"></div>

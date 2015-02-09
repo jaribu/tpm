@@ -1,163 +1,136 @@
 		<div class="clear1px"></div>
 	</div>
-	<!-- SI pas W_P_PANIER et pas W_C_VALIDATION_RAPIDE et pas W_C_FIN et pas W_P_VALIDATION et pas W_P_COMMANDE et pas W_P_VALIDATION-PAIEMENT-CHEQUE et pas W_P_VALIDATION-PAIEMENT-CB et pas W_P_VALIDATION-PAIEMENT-VIREMENT et pas W_P_VALIDATION-PAIEMENT-CARDSOFF et pas W_P_PAIEMENT-CB-REFUSE -->
-		<div class="barre-lateral-d">
-			<form id="form-recherche" method="get" action="{RECHERCHE_FORM}">
-				<fieldset>
-					<legend>{L_RECHERCHE}</legend>
-					<div>
-						<input type="text" name="{RECHERCHE_FORM_NAME}" id="search" value="{L_VOTRERECHERCHE}" />
-						<button class="button" type="submit" id="btn-recherche" name="btn-recherche"><span><span>{L_OK}</span></span></button>
-						<div class="clear1px">&nbsp;</div>
-					</div>
-					<div class="clear1px">&nbsp;</div>
-				</fieldset>
-				<div class="clear1px">&nbsp;</div>
-			</form>
-		<!-- SI W_P_BLOG -->
-			<!-- DEBUT BLOG -->
-				<!-- DEBUT CAT -->
-					<!-- SI CAT.PREM_LIGNE -->
-			<div class="bloc-lat menu-lat">
-				<p class="h3"><strong>{L_BLOG}</strong></p>
-				<ul>
-					<!-- FINSI -->
-					<li<!-- SI CAT.PREM_LIGNE et CAT.SEL --> class="first current"<!-- SINONSI CAT.PREM_LIGNE --> class="first"<!-- SINONSI CAT.SEL --> class="current"<!-- FINSI -->><span><a href="{CAT.URL}">{CAT.NOM}</a></span></li>
-					<!-- SI CAT.DERN_LIGNE -->
-				</ul>
-				<div class="clear1px"></div>
-			</div>
-					<!-- FINSI -->
-				<!-- FIN CAT -->
-			<!-- FIN BLOG -->
-		<!-- FINSI -->
-			
-			<!-- DEBUT MENU -->
-				<!-- DEBUT PRINCIPAL -->
-					<!-- SI PRINCIPAL.PREM_LIGNE -->
-			<div class="bloc-lat menu-lat">
-				<p class="h3"><strong>{L_MENU_SECONDAIRE}</strong></p>
-				<ul>
-					<!-- FINSI -->
-					<li<!-- SI PRINCIPAL.SEL --> class="current"<!-- FINSI -->>
-						<span><a href="{PRINCIPAL.URL}">{PRINCIPAL.NOM}</a></span>
-					</li>
-					<!-- SI PRINCIPAL.DERN_LIGNE -->	
-				</ul>
-				<div class="clear1px">&nbsp;</div>
-			</div>
-					<!-- FINSI -->
-				<!-- FIN PRINCIPAL -->
-			<!-- FIN MENU -->
-			<form id="form-newsletter" class="bloc-lat" action="{NEWSLETTER_FORM}" method="post">
-				<p class="titre-bloc-lat"><strong>{L_NEWSLETTER}</strong></p>
-				<fieldset>
-					<p>{L_TEXTE_NEWSLETTER}</p>
-					<div>
-						<input class="textbox" type="text" name="{NEWSLETTER_FORM_NAME}" id="Newsletter" value="{L_VOTRE_EMAIL}" />
-						<button type="submit" name="BtnNewsletter" id="btn-newsletter"><span><span>{L_OK}</span></span></button>
-					</div>
-					<div class="clear1px">&nbsp;</div>
-				</fieldset>
-			</form>
-			
-			<!-- SI SHOP_SEL_COM_COUNT > 0 -->
-			<div class="bloc-lat wizi-note">
-				<p class="h3"><strong>{L_NOTE_BOUTIQUE}</strong></p>
-				<div class="wizicss-etoiles-completes">
-					<p class="wizicss-etoiles-valeur">({SHOP_COM_NOTE}/5)</p>
-					<div class="wizicss-etoiles-bg" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-					    <div class="wizicss-etoiles-fg" style="width: {SHOP_COM_NOTE_POUR}%;">
-					    	<meta itemprop="worstRating" content="1" />
-							<meta itemprop="ratingValue" content="{SHOP_COM_NOTE}" />
-							<meta itemprop="worstRating" content="5" />
-							<meta itemprop="reviewCount" content="{SHOP_COM_COUNT}" />
-						</div>
-					</div>
-				</div>
-				<p><a class="wizicss-lire-avis wizijs-lire-avis" href="{SHOP_ALL_COM_URL}">{L_LIRE_AVIS_CLIENTS} ({SHOP_COM_COUNT})</a></p>	
-				<div class="clear1px">&nbsp;</div>
-			</div>
-			<!-- FINSI -->	
-			
-			<!-- SI W_C_BLOG -->
-			<div class="bloc-lat">
-				<div id="rss-blog">
-				<!-- DEBUT BLOG -->
-					<p>
-						<a href="{BLOG.URL_RSS}">
-							<strong>{L_BLOG}</strong>
-							{L_FLUXRSS}
-						</a>
-					</p>
-				<!-- FIN BLOG -->
-				</div>
-				<div class="clear1px"></div>
-			</div>
-			<!-- FINSI -->
-			<!-- DEBUT PAVE -->
-		<!-- SI PAVE.MISE_EN_FORME -->
-		<div class="bloc-lat">
-			<p class="titre-bloc-lat"><strong>{PAVE.NOM}</strong></p>
-		<!-- SINON -->
-		<div class="bloc-lat-no-mef">
-		<!-- FINSI -->
-		<!-- DEBUT BLOCK -->
-					<div class="block">
-			<!-- SI BLOCK.IMG -->
-						<div class="<!-- SI BLOCK.IMG_POSITION egal 'left' -->Ileft{BLOCK.TYPE} <!-- SINONSI BLOCK.IMG_POSITION egal 'center' -->Icenter{BLOCK.TYPE} <!-- SINONSI BLOCK.IMG_POSITION egal 'right' -->Iright{BLOCK.TYPE} <!-- FINSI -->I{BLOCK.TYPE}"><!-- SI BLOCK.IMG_URL --><a href="{BLOCK.IMG_URL}" title="{BLOCK.IMG_URL_NOM}"><img src="{BLOCK.IMG}" alt="{BLOCK.IMG_NOM}" /></a><!-- SINON --><img src="{BLOCK.IMG}" alt="{BLOCK.IMG_NOM}" /><!-- FINSI --></div>
-			<!-- FINSI -->	
-			<!-- SI BLOCK.TYPE different 'img' -->
-						<div class="T{BLOCK.TYPE}">
-				<!-- DEBUT DESC -->
-					<!-- SI DESC.TYPE == 'titre' -->
-							<p class="sous-titre-bloc-lat">{DESC.TEXT}</p>
-					<!-- SINONSI DESC.TYPE == 'soustitre' -->
-							<p class="sous-sous-titre-bloc-lat">{DESC.TEXT}</p>
-					<!-- SINON -->
-							{DESC.TEXT}
-					<!-- FINSI -->
-				<!-- FIN DESC -->
-						</div>
-			<!-- FINSI -->
-					</div>
-		<!-- FIN BLOCK -->
-		<!-- SI PAVE.MISE_EN_FORME -->
-			<div class="clear1px"></div>
-		</div>
-		<!-- SINON -->
-			<div class="clear1px"></div>
-		</div>
-		<!-- FINSI -->
-	<!-- FIN PAVE -->
-	</div>
-<!-- FINSI -->
-<!-- SI W_P_INDEX -->
-		<!-- SI TAILLE_MARQ -->
-		<!-- DEBUT MARQ -->
-		<!-- SI MARQ.PREM_LIGNE -->
-		<div class="clear1px">&amp;</div>
-		<div id="MenuMarque" class="carrousel">
-			<ul>
-		<!-- FINSI -->
-				<li>
-					<!-- SI MARQ.IMG_50 -->
-					<a href="{MARQ.URL}"><img src="{MARQ.IMG_50}" alt="{MARQ.NOM}" /></a>
-					<!-- SINON -->
-					<a class="marque-simg" href="{MARQ.URL}">{MARQ.NOM}</a>
-					<!-- FINSI -->
-				</li>
-		<!-- SI MARQ.DERN_LIGNE  -->
-			</ul>
-			<div class="clear1px"></div>
-		</div>
-		<!-- FINSI -->
-		<!-- FIN MARQ -->
-		<!-- FINSI -->
-<!-- FINSI -->
-<div class="clear1px">&amp;</div>
+
+
 </div>
 <div class="footer">
+	
+	<div class="footer_custom">
+    	
+   	<div class="footer_links">
+		<div class="footer_links_cat cat_start">
+			<h3><a href="/cuisine/" title="">Cuisine</a></h3>
+			<ul>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/cuisine/couteaux-eplucheurs/" title="">Couteaux / Eplucheurs</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/cuisine/poeles-couvercles/" title="">Pôeles / Couvercles</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/cuisine/appareils-de-cuisson/" title="">Appareils de cuisson</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/cuisine/ustensiles/" title="">Ustensiles</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/cuisine/cuisine-exterieure-2/" title="">Cuisine extérieure</a></li>
+
+			</ul>
+		</div><!-- .footer_links_cat -->
+		
+		<div class="footer_links_cat">
+			<h3><a href="/maison-entretien/" title="">Maison / Entretien</a></h3>
+			<ul>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/maison-entretien/accessoires-menagers/" title="">Accessoires ménagers</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/maison-entretien/entretien-des-sols/" title="">Entretien des sols</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/maison-entretien/soin-du-linge/" title="">Soin du linge</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/maison-entretien/entretien-auto-moto/" title="">Entretien Auto / Moto</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/maison-entretien/entretien-des-vitres/" title="">Entretien des vitres</a></li>
+
+			</ul>
+		</div><!-- .footer_links_cat -->		
+		
+		<div class="footer_links_cat">
+			<h3><a href="/bricolage/" title="">Bricolage</a></h3>
+			<ul>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/bricolage/outils-de-decoupe/" title="">Outils de découpe</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/bricolage/outils-de-mesure/" title="">Outils de mesure</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/bricolage/outillage/" title="">Outillage</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/bricolage/entretien-deco/" title="">Entretien / Déco</a></li>
+
+			</ul>
+		</div><!-- .footer_links_cat -->		
+
+		<div class="footer_links_cat">
+			<h3><a href="/jardin/" title="">Jardin</a></h3>
+			<ul>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/jardin/entretien-du-jardin/" title="">Entretien du jardin</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/jardin/insecticide-traitement/" title="">Insecticide / Traitement</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/jardin/cuisine-exterieure/" title="">Cuisine extérieure</a></li>
+
+			</ul>
+		</div><!-- .footer_links_cat -->
+		
+		<div class="footer_links_cat">
+			<h3><a href="/loisirs/" title="">Loisirs</a></h3>
+			<ul>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/loisirs/accessoires-pratiques/" title="">Accessoires pratiques</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/loisirs/activites-ludo-educatives/" title="">Activités ludo-éducatives</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/loisirs/feutres-aerographes/" title="">Feutres / Aérographes</a></li>
+
+			</ul>
+		</div><!-- .footer_links_cat -->		
+		
+		<div class="footer_links_cat cat_end">
+			<h3><a href="/beaute-sante/" title="">Beauté / Santé</a></h3>
+			<ul>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/beaute-sante/confort/" title="">Confort</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/beaute-sante/soin-du-corps/" title="">Soin du corps</a></li>
+				<li><span class="footer_links_cat_puces">&gt; </span><a href="/beaute-sante/fitness/" title="">Fitness</a></li>
+
+			</ul>
+		</div><!-- .footer_links_cat -->			
+		
+	</div><!-- .footer_links --> 	
+    	
+
+<div class="footer_block_container">
+<div class="footer_newsletter">
+	<p>Inscription <span>Newsletter</span></p>
+	<span>Inscrivez vous à la newsletter et profitez de nombreuses exclusivités abonnés</span>
+<form id="newsletter-validate-detail" method="post" action="{NEWSLETTER_FORM}">
+    <div class="form-subscribe">
+        <div class="form-subscribe-header">
+            <label for="newsletter"> </label>
+        </div>
+        <div class="input-box">
+           <input type="text" class="input-text required-entry validate-email" title="Abonnez-vous à la newsletter" id="newsletter" name="{NEWSLETTER_FORM_NAME}" value="{L_VOTRE_EMAIL}" />
+        </div>
+        <button class="button" title="Valider" type="submit"><span><span>OK</span></span></button>
+    </div>
+</form>
+</div><!-- .footer_newsletter -->
+<div class="footer_points"></div>
+</div><!-- .footer_block_container -->
+
+<div class="footer_block_container">
+<div class="footer_expedition">
+	<p>Nous <span>contacter</span></p>
+	<strong>03 27 60 80 88*</strong>
+	<span class="appel_local">*Prix d'un appel local</span>
+</div><!-- .footer_expedition -->
+<div class="footer_points"></div>
+</div><!-- .footer_block_container -->
+<div class="footer_block_container">
+<div class="addthis_footer">
+	<p>Partage <span>Reseaux Sociaux</span></p>
+
+<!-- AddThis Button BEGIN -->
+<!--
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50b87e012444d6fb"></script>
+-->
+<!-- AddThis Button END -->
+
+<div class="fb-like-box" data-href="https://www.facebook.com/taspasmieux" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="false" data-show-border="false"></div>
+
+
+</div><!-- .addthis_footer -->
+</div><!-- .footer_block_container -->
+	
+	<p class="footer_banque"></p>       
+	</div><!-- .footer_custom -->
+    <div class="footer_bas"></div>	
+	
 <!-- SI pas W_P_PRODUIT -->
 	<div id="c1-footer">
 
@@ -309,7 +282,7 @@
 <!-- FINSI -->
 	<div id="bas-foot">
 		<p id="menu-footer">
-	<!-- DEBUT MENU --><!-- DEBUT FOOT --><a href="{FOOT.URL}" <!-- SI FOOT.SEL -->class="selected"<!-- FINSI -->>{FOOT.NOM}</a> - <!-- FIN FOOT --><!-- FIN MENU --><a href="/p/contact.html">{L_CONTACT}</a> - <a href="/p/credits.html">{L_CREDITS}</a>
+	<!-- DEBUT MENU --><!-- DEBUT FOOT --><a href="{FOOT.URL}" <!-- SI FOOT.SEL -->class="selected"<!-- FINSI -->>{FOOT.NOM}</a> - <!-- FIN FOOT --><!-- FIN MENU --><a href="/p/contact.html">Contactez-nous</a> <!--<a href="/p/credits.html">{L_CREDITS}</a>-->
 		</p>
 		<div class="clear1px"></div>
 	</div>
@@ -384,6 +357,7 @@
 <div id="ssmenu"></div>
 <div id="tooltip"></div>
 <div id="modal-ajpan"></div>
+</div><!-- .wrapper -->
 {WIZI_DEBUG}
 {WIZI_CODE}
 {FIN_BODY_SCRIPT}

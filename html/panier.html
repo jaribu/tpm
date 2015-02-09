@@ -1,5 +1,14 @@
 <!-- INCLUDE INC_NPC_PANIER -->
 <!-- DEBUT PANIER --> 
+<script language="javascript" type="text/javascript">
+	$(document).ready(function() {
+			$('<img class="offre_news" alt="Frais de port offerts dès 60€ d\'achat" src="http://www.taspasmieux.fr/_t/7500/images/info_news_panier.jpg">').appendTo(".wizi-npc-col-d");	
+			$(".offre_news").css('cursor', 'pointer');
+			$(".offre_news").click(function(){
+			$("#newsletter").focus();
+			});
+	});
+</script>
 	<!-- DEBUT LIST_CROSS(0,3) -->
 		<!-- SI LIST_CROSS.PREM_LIGNE -->
 		<div id="cross-sell-pan" class="list-prod cross-sell">
@@ -46,7 +55,41 @@
 								</a>
 							</p>
 						</div>
-						<!-- SI LIST_CROSS.PROMO_TYPE et LIST_CROSS.SOLDE egal 1 -->
+                        <!-- SI LIST_CROSS.VENTE_FLASH -->
+                        <div class="flash-sale">
+                            <p class="flash-sale-h1">
+                                {L_VENTE_FLASH}
+                            </p>
+                            <p class="countdown" id="countdown-{LIST_CROSS.ID}" data-year="{LIST_CROSS.ANNEE_FIN}" data-month="{LIST_CROSS.MOIS_FIN}" data-day="{LIST_CROSS.JOUR_FIN}" data-hour="{LIST_CROSS.HEURE_FIN}" data-min="{LIST_CROSS.MINUTE_FIN}" data-sec="{LIST_CROSS.SECONDE_FIN}">
+                                <span class="flash-sale-h2">{L_PLUS_QUE}</span>
+                            <span class="dash weeks-dash">
+                                <span class="digit">0</span>
+                                <span class="digit">0</span>
+                                <span class="dash-ext">{L_ABBR_SEMAINES}</span>
+                            </span>
+                            <span class="dash days-dash">
+                                <span class="digit">0</span>
+                                <span class="digit">0</span>
+                                <span class="dash-ext">{L_ABBR_JOURS}</span>
+                            </span>
+                            <span class="dash hours-dash">
+                                <span class="digit">0</span>
+                                <span class="digit">0</span>
+                                <span class="dash-ext">{L_ABBR_HEURES}</span>
+                            </span>
+                            <span class="dash minutes-dash">
+                                <span class="digit">0</span>
+                                <span class="digit">0</span>
+                                <span class="dash-ext">{L_ABBR_MINUTES}</span>
+                            </span>
+                            <span class="dash seconds-dash">
+                                <span class="digit">0</span>
+                                <span class="digit">0</span>
+                                <span class="dash-ext">{L_ABBR_SECONDES}</span>
+                            </span>
+                            </p>
+                        </div>
+                        <!-- SINONSI LIST_CROSS.PROMO_TYPE et LIST_CROSS.SOLDE egal 1 -->
 						<p class="etatPrix solde">{L_SOLDE} <span><!-- SI LIST_CROSS.PROMO_POUR_ROUND --><strong><!-- SI LIST_CROSS.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI LIST_CROSS.PROMO_TYPE egal 2 -->{LIST_CROSS.PROMO_POUR_ROUND}%<!-- SINONSI LIST_CROSS.PROMO_TYPE egal 1 -->{DEVISE_PRE}{LIST_CROSS.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
 						<!-- SINONSI LIST_CROSS.PROMO_TYPE et LIST_CROSS.SOLDE egal 0 -->
 						<p class="etatPrix promo">{L_PROMOTION} <span><!-- SI LIST_CROSS.PROMO_POUR_ROUND --><strong><!-- SI LIST_CROSS.VARIATION_PRIX -->{L_JUSQ}<!-- FINSI --> -<!-- SI LIST_CROSS.PROMO_TYPE egal 2 -->{LIST_CROSS.PROMO_POUR_ROUND}%<!-- SINONSI LIST_CROSS.PROMO_TYPE egal 1 -->{DEVISE_PRE}{LIST_CROSS.PROMO_REDUC}{DEVISE_POST}<!-- FINSI --></strong><!-- FINSI --></span></p>
@@ -66,4 +109,32 @@
 		</div>
 		<!-- FINSI -->
 	<!-- FIN LIST_CROSS -->
+	
+		<!-- Code Google de la balise de remarketing -->
+		<!--------------------------------------------------
+		Les balises de remarketing ne peuvent pas être associées aux informations personnelles ou placées sur des pages liées aux catégories à caractère sensible. Pour comprendre et savoir comment configurer la balise, rendez-vous sur la page http://google.com/ads/remarketingsetup.
+		--------------------------------------------------->
+		<script type="text/javascript">
+		var google_tag_params = {
+		ecomm_prodid: <!-- DEBUT PROD --><!-- SI PROD.PREM_LIGNE -->[<!-- SINON -->, <!-- FINSI -->'wz-{PROD.REF}'<!-- SI PROD.DERN_LIGNE -->]<!-- FINSI --><!-- FIN PROD -->,
+		ecomm_pagetype: "cart",
+		ecomm_totalvalue: '{PANIER.TOTAL_SCRIPT}',
+		};
+		</script>
+		<script type="text/javascript">
+		/* <![CDATA[ */
+		var google_conversion_id = 978457685;
+		var google_custom_params = window.google_tag_params;
+		var google_remarketing_only = true;
+		/* ]]> */
+		</script>
+		<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+		</script>
+		<noscript>
+		<div style="display:inline;">
+		<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/978457685/?value=0&amp;guid=ON&amp;script=0"/>
+		</div>
+		</noscript>
+
 <!-- FIN PANIER -->
+
