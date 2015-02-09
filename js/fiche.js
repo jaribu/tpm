@@ -155,6 +155,17 @@ $(document).ready(function(){
 		nextText: tC['suiv2'], 
 		prevText: tC['prec2']
 	});
+	//---------------------------- Fix z-index sur video YouTube ----------------------------
+	$('iframe' , '.j_video').each(function(){
+          var url = $(this).attr("src");
+          var char = "?";
+          if(url.indexOf("?") != -1){
+                  var char = "&";
+           }
+        
+          $(this).attr("src",url+char+"wmode=transparent");
+    });
+	
 });
 
 $(document).live('pageshow', function(){

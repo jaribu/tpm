@@ -446,7 +446,7 @@ td p, td li, td address, td label, td input, td select, th p, th li, th address,
 .button {
 	cursor: pointer;
 	overflow: visible;
-	width: 1;
+	/*width: 1;*/
 	display: -moz-inline-box; 
 	display: inline-block;
 	margin: 0;
@@ -557,12 +557,13 @@ a.button, a.button:hover, a.button:focus {
 .block {
 	margin: 0 0 30px;
 }
-
+/*
 .msie7 .contenu .block.imgtxt, .msie7 .contenu .block.txtimg, .msie7 .contenu .block.img, .msie7 .contenu .block.txt {
 	min-width: 98%;
 	padding-left: 1%;
 	padding-right: 1%;
 }
+*/
 
 .bloc-personnalisation {
     margin-top: 5px;
@@ -1478,7 +1479,7 @@ td.panier-sstot, td.panier-prix {
 }
 
 /* ------------------------------------- Recherche -------------------------------------- */
-
+/*
 #form-recherche fieldset {
 	border: none;
 	height: 31px;
@@ -1545,7 +1546,7 @@ td.panier-sstot, td.panier-prix {
     text-indent: -9000px;
 	height: 2px;
 }
-
+*/
 /* --------------------------------------- passe oublie --------------------------------- */
 
 #pass-oublie {
@@ -1783,7 +1784,7 @@ td.panier-sstot, td.panier-prix {
 .msie8 .menu ul li.ssm a, .msie7 .menu ul li.ssm a, .msie6 .menu ul li.ssm a {
 	padding: 3px 10px;
 }
-
+/*
 .menu ul li a:hover, .menu ul li a:focus, .menu ul li.current a, .menu ul li a.over, .menu ul li.ssm.current a {
 	color: #666;
 	border: 1px solid #DCDCDC;
@@ -1797,7 +1798,7 @@ td.panier-sstot, td.panier-prix {
 	padding: 2px 9px;
 	z-index: 50;
 }
-
+*/
 /* --------------------------------------- Note accueil --------------------------------- */
 
 .wizi-note {
@@ -1844,7 +1845,7 @@ td.panier-sstot, td.panier-prix {
 	margin-bottom: 10px;
 }
 
-.footer {
+/*.footer {
 	border: 1px solid #dcdcdc;
 	border-left: none;
 	border-right: none;
@@ -1852,7 +1853,7 @@ td.panier-sstot, td.panier-prix {
 	width: 960px;
 	clear: both;
 	margin: 0 auto;
-}
+}*/
 
 #bloc-menu-sec, #bloc-menu-princ {
 	width: 220px;
@@ -2582,7 +2583,7 @@ html>/**/body #cross-sell-pan {
 .msie6 .list-prod .prod, .msie7 .list-prod .prod {
 	display: inline;
 	zoom: 1;
-	margin: 0 21px 21px 0;
+	margin: 0 5px 21px 0;/* margin: 0 21px 21px 0; */
 }
 .msie6 .list-prod .last, .msie7 .list-prod .last {
 	margin: 0 0 21px 0;
@@ -3690,3 +3691,187 @@ a.photo-variation {
 }
 
 /* ----------------- Fin Avis ----------------- */
+
+.prod-flash #zone-photo {
+    padding-top: 40px;
+}
+
+#flash-sale {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 350px;
+}
+
+#flash-sale-h1 {
+    font-size: 14px;
+    line-height: 16px;
+    width: 56px;
+}
+
+#countdown {
+    padding: 5px 0 5px 5px;
+    width: 249px;
+}
+.dash {
+    width: 62px;
+}
+.dash .digit {
+    width: 18px;
+    line-height: 30px;
+    font-size: 16px;
+}
+.dash-ext {
+    width: 14px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+}
+
+#alert-btn.btnT1 {
+   /* display: none !important; */
+}
+
+#alert-btn span span {
+    font-size: 11px;
+    height: auto !important;
+    line-height: auto;
+    padding: 7px !important;
+    text-align: center;
+}
+
+.range-h1 {
+    padding-top: 10px;
+    font-size: 13px;
+    border-top: 1px solid #E5E5E5;
+}
+
+.range-th {
+    background: #dcdcdc;
+}
+
+.range-td {
+    background: #eeeeee;
+}
+
+.flash-sale {
+    width: 224px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.flash-sale .countdown {
+    width: 144px;
+}
+
+.not-buyable .noncommandable #add-cart-btn {
+    display: none !important;
+}
+
+#alert-btn {
+    padding: 3px 5px 5px;
+}
+
+#simplemodal-container {
+    background-color: #ffffff;
+    border: 4px solid #F6D10C;
+    color: #212121;
+    padding: 12px;
+    width: 600px;
+}
+
+#alert-form {
+    border-top: 1px solid #dcdcdc;
+}
+
+.radio-btn.input-rd-h {
+    width: 10px;
+}
+
+.btn-area {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 13px;
+    padding: 0;
+    text-align: center;
+    width: 123px;
+    float: left;
+    position: relative;
+    border: 1px solid #cdcdcd;
+}
+
+#alert-form .btn-area button {
+    color: #888888;
+    font-weight: bold;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px;
+    width: 123px;
+    text-align: center;
+}
+
+.not-buyable .noncommandable #BtnAddCart {
+    display: none !important;
+}
+
+.not-buyable .commandable #alert-btn {
+    display: none !important;
+}
+
+/*Formulaires*/
+.w_form .field-ko .textbox,
+.w_form .field-ko .date-input,
+.w_form .field-ko textarea {
+    background: #f6e6e6;
+    border: 1px solid #dcdcdc;
+    color: #a80e0e;
+}
+.w_form .textbox:hover,
+.w_form .textbox:focus,
+.w_form .date-input:hover,
+.w_form .date-input:focus,
+.w_form textarea:hover,
+.w_form textarea:focus {
+    border-color: #A8A8A8;
+}
+.success {
+    color: #328b1a;
+}
+.success-group {
+    background: #e7f5e4;
+}
+.success-group .success {
+    color: #328b1a;
+}
+
+.w_form.page-form .btn-area {
+    width: auto;
+    border: none;
+}
+
+
+/*Blocs img + img et txt + text*/
+.imgimg .w_img,
+.txttxt .w_text {
+    width: 265px;/*Moitié de la largeur du contenu - 15px*/
+}
+
+#cnil {
+    margin-top: 10px;
+}
+
+
+#div-img-raw {
+	overflow: hidden;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 1px;
+	width: 1px;
+	z-index: -9999;
+}
+
+#div-img-raw img {
+	visibility: hidden;
+}
