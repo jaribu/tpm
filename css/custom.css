@@ -1,9 +1,9 @@
 /* ----------------- Custom ----------------- */
-body { background: url("../images/bg-soldes-h-2015.jpg") no-repeat fixed center top #fff; }
-/*body { background: url("../images/bkg_fdm-2014.jpg") no-repeat fixed center top #D5C2D2; } */
-/*body { background: url("../images/bkg_body-2014.jpg") no-repeat fixed center top #95B8CE; } */
-/*body { background: url("../images/bg-soldes-hiver-2014.jpg") repeat-y scroll center top #C6D2D9; } */
-/*body { background: url("../images/bkg_body.jpg") no-repeat scroll center top #C6D2D9; } */
+/* body { background: url("../images/bg-soldes-h-2015.jpg") no-repeat fixed center top #fff; } */
+/* body { background: url("../images/bkg_fdm-2014.jpg") no-repeat fixed center top #D5C2D2; } */
+body { background: url("../images/bkg_body-2014.jpg") no-repeat fixed center top #95B8CE; }
+/* body { background: url("../images/bg-soldes-hiver-2014.jpg") repeat-y scroll center top #C6D2D9; } */
+/* body { background: url("../images/bkg_body.jpg") no-repeat scroll center top #C6D2D9; } */
 /* body { background: url("../images/bg-noel-2013.jpg") no-repeat fixed center top #cdeafb; } */
 .header .c1-header {
 	/*background: url("../images/bkg_header.jpg") repeat-x scroll 0 0 transparent;*/
