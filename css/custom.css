@@ -426,6 +426,13 @@ h1#titre-fiche span strong {
 	height: 26px;
     background: url("../images/bkg_ombre-top.png") no-repeat scroll center top transparent;
 }
+.hproduct .block.txt h1 {
+	color: #959595;
+	margin-bottom: 10px;
+}
+.hproduct div.block.txt p {
+	margin: 0;
+}
 .landing-category-s { float: left; margin-bottom: 20px; width: 455px; }
 .header-landing-category-s {
 	width: 453px;
@@ -664,12 +671,12 @@ h1#titre-fiche span strong {
 .footer_links_cat ul { padding: 0; }
 .footer_links_cat a { text-decoration: none; }
 .footer_links_cat a:hover { text-decoration: underline; }
-#menu-footer { 
-	padding-bottom: 15px; 
+#menu-footer {
+	padding-bottom: 15px;
 	color: #222;
 }
-#menu-footer a { 
-	color: #222;	
+#menu-footer a {
+	color: #222;
 }
 /* vente flash */
 .flash-sale { width: 215px; }
@@ -723,3 +730,5 @@ h1#titre-fiche span strong {
 	padding: 0 18px 18px 22px;
 	background: url(../images/popup-next.png) no-repeat 0 0;
 }
+/* -------------- Landing Pages -------------- */
+body.magic-freez { background: url("../images/landing/magic-freez/bg.jpg") no-repeat fixed center top #fff; }
